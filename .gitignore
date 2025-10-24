@@ -1,0 +1,46 @@
+# Keil MDK files
+*.uvguix.*
+*.bak
+*.ddk
+*.edk
+*.lst
+*.lnp
+*.mpf
+*.mpj
+*.omf
+*.plg
+*.rpt
+*.tmp
+*.__i
+*._ia
+*.crf
+*.d
+*.o
+*.obj
+*.axf
+*.tra
+*.dep
+*.iex
+*.hex
+*.map
+*.elf
+*.bin
+
+# Build directories
+Listings/
+Objects/
+DebugConfig/
+RTE/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.code-workspace
+
