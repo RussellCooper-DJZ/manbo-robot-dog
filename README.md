@@ -299,8 +299,7 @@ void SmoothMove(Servo servo, int targetAngle, int duration) {
 
 - [硬件设计文档](docs/hardware.md)
 - [软件设计文档](docs/software.md)
-- [使用手册](docs/user_manual.md)
-- [毕业设计论文](docs/thesis.md)
+- [毕业设计论文](docs/README_THESIS.md) 🔐 (加密保护)
 
 ## 🤝 贡献
 
