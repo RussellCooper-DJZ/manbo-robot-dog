@@ -319,7 +319,7 @@ void SmoothMove(Servo servo, int targetAngle, int duration) {
 
 ## 👥 作者
 
-- **项目作者**: [russellCooper]
+- **项目作者**: [RussellCooper]
 
 ## 🙏 致谢
 
