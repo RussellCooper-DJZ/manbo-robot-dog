@@ -216,7 +216,6 @@ manbo-robot-dog/
 采用**基于时间分割的线性插值算法**,实现多舵机的平滑协调运动:
 
 ```c
-// 伪代码示例
 void SmoothMove(Servo servo, int targetAngle, int duration) {
     int currentAngle = servo.angle;
     int steps = duration / 20;  // 20ms刷新周期
