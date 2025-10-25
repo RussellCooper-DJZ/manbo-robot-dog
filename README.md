@@ -215,7 +215,6 @@ manbo-robot-dog/
 采用**基于时间分割的线性插值算法**,实现多舵机的平滑协调运动:
 
 ```c
-// 伪代码示例
 void SmoothMove(Servo servo, int targetAngle, int duration) {
     int currentAngle = servo.angle;
     int steps = duration / 20;  // 20ms刷新周期
@@ -320,9 +319,7 @@ void SmoothMove(Servo servo, int targetAngle, int duration) {
 
 ## 👥 作者
 
-- **项目作者**: [待填写]
-- **指导老师**: [待填写]
-- **学校**: [待填写]
+- **项目作者**: [RussellCooper]
 
 ## 🙏 致谢
 
@@ -336,7 +333,7 @@ void SmoothMove(Servo servo, int targetAngle, int duration) {
 
 如有问题或建议,欢迎通过以下方式联系:
 
-- **Email**: [待填写]
+- **Email**: [dwjmrz@qq.com]
 - **GitHub Issues**: [提交Issue](https://github.com/yourusername/manbo-robot-dog/issues)
 
 ## 🌟 Star History
