@@ -319,9 +319,7 @@ void SmoothMove(Servo servo, int targetAngle, int duration) {
 
 ## 👥 作者
 
-- **项目作者**: [待填写]
-- **指导老师**: [待填写]
-- **学校**: [待填写]
+- **项目作者**: [russellCooper]
 
 ## 🙏 致谢
 
@@ -335,7 +333,7 @@ void SmoothMove(Servo servo, int targetAngle, int duration) {
 
 如有问题或建议,欢迎通过以下方式联系:
 
-- **Email**: [待填写]
+- **Email**: [dwjmrz@qq.com]
 - **GitHub Issues**: [提交Issue](https://github.com/yourusername/manbo-robot-dog/issues)
 
 ## 🌟 Star History
