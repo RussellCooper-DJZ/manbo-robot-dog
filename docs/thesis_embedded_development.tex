@@ -1,0 +1,2739 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{ux57faux4e8estm32ux7684ux56dbux8db3ux673aux5668ux72d7ux5d4cux5165ux5f0fux7cfbux7edfux8bbeux8ba1ux4e0eux5f00ux53d1}{%
+\section{基于STM32的四足机器狗嵌入式系统设计与开发}\label{ux57faux4e8estm32ux7684ux56dbux8db3ux673aux5668ux72d7ux5d4cux5165ux5f0fux7cfbux7edfux8bbeux8ba1ux4e0eux5f00ux53d1}}
+
+\textbf{摘要}:
+本文从嵌入式系统开发的角度,详细阐述了四足机器狗控制系统的设计与实现过程。系统以STM32F103C8T6微控制器为核心,采用模块化分层架构,实现了PWM舵机驱动、多串口通信、I2C显示控制、定时器中断管理等功能。本文重点介绍了STM32外设配置方法、驱动程序开发技术、实时操作系统设计、调试优化策略等内容,并通过实际项目验证了系统的可行性和可靠性。研究成果可为嵌入式系统开发者提供完整的工程实践参考。
+
+\textbf{关键词}: STM32; 嵌入式系统; 驱动开发; 实时控制; 四足机器人
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e00ux7ae0-ux7eeaux8bba}{%
+\subsection{第一章 绪论}\label{ux7b2cux4e00ux7ae0-ux7eeaux8bba}}
+
+\hypertarget{ux5d4cux5165ux5f0fux7cfbux7edfux6982ux8ff0}{%
+\subsubsection{1.1
+嵌入式系统概述}\label{ux5d4cux5165ux5f0fux7cfbux7edfux6982ux8ff0}}
+
+\hypertarget{ux5d4cux5165ux5f0fux7cfbux7edfux5b9aux4e49}{%
+\paragraph{1.1.1
+嵌入式系统定义}\label{ux5d4cux5165ux5f0fux7cfbux7edfux5b9aux4e49}}
+
+嵌入式系统(Embedded
+System)是指嵌入在其他设备中,专门用于完成特定功能的计算机系统。与通用计算机系统不同,嵌入式系统具有以下特点:
+
+\textbf{专用性}。嵌入式系统通常只完成特定的功能,不需要像通用计算机那样支持各种应用程序。这使得嵌入式系统可以针对特定应用进行优化,提高性能和效率。
+
+\textbf{实时性}。许多嵌入式系统需要在规定的时间内对外部事件做出响应,具有严格的实时性要求。例如,汽车的防抱死制动系统(ABS)必须在毫秒级时间内响应。
+
+\textbf{资源受限}。嵌入式系统通常在处理器性能、存储容量、功耗等方面受到限制,需要在有限资源下实现功能。
+
+\textbf{可靠性高}。嵌入式系统往往应用于关键场合,对可靠性和稳定性要求很高,需要能够长时间无故障运行。
+
+\textbf{成本敏感}。嵌入式系统通常需要大批量生产,对成本控制要求严格,需要在性能和成本之间找到平衡。
+
+\hypertarget{ux5d4cux5165ux5f0fux7cfbux7edfux7ec4ux6210}{%
+\paragraph{1.1.2
+嵌入式系统组成}\label{ux5d4cux5165ux5f0fux7cfbux7edfux7ec4ux6210}}
+
+典型的嵌入式系统由以下部分组成:
+
+\textbf{硬件系统}: - 处理器: 如ARM、MIPS、RISC-V等 - 存储器:
+Flash、SRAM、DRAM等 - 外设: GPIO、定时器、串口、SPI、I2C、ADC、DAC等 -
+电源管理: 稳压器、电池管理等
+
+\textbf{软件系统}: - 引导程序(Bootloader): 负责系统启动和程序加载 -
+操作系统: 裸机程序、RTOS或嵌入式Linux - 驱动程序: 硬件抽象层和设备驱动 -
+应用程序: 实现具体功能的业务逻辑
+
+\textbf{开发工具}: - 集成开发环境(IDE): Keil、IAR、Eclipse等 - 编译器:
+GCC、ARMCC等 - 调试器: JTAG、SWD等 - 仿真器: Proteus、Keil Simulator等
+
+\hypertarget{stm32ux5faeux63a7ux5236ux5668ux7b80ux4ecb}{%
+\paragraph{1.1.3
+STM32微控制器简介}\label{stm32ux5faeux63a7ux5236ux5668ux7b80ux4ecb}}
+
+STM32是意法半导体(STMicroelectronics)公司推出的基于ARM
+Cortex-M内核的32位微控制器系列。STM32系列产品线丰富,覆盖了从低功耗到高性能的各种应用场景。
+
+\textbf{STM32系列分类}: - STM32F0: Cortex-M0内核,入门级 - STM32F1:
+Cortex-M3内核,主流级 - STM32F2: Cortex-M3内核,高性能 - STM32F3:
+Cortex-M4内核,混合信号 - STM32F4: Cortex-M4内核,高性能 - STM32F7:
+Cortex-M7内核,超高性能 - STM32L系列: 低功耗系列 - STM32H系列: 高性能系列
+
+本项目选用的STM32F103C8T6属于STM32F1系列,主要特性如下: - 内核: ARM
+Cortex-M3, 72MHz - Flash: 64KB - SRAM: 20KB - GPIO: 37个 - 定时器:
+3个通用定时器,1个高级定时器 - 串口: 3个USART - SPI: 2个 - I2C: 2个 -
+ADC: 2个12位ADC - 封装: LQFP48 - 价格: 约10元
+
+STM32F103C8T6性价比高,资源丰富,适合作为学习和开发平台。
+
+\hypertarget{ux9879ux76eeux80ccux666fux4e0eux9700ux6c42}{%
+\subsubsection{1.2
+项目背景与需求}\label{ux9879ux76eeux80ccux666fux4e0eux9700ux6c42}}
+
+\hypertarget{ux9879ux76eeux80ccux666f}{%
+\paragraph{1.2.1 项目背景}\label{ux9879ux76eeux80ccux666f}}
+
+四足机器人作为一种重要的移动机器人平台,在教育、科研、娱乐等领域有广泛应用。然而,现有的四足机器人系统多采用高性能处理器(如树莓派、Jetson
+Nano)或复杂的控制器(如Arduino Mega),成本较高,不利于推广。
+
+本项目旨在开发一款基于STM32的低成本四足机器狗系统,为嵌入式系统学习者提供一个完整的工程实践案例。通过本项目,可以学习到:
+
+\begin{itemize}
+\tightlist
+\item
+  STM32外设配置和使用方法
+\item
+  驱动程序开发技术
+\item
+  实时控制系统设计
+\item
+  多任务调度策略
+\item
+  通信协议设计与实现
+\item
+  调试和优化技巧
+\end{itemize}
+
+\hypertarget{ux529fux80fdux9700ux6c42}{%
+\paragraph{1.2.2 功能需求}\label{ux529fux80fdux9700ux6c42}}
+
+系统需要实现以下功能:
+
+\textbf{运动控制}: - 控制4个舵机实现前进、后退、左转、右转等运动 -
+支持多种运动模式(站立、坐下、趴下、打招呼等) - 运动过程平滑,无明显抖动
+
+\textbf{传感器采集}: - 超声波测距,检测前方障碍物 -
+红外传感器检测地面边缘 - 实时采集传感器数据,更新频率不低于10Hz
+
+\textbf{通信功能}: - 蓝牙通信,接收遥控指令 - 语音识别,支持语音控制 -
+语音合成,提供语音反馈
+
+\textbf{显示功能}: - OLED显示屏显示状态信息 -
+显示当前模式、电量、距离等信息 - 显示表情图案
+
+\textbf{避障功能}: - 自主检测障碍物和边缘 - 自动执行避障动作 -
+可通过指令开启/关闭避障功能
+
+\hypertarget{ux6027ux80fdux9700ux6c42}{%
+\paragraph{1.2.3 性能需求}\label{ux6027ux80fdux9700ux6c42}}
+
+系统需要满足以下性能要求:
+
+\textbf{实时性}: - PWM信号频率: 50Hz,精度±1\% - 传感器采集周期: ≤100ms -
+指令响应时间: ≤300ms
+
+\textbf{可靠性}: - 连续运行时间: ≥5小时 - 故障率: ≤1\% - 抗干扰能力:
+能在一般电磁环境下正常工作
+
+\textbf{功耗}: - 待机功耗: ≤100mA - 运动功耗: ≤2A - 续航时间: ≥60分钟
+
+\textbf{成本}: - 硬件成本: ≤200元 - 开发成本: 可接受的开发周期和人力投入
+
+\hypertarget{ux5f00ux53d1ux73afux5883ux4e0eux5de5ux5177}{%
+\subsubsection{1.3
+开发环境与工具}\label{ux5f00ux53d1ux73afux5883ux4e0eux5de5ux5177}}
+
+\hypertarget{ux786cux4ef6ux5f00ux53d1ux73afux5883}{%
+\paragraph{1.3.1
+硬件开发环境}\label{ux786cux4ef6ux5f00ux53d1ux73afux5883}}
+
+\textbf{开发板}: STM32F103C8T6最小系统板 - 板载8MHz外部晶振 -
+板载LED指示灯 - 引出所有GPIO引脚 - 支持SWD调试接口
+
+\textbf{调试器}: ST-Link V2 - 支持SWD和JTAG接口 - 支持在线调试和程序下载
+- 支持虚拟串口功能
+
+\textbf{测试设备}: - 数字示波器: 用于测量PWM波形 - 万用表:
+用于测量电压、电流 - 逻辑分析仪: 用于分析数字信号
+
+\hypertarget{ux8f6fux4ef6ux5f00ux53d1ux73afux5883}{%
+\paragraph{1.3.2
+软件开发环境}\label{ux8f6fux4ef6ux5f00ux53d1ux73afux5883}}
+
+\textbf{集成开发环境}: Keil MDK 5.x - 版本: 5.36或更高 - 支持STM32F1系列
+- 集成编译器、调试器、仿真器
+
+\textbf{编译器}: ARM Compiler v5/v6 - 优化等级: -O2 - 支持C99标准 -
+生成高效的ARM代码
+
+\textbf{固件库}: STM32F10x标准外设库 v3.5.0 - 提供完整的外设驱动 -
+包含丰富的示例代码 - 文档齐全,易于使用
+
+\textbf{调试工具}: - Keil Debugger: 在线调试 - Serial Wire Viewer:
+实时数据查看 - Logic Analyzer: 逻辑分析
+
+\textbf{版本控制}: Git - 代码托管: GitHub - 分支管理: Git Flow -
+协作开发: Pull Request
+
+\hypertarget{ux5f00ux53d1ux6d41ux7a0b}{%
+\paragraph{1.3.3 开发流程}\label{ux5f00ux53d1ux6d41ux7a0b}}
+
+本项目采用以下开发流程:
+
+\textbf{需求分析} → \textbf{系统设计} → \textbf{模块开发} →
+\textbf{单元测试} → \textbf{集成测试} → \textbf{系统测试} →
+\textbf{优化调试} → \textbf{文档整理}
+
+具体步骤:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{需求分析}: 明确功能需求和性能需求
+\item
+  \textbf{系统设计}: 设计硬件架构和软件架构
+\item
+  \textbf{模块开发}: 按模块逐个开发驱动和功能
+\item
+  \textbf{单元测试}: 对每个模块进行独立测试
+\item
+  \textbf{集成测试}: 将各模块集成,测试接口
+\item
+  \textbf{系统测试}: 测试整体功能和性能
+\item
+  \textbf{优化调试}: 优化代码,提高性能
+\item
+  \textbf{文档整理}: 编写技术文档和用户手册
+\end{enumerate}
+
+\hypertarget{ux8bbaux6587ux7ec4ux7ec7ux7ed3ux6784}{%
+\subsubsection{1.4
+论文组织结构}\label{ux8bbaux6587ux7ec4ux7ec7ux7ed3ux6784}}
+
+本文共分为七章:
+
+\textbf{第一章}为绪论,介绍嵌入式系统概述、项目背景与需求、开发环境与工具。
+
+\textbf{第二章}为STM32硬件系统设计,介绍STM32最小系统、外设接口电路、电源管理等内容。
+
+\textbf{第三章}为STM32软件架构设计,介绍软件分层架构、模块划分、开发规范等内容。
+
+\textbf{第四章}为外设驱动程序开发,详细阐述GPIO、定时器、串口、I2C等外设的配置和驱动开发。
+
+\textbf{第五章}为应用程序开发,介绍主程序设计、任务调度、状态机设计、通信协议等内容。
+
+\textbf{第六章}为系统调试与优化,介绍调试方法、性能优化、功耗优化等技术。
+
+\textbf{第七章}为总结与展望,总结开发经验,展望未来改进方向。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e8cux7ae0-stm32ux786cux4ef6ux7cfbux7edfux8bbeux8ba1}{%
+\subsection{第二章
+STM32硬件系统设计}\label{ux7b2cux4e8cux7ae0-stm32ux786cux4ef6ux7cfbux7edfux8bbeux8ba1}}
+
+\hypertarget{stm32ux6700ux5c0fux7cfbux7edf}{%
+\subsubsection{2.1 STM32最小系统}\label{stm32ux6700ux5c0fux7cfbux7edf}}
+
+\hypertarget{ux7535ux6e90ux7535ux8def}{%
+\paragraph{2.1.1 电源电路}\label{ux7535ux6e90ux7535ux8def}}
+
+STM32F103C8T6的电源引脚包括: - VDD/VSS: 数字电源,3.3V - VDDA/VSSA:
+模拟电源,3.3V - VBAT: 备份电源,用于RTC和备份寄存器
+
+\textbf{电源设计要点}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{去耦电容}:
+  在每个VDD引脚附近放置100nF陶瓷电容,在电源输入端放置10μF电解电容,用于滤除电源噪声。
+\item
+  \textbf{模拟电源滤波}:
+  VDDA引脚通过10μF电容和磁珠与VDD连接,减少数字电路对模拟电路的干扰。
+\item
+  \textbf{备份电源}:
+  VBAT引脚可以连接纽扣电池(CR2032),在主电源断电时保持RTC运行。
+\item
+  \textbf{电源指示}: 在VDD引脚连接LED和限流电阻,指示电源状态。
+\end{enumerate}
+
+电路原理图:
+
+\begin{verbatim}
+3.3V ──┬── 10μF ──┬── 100nF ── VDD1
+       │          ├── 100nF ── VDD2
+       │          ├── 100nF ── VDD3
+       │          └── 100nF ── VDD4
+       │
+       ├── 磁珠 ── 10μF ── 100nF ── VDDA
+       │
+       └── LED + 1kΩ ── GND
+\end{verbatim}
+
+\hypertarget{ux65f6ux949fux7535ux8def}{%
+\paragraph{2.1.2 时钟电路}\label{ux65f6ux949fux7535ux8def}}
+
+STM32F103C8T6支持多种时钟源: - 内部高速时钟(HSI): 8MHz,精度较低 -
+外部高速时钟(HSE): 4-16MHz,精度高 - 内部低速时钟(LSI): 40kHz,用于看门狗
+- 外部低速时钟(LSE): 32.768kHz,用于RTC
+
+\textbf{时钟设计要点}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{外部晶振}: 选用8MHz无源晶振,精度±20ppm。
+\item
+  \textbf{负载电容}:
+  根据晶振参数选择负载电容,通常为15pF\textasciitilde30pF。计算公式:
+
+\begin{verbatim}
+C1 = C2 = 2 × (CL - Cstray)
+\end{verbatim}
+
+  其中,CL为晶振负载电容,Cstray为PCB寄生电容(约3pF\textasciitilde5pF)。
+\item
+  \textbf{布局布线}: 晶振应尽量靠近STM32,走线尽量短,避免干扰。
+\item
+  \textbf{RTC晶振}: 如需使用RTC,可选配32.768kHz晶振。
+\end{enumerate}
+
+电路原理图:
+
+\begin{verbatim}
+OSC_IN ── 8MHz晶振 ── OSC_OUT
+   │                    │
+  20pF                 20pF
+   │                    │
+  GND                  GND
+\end{verbatim}
+
+\hypertarget{ux590dux4f4dux7535ux8def}{%
+\paragraph{2.1.3 复位电路}\label{ux590dux4f4dux7535ux8def}}
+
+STM32的复位引脚NRST为低电平有效。复位电路设计:
+
+\textbf{上电复位}: 通过RC电路实现上电复位。
+
+\textbf{手动复位}: 通过按键实现手动复位。
+
+\textbf{看门狗复位}: 通过内部看门狗实现自动复位。
+
+电路原理图:
+
+\begin{verbatim}
+3.3V ──┬── 10kΩ ── NRST
+       │
+       └── 按键 ── GND
+       
+NRST ── 100nF ── GND
+\end{verbatim}
+
+上电复位时间:
+
+\begin{verbatim}
+T = R × C = 10kΩ × 100nF = 1ms
+\end{verbatim}
+
+\hypertarget{ux8c03ux8bd5ux63a5ux53e3}{%
+\paragraph{2.1.4 调试接口}\label{ux8c03ux8bd5ux63a5ux53e3}}
+
+STM32支持SWD和JTAG两种调试接口。SWD接口只需要2根信号线(SWDIO和SWCLK),节省引脚资源。
+
+\textbf{SWD接口引脚}: - SWDIO: PA13 - SWCLK: PA14 - NRST: 复位引脚(可选)
+- GND: 地线 - 3.3V: 电源(可选)
+
+\textbf{接口设计要点}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{引脚保护}: 在SWDIO和SWCLK引脚串联100Ω电阻,防止静电损坏。
+\item
+  \textbf{下拉电阻}: 在SWDIO引脚接10kΩ下拉电阻,防止悬空。
+\item
+  \textbf{接口类型}: 使用2.54mm排针,方便连接调试器。
+\end{enumerate}
+
+电路原理图:
+
+\begin{verbatim}
+PA13(SWDIO) ── 100Ω ── SWDIO ── 10kΩ ── GND
+PA14(SWCLK) ── 100Ω ── SWCLK
+NRST ─────────────── NRST
+\end{verbatim}
+
+\hypertarget{ux542fux52a8ux6a21ux5f0fux914dux7f6e}{%
+\paragraph{2.1.5
+启动模式配置}\label{ux542fux52a8ux6a21ux5f0fux914dux7f6e}}
+
+STM32通过BOOT0和BOOT1引脚配置启动模式:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+BOOT0 & BOOT1 & 启动模式\tabularnewline
+\midrule
+\endhead
+0 & X & 从Flash启动(正常模式)\tabularnewline
+1 & 0 & 从系统存储器启动(ISP模式)\tabularnewline
+1 & 1 & 从SRAM启动(调试模式)\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{配置方法}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{正常模式}: BOOT0接GND,BOOT1任意。
+\item
+  \textbf{ISP模式}: BOOT0通过跳线帽或拨码开关选择GND或3.3V。
+\end{enumerate}
+
+电路原理图:
+
+\begin{verbatim}
+BOOT0 ── 10kΩ ── GND  (或通过跳线帽选择3.3V)
+BOOT1 ── 10kΩ ── GND
+\end{verbatim}
+
+\hypertarget{ux5916ux8bbeux63a5ux53e3ux7535ux8defux8bbeux8ba1}{%
+\subsubsection{2.2
+外设接口电路设计}\label{ux5916ux8bbeux63a5ux53e3ux7535ux8defux8bbeux8ba1}}
+
+\hypertarget{pwmux8f93ux51faux63a5ux53e3}{%
+\paragraph{2.2.1 PWM输出接口}\label{pwmux8f93ux51faux63a5ux53e3}}
+
+PWM信号用于控制舵机。STM32的定时器可以输出PWM信号。
+
+\textbf{引脚分配}: - TIM3\_CH1: PA6 → 舵机1 - TIM3\_CH2: PA7 → 舵机2 -
+TIM3\_CH3: PB0 → 舵机3 - TIM3\_CH4: PB1 → 舵机4
+
+\textbf{接口电路}:
+
+由于STM32的GPIO输出电流有限(最大25mA),而舵机控制信号电流很小(约1mA),可以直接连接。
+
+\begin{verbatim}
+PA6 ── 舵机1信号线
+PA7 ── 舵机2信号线
+PB0 ── 舵机3信号线
+PB1 ── 舵机4信号线
+\end{verbatim}
+
+\textbf{注意事项}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{电源隔离}: 舵机电源(5V)与STM32电源(3.3V)应分开供电,共地。
+\item
+  \textbf{信号电平}: 舵机可以识别3.3V的PWM信号,无需电平转换。
+\item
+  \textbf{EMI抑制}: 在舵机电源线上串联磁珠,并联电容,抑制电磁干扰。
+\end{enumerate}
+
+\hypertarget{ux4e32ux53e3ux901aux4fe1ux63a5ux53e3}{%
+\paragraph{2.2.2
+串口通信接口}\label{ux4e32ux53e3ux901aux4fe1ux63a5ux53e3}}
+
+系统使用3个串口: - USART1: 蓝牙通信 - USART2: 语音合成 - USART3:
+语音识别
+
+\textbf{USART1接口(蓝牙)}: - TX: PA9 - RX: PA10
+
+连接HC-05蓝牙模块:
+
+\begin{verbatim}
+PA9(TX) ── RX(HC-05)
+PA10(RX) ── TX(HC-05)
+GND ── GND
+5V ── VCC
+\end{verbatim}
+
+\textbf{USART2接口(语音合成)}: - TX: PA2 - RX: PA3
+
+连接SYN6288语音合成模块:
+
+\begin{verbatim}
+PA2(TX) ── RX(SYN6288)
+PA3(RX) ── TX(SYN6288)
+GND ── GND
+5V ── VCC
+\end{verbatim}
+
+\textbf{USART3接口(语音识别)}: - TX: PB10 - RX: PB11
+
+连接LD3320语音识别模块:
+
+\begin{verbatim}
+PB10(TX) ── RX(LD3320)
+PB11(RX) ── TX(LD3320)
+GND ── GND
+3.3V ── VCC
+\end{verbatim}
+
+\textbf{注意事项}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{波特率}: 蓝牙模块默认波特率9600,语音模块默认波特率9600。
+\item
+  \textbf{电平匹配}:
+  HC-05和SYN6288为5V模块,但可以识别3.3V信号。LD3320为3.3V模块,不能接5V信号。
+\item
+  \textbf{交叉连接}: STM32的TX连接模块的RX,STM32的RX连接模块的TX。
+\end{enumerate}
+
+\hypertarget{i2cux63a5ux53e3}{%
+\paragraph{2.2.3 I2C接口}\label{i2cux63a5ux53e3}}
+
+I2C用于连接OLED显示屏。
+
+\textbf{引脚分配}: - SCL: PB6 - SDA: PB7
+
+连接0.96寸OLED(SSD1306):
+
+\begin{verbatim}
+PB6(SCL) ── SCL(OLED)
+PB7(SDA) ── SDA(OLED)
+GND ── GND
+3.3V ── VCC
+\end{verbatim}
+
+\textbf{上拉电阻}:
+
+I2C总线需要上拉电阻。OLED模块通常已经集成上拉电阻(4.7kΩ),无需外接。如果模块没有上拉电阻,需要在SCL和SDA引脚接4.7kΩ上拉电阻到3.3V。
+
+\begin{verbatim}
+SCL ── 4.7kΩ ── 3.3V
+SDA ── 4.7kΩ ── 3.3V
+\end{verbatim}
+
+\hypertarget{ux8d85ux58f0ux6ce2ux63a5ux53e3}{%
+\paragraph{2.2.4 超声波接口}\label{ux8d85ux58f0ux6ce2ux63a5ux53e3}}
+
+超声波传感器HC-SR04使用GPIO控制。
+
+\textbf{引脚分配}: - Trig: PB12 (输出) - Echo: PB13 (输入)
+
+连接HC-SR04:
+
+\begin{verbatim}
+PB12(Trig) ── Trig(HC-SR04)
+PB13(Echo) ── Echo(HC-SR04)
+GND ── GND
+5V ── VCC
+\end{verbatim}
+
+\textbf{电平转换}:
+
+HC-SR04的Echo输出为5V,超过STM32的输入电压(3.6V)。需要进行电平转换。
+
+方法1: 电阻分压
+
+\begin{verbatim}
+Echo(5V) ── 2kΩ ── PB13 ── 3kΩ ── GND
+\end{verbatim}
+
+输出电压:
+
+\begin{verbatim}
+V_out = 5V × 3kΩ / (2kΩ + 3kΩ) = 3V
+\end{verbatim}
+
+方法2: 使用5V容忍引脚
+
+STM32的某些引脚(如PA15、PB3、PB4)为5V容忍引脚,可以直接接5V信号。但PB13不是5V容忍引脚,建议使用电阻分压。
+
+\hypertarget{ux7ea2ux5916ux4f20ux611fux5668ux63a5ux53e3}{%
+\paragraph{2.2.5
+红外传感器接口}\label{ux7ea2ux5916ux4f20ux611fux5668ux63a5ux53e3}}
+
+红外传感器使用GPIO输入。
+
+\textbf{引脚分配}: - 前方: PB2 - 后方: PB3 - 左侧: PB4 - 右侧: PB5
+
+连接红外避障模块:
+
+\begin{verbatim}
+PB2 ── OUT(前方红外)
+PB3 ── OUT(后方红外)
+PB4 ── OUT(左侧红外)
+PB5 ── OUT(右侧红外)
+GND ── GND
+3.3V ── VCC
+\end{verbatim}
+
+\textbf{输入模式}:
+
+红外传感器输出为数字信号(0或1),配置GPIO为输入模式,使能内部上拉电阻。
+
+\hypertarget{ux7535ux6e90ux7ba1ux7406ux7cfbux7edf}{%
+\subsubsection{2.3
+电源管理系统}\label{ux7535ux6e90ux7ba1ux7406ux7cfbux7edf}}
+
+\hypertarget{ux7535ux6e90ux67b6ux6784}{%
+\paragraph{2.3.1 电源架构}\label{ux7535ux6e90ux67b6ux6784}}
+
+系统电源架构:
+
+\begin{verbatim}
+7.4V锂电池
+   │
+   ├─→ LM2596 → 5V → 舵机×4
+   │              └→ HC-05蓝牙
+   │              └→ SYN6288语音合成
+   │              └→ HC-SR04超声波
+   │
+   └─→ AMS1117-3.3 → 3.3V → STM32
+                           └→ OLED
+                           └→ LD3320语音识别
+                           └→ 红外传感器×4
+\end{verbatim}
+
+\hypertarget{vux7a33ux538bux7535ux8def}{%
+\paragraph{2.3.2 5V稳压电路}\label{vux7a33ux538bux7535ux8def}}
+
+使用LM2596 DC-DC降压模块,将7.4V转换为5V。
+
+\textbf{模块参数}: - 输入电压: 4.5V\textasciitilde40V - 输出电压:
+1.25V\textasciitilde37V(可调) - 输出电流: 3A(最大) - 效率: 92\% - 纹波:
+\textless50mV
+
+\textbf{连接方式}:
+
+\begin{verbatim}
+电池+ ── IN+(LM2596)
+电池- ── IN-(LM2596)
+OUT+ ── 5V输出
+OUT- ── GND
+\end{verbatim}
+
+\textbf{输出电压调节}:
+
+通过调节电位器,使输出电压为5.0V±0.1V。
+
+\hypertarget{vux7a33ux538bux7535ux8def-1}{%
+\paragraph{2.3.3 3.3V稳压电路}\label{vux7a33ux538bux7535ux8def-1}}
+
+使用AMS1117-3.3 LDO稳压器,将5V转换为3.3V。
+
+\textbf{芯片参数}: - 输入电压: 4.5V\textasciitilde15V - 输出电压: 3.3V -
+输出电流: 800mA(最大) - 压差: 1.2V(典型值) - 封装: SOT-223
+
+\textbf{电路设计}:
+
+\begin{verbatim}
+5V ── 10μF ── AMS1117-3.3 ── 10μF ── 3.3V
+              (IN)  (OUT)
+               │
+              GND
+\end{verbatim}
+
+\textbf{散热设计}:
+
+AMS1117的功耗:
+
+\begin{verbatim}
+P = (V_in - V_out) × I_out
+  = (5V - 3.3V) × 0.2A
+  = 0.34W
+\end{verbatim}
+
+需要在PCB上预留足够的铜箔面积用于散热,或增加散热片。
+
+\hypertarget{ux7535ux6e90ux4fddux62a4}{%
+\paragraph{2.3.4 电源保护}\label{ux7535ux6e90ux4fddux62a4}}
+
+\textbf{过流保护}: 在电池输出端串联自恢复保险丝(3A),防止短路损坏电池。
+
+\textbf{反接保护}:
+在电池输入端串联肖特基二极管(SS34),防止电池反接损坏电路。
+
+\textbf{欠压保护}: 使用电池保护板,防止电池过放。
+
+电路原理图:
+
+\begin{verbatim}
+电池+ ── 保险丝 ── 二极管 ── 电源输入
+电池- ────────────────── GND
+\end{verbatim}
+
+\hypertarget{ux7535ux6e90ux76d1ux6d4b}{%
+\paragraph{2.3.5 电源监测}\label{ux7535ux6e90ux76d1ux6d4b}}
+
+通过ADC监测电池电压,实现电量显示和低电量报警。
+
+\textbf{分压电路}:
+
+电池电压(7.4V)超过STM32的ADC输入范围(0\textasciitilde3.3V),需要分压。
+
+\begin{verbatim}
+电池+ ── 10kΩ ── PA0(ADC1_IN0) ── 3.3kΩ ── GND
+\end{verbatim}
+
+分压比:
+
+\begin{verbatim}
+V_ADC = V_BAT × 3.3kΩ / (10kΩ + 3.3kΩ) = V_BAT × 0.248
+\end{verbatim}
+
+当V\_BAT = 7.4V时,V\_ADC = 1.84V,在ADC输入范围内。
+
+\textbf{电压计算}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{uint16\_t}\NormalTok{ adc\_value = ADC\_Read();}
+\DataTypeTok{float}\NormalTok{ v\_adc = adc\_value * }\FloatTok{3.3}\NormalTok{ / }\DecValTok{4096}\NormalTok{;}
+\DataTypeTok{float}\NormalTok{ v\_bat = v\_adc / }\FloatTok{0.248}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e09ux7ae0-stm32ux8f6fux4ef6ux67b6ux6784ux8bbeux8ba1}{%
+\subsection{第三章
+STM32软件架构设计}\label{ux7b2cux4e09ux7ae0-stm32ux8f6fux4ef6ux67b6ux6784ux8bbeux8ba1}}
+
+\hypertarget{ux8f6fux4ef6ux5206ux5c42ux67b6ux6784}{%
+\subsubsection{3.1
+软件分层架构}\label{ux8f6fux4ef6ux5206ux5c42ux67b6ux6784}}
+
+\hypertarget{ux5206ux5c42ux8bbeux8ba1ux539fux5219}{%
+\paragraph{3.1.1
+分层设计原则}\label{ux5206ux5c42ux8bbeux8ba1ux539fux5219}}
+
+软件系统采用分层架构,遵循以下原则:
+
+\textbf{单一职责原则}: 每一层只负责特定的功能,不承担其他层的职责。
+
+\textbf{依赖倒置原则}: 高层模块不依赖低层模块,两者都依赖抽象接口。
+
+\textbf{开闭原则}:
+对扩展开放,对修改关闭。添加新功能时,尽量不修改现有代码。
+
+\textbf{接口隔离原则}: 接口应该小而专,不要设计臃肿的接口。
+
+\hypertarget{ux56dbux5c42ux67b6ux6784}{%
+\paragraph{3.1.2 四层架构}\label{ux56dbux5c42ux67b6ux6784}}
+
+系统软件分为四层:
+
+\textbf{第一层: 硬件抽象层(HAL)}
+
+封装STM32标准外设库,提供统一的硬件访问接口。包括: - 时钟配置 - GPIO操作
+- 定时器操作 - 串口操作 - I2C操作 - ADC操作 - 中断管理
+
+\textbf{第二层: 驱动层(Driver)}
+
+实现各硬件模块的驱动程序。包括: - PWM驱动 - 舵机驱动 - 超声波驱动 -
+红外传感器驱动 - OLED驱动 - 蓝牙驱动 - 语音模块驱动
+
+\textbf{第三层: 中间层(Middleware)}
+
+实现通用的功能模块。包括: - 延时函数 - 数据滤波 - 数学运算 - 字符串处理
+- 队列管理 - 状态机框架
+
+\textbf{第四层: 应用层(Application)}
+
+实现业务逻辑。包括: - 主程序 - 运动控制 - 避障逻辑 - 模式管理 - 通信协议
+- 用户界面
+
+\hypertarget{ux6a21ux5757ux95f4ux901aux4fe1}{%
+\paragraph{3.1.3 模块间通信}\label{ux6a21ux5757ux95f4ux901aux4fe1}}
+
+模块间通信遵循以下规则:
+
+\textbf{上层调用下层}:
+应用层调用中间层,中间层调用驱动层,驱动层调用硬件抽象层。
+
+\textbf{禁止跨层调用}: 应用层不能直接调用硬件抽象层,必须通过驱动层。
+
+\textbf{回调机制}:
+下层通过回调函数通知上层事件。例如,串口接收中断通过回调函数通知应用层。
+
+\textbf{全局变量}:
+尽量避免使用全局变量。如果必须使用,应该封装在模块内部,通过接口函数访问。
+
+\hypertarget{ux6587ux4ef6ux7ec4ux7ec7ux7ed3ux6784}{%
+\subsubsection{3.2
+文件组织结构}\label{ux6587ux4ef6ux7ec4ux7ec7ux7ed3ux6784}}
+
+\hypertarget{ux76eeux5f55ux7ed3ux6784}{%
+\paragraph{3.2.1 目录结构}\label{ux76eeux5f55ux7ed3ux6784}}
+
+\begin{verbatim}
+Project/
+├── Start/                  # 启动文件
+│   ├── startup_stm32f10x_md.s
+│   └── system_stm32f10x.c
+├── Library/                # STM32标准外设库
+│   ├── inc/
+│   │   ├── stm32f10x.h
+│   │   ├── stm32f10x_gpio.h
+│   │   ├── stm32f10x_rcc.h
+│   │   └── ...
+│   └── src/
+│       ├── stm32f10x_gpio.c
+│       ├── stm32f10x_rcc.c
+│       └── ...
+├── System/                 # 系统层
+│   ├── Delay.c/h          # 延时函数
+│   ├── usart1.c/h         # 串口1驱动
+│   ├── usart2.c/h         # 串口2驱动
+│   └── usart3.c/h         # 串口3驱动
+├── Hardware/               # 硬件驱动层
+│   ├── PWM.c/h            # PWM驱动
+│   ├── Servo.c/h          # 舵机驱动
+│   ├── Movement.c/h       # 运动控制
+│   ├── UltrasonicWave.c/h # 超声波驱动
+│   ├── Hongwai.c/h        # 红外驱动
+│   ├── OLED.c/h           # OLED驱动
+│   ├── Serial.c/h         # 蓝牙通信
+│   └── syn6288.c/h        # 语音合成驱动
+├── User/                   # 应用层
+│   ├── main.c             # 主程序
+│   ├── Mode.c/h           # 模式管理
+│   ├── stm32f10x_it.c/h   # 中断服务
+│   └── stm32f10x_conf.h   # 配置文件
+└── Project.uvprojx         # Keil工程文件
+\end{verbatim}
+
+\hypertarget{ux6587ux4ef6ux547dux540dux89c4ux8303}{%
+\paragraph{3.2.2
+文件命名规范}\label{ux6587ux4ef6ux547dux540dux89c4ux8303}}
+
+\textbf{源文件}: 使用小写字母或大驼峰命名法,扩展名为.c。 - 示例:
+\texttt{delay.c}, \texttt{Servo.c}, \texttt{UltrasonicWave.c}
+
+\textbf{头文件}: 与源文件同名,扩展名为.h。 - 示例: \texttt{delay.h},
+\texttt{Servo.h}, \texttt{UltrasonicWave.h}
+
+\textbf{头文件保护}: 使用宏定义防止重复包含。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#ifndef \_\_SERVO\_H}
+\PreprocessorTok{\#define \_\_SERVO\_H}
+
+\CommentTok{// 头文件内容}
+
+\PreprocessorTok{\#endif}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux4ee3ux7801ux6ce8ux91caux89c4ux8303}{%
+\paragraph{3.2.3
+代码注释规范}\label{ux4ee3ux7801ux6ce8ux91caux89c4ux8303}}
+
+\textbf{文件头注释}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{/**}
+\CommentTok{  ******************************************************************************}
+\CommentTok{  * }\AnnotationTok{@file}\CommentTok{    }\CommentVarTok{Servo.c}
+\CommentTok{  * }\AnnotationTok{@author}\CommentTok{  [Your Name]}
+\CommentTok{  * }\AnnotationTok{@version}\CommentTok{ V1.0}
+\CommentTok{  * }\AnnotationTok{@date}\CommentTok{    2025{-}10{-}25}
+\CommentTok{  * }\AnnotationTok{@brief}\CommentTok{   舵机驱动程序}
+\CommentTok{  ******************************************************************************}
+\CommentTok{  * }\AnnotationTok{@attention}
+\CommentTok{  *}
+\CommentTok{  * 本文件实现了舵机的PWM控制功能,包括角度设置、平滑运动等。}
+\CommentTok{  *}
+\CommentTok{  ******************************************************************************}
+\CommentTok{  */}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{函数注释}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{/**}
+\CommentTok{  * }\AnnotationTok{@brief}\CommentTok{  设置舵机角度}
+\CommentTok{  * }\AnnotationTok{@param}\CommentTok{  }\CommentVarTok{channel:}\CommentTok{ 舵机通道(1\textasciitilde{}4)}
+\CommentTok{  * }\AnnotationTok{@param}\CommentTok{  }\CommentVarTok{angle:}\CommentTok{ 目标角度(0\textasciitilde{}180)}
+\CommentTok{  * }\AnnotationTok{@retval}\CommentTok{ }\CommentVarTok{None}
+\CommentTok{  */}
+\DataTypeTok{void}\NormalTok{ Servo\_SetAngle(}\DataTypeTok{uint8\_t}\NormalTok{ channel, }\DataTypeTok{uint8\_t}\NormalTok{ angle)}
+\NormalTok{\{}
+    \CommentTok{// 函数实现}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{行内注释}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{uint16\_t}\NormalTok{ ccr = angle * }\DecValTok{2000}\NormalTok{ / }\DecValTok{180}\NormalTok{ + }\DecValTok{500}\NormalTok{;  }\CommentTok{// 角度转换为CCR值}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux6570ux636eux7ed3ux6784ux8bbeux8ba1}{%
+\subsubsection{3.3
+数据结构设计}\label{ux6570ux636eux7ed3ux6784ux8bbeux8ba1}}
+
+\hypertarget{ux8235ux673aux72b6ux6001ux7ed3ux6784ux4f53}{%
+\paragraph{3.3.1
+舵机状态结构体}\label{ux8235ux673aux72b6ux6001ux7ed3ux6784ux4f53}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{struct}\NormalTok{ \{}
+    \DataTypeTok{uint8\_t}\NormalTok{ current\_angle;   }\CommentTok{// 当前角度}
+    \DataTypeTok{uint8\_t}\NormalTok{ target\_angle;    }\CommentTok{// 目标角度}
+    \DataTypeTok{uint8\_t}\NormalTok{ is\_moving;       }\CommentTok{// 是否正在运动}
+    \DataTypeTok{uint16\_t}\NormalTok{ speed;          }\CommentTok{// 运动速度(度/秒)}
+\NormalTok{\} ServoState\_t;}
+
+\NormalTok{ServoState\_t servo\_state[}\DecValTok{4}\NormalTok{];  }\CommentTok{// 4个舵机的状态}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux4f20ux611fux5668ux6570ux636eux7ed3ux6784ux4f53}{%
+\paragraph{3.3.2
+传感器数据结构体}\label{ux4f20ux611fux5668ux6570ux636eux7ed3ux6784ux4f53}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{struct}\NormalTok{ \{}
+    \DataTypeTok{float}\NormalTok{ distance;          }\CommentTok{// 超声波测距值(cm)}
+    \DataTypeTok{uint8\_t}\NormalTok{ front\_ir;        }\CommentTok{// 前方红外}
+    \DataTypeTok{uint8\_t}\NormalTok{ back\_ir;         }\CommentTok{// 后方红外}
+    \DataTypeTok{uint8\_t}\NormalTok{ left\_ir;         }\CommentTok{// 左侧红外}
+    \DataTypeTok{uint8\_t}\NormalTok{ right\_ir;        }\CommentTok{// 右侧红外}
+    \DataTypeTok{uint32\_t}\NormalTok{ timestamp;      }\CommentTok{// 时间戳(ms)}
+\NormalTok{\} SensorData\_t;}
+
+\NormalTok{SensorData\_t sensor\_data;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux7cfbux7edfux72b6ux6001ux7ed3ux6784ux4f53}{%
+\paragraph{3.3.3
+系统状态结构体}\label{ux7cfbux7edfux72b6ux6001ux7ed3ux6784ux4f53}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{enum}\NormalTok{ \{}
+\NormalTok{    MODE\_STAND = }\CharTok{\textquotesingle{}0\textquotesingle{}}\NormalTok{,        }\CommentTok{// 站立}
+\NormalTok{    MODE\_FORWARD = }\CharTok{\textquotesingle{}1\textquotesingle{}}\NormalTok{,      }\CommentTok{// 前进}
+\NormalTok{    MODE\_BACKWARD = }\CharTok{\textquotesingle{}2\textquotesingle{}}\NormalTok{,     }\CommentTok{// 后退}
+\NormalTok{    MODE\_TURN\_LEFT = }\CharTok{\textquotesingle{}3\textquotesingle{}}\NormalTok{,    }\CommentTok{// 左转}
+\NormalTok{    MODE\_TURN\_RIGHT = }\CharTok{\textquotesingle{}4\textquotesingle{}}\NormalTok{,   }\CommentTok{// 右转}
+\NormalTok{    MODE\_SIT = }\CharTok{\textquotesingle{}5\textquotesingle{}}\NormalTok{,          }\CommentTok{// 坐下}
+\NormalTok{    MODE\_LIE = }\CharTok{\textquotesingle{}6\textquotesingle{}}\NormalTok{,          }\CommentTok{// 趴下}
+\NormalTok{    MODE\_HELLO = }\CharTok{\textquotesingle{}7\textquotesingle{}}\NormalTok{,        }\CommentTok{// 打招呼}
+\NormalTok{    MODE\_STRETCH = }\CharTok{\textquotesingle{}8\textquotesingle{}}\NormalTok{,      }\CommentTok{// 伸懒腰}
+\NormalTok{    MODE\_DANCE = }\CharTok{\textquotesingle{}9\textquotesingle{}}\NormalTok{,        }\CommentTok{// 跳舞}
+\NormalTok{\} OperationMode\_t;}
+
+\KeywordTok{typedef} \KeywordTok{struct}\NormalTok{ \{}
+\NormalTok{    OperationMode\_t current\_mode;   }\CommentTok{// 当前模式}
+\NormalTok{    OperationMode\_t previous\_mode;  }\CommentTok{// 上一个模式}
+    \DataTypeTok{uint8\_t}\NormalTok{ avoid\_enable;           }\CommentTok{// 避障使能}
+    \DataTypeTok{uint8\_t}\NormalTok{ stamina;                }\CommentTok{// 体力值(0\textasciitilde{}100)}
+    \DataTypeTok{float}\NormalTok{ battery\_voltage;          }\CommentTok{// 电池电压(V)}
+\NormalTok{\} SystemState\_t;}
+
+\NormalTok{SystemState\_t system\_state;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux901aux4fe1ux6570ux636eux7ed3ux6784ux4f53}{%
+\paragraph{3.3.4
+通信数据结构体}\label{ux901aux4fe1ux6570ux636eux7ed3ux6784ux4f53}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{struct}\NormalTok{ \{}
+    \DataTypeTok{uint8\_t}\NormalTok{ buffer[}\DecValTok{256}\NormalTok{];     }\CommentTok{// 接收缓冲区}
+    \DataTypeTok{uint16\_t}\NormalTok{ head;           }\CommentTok{// 队列头指针}
+    \DataTypeTok{uint16\_t}\NormalTok{ tail;           }\CommentTok{// 队列尾指针}
+    \DataTypeTok{uint16\_t}\NormalTok{ count;          }\CommentTok{// 数据个数}
+\NormalTok{\} RxQueue\_t;}
+
+\NormalTok{RxQueue\_t usart1\_rx\_queue;   }\CommentTok{// 串口1接收队列}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux72b6ux6001ux673aux8bbeux8ba1}{%
+\subsubsection{3.4 状态机设计}\label{ux72b6ux6001ux673aux8bbeux8ba1}}
+
+\hypertarget{ux4e3bux72b6ux6001ux673a}{%
+\paragraph{3.4.1 主状态机}\label{ux4e3bux72b6ux6001ux673a}}
+
+主状态机管理系统的运行模式。
+
+\textbf{状态定义}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{enum}\NormalTok{ \{}
+\NormalTok{    STATE\_INIT,              }\CommentTok{// 初始化状态}
+\NormalTok{    STATE\_IDLE,              }\CommentTok{// 空闲状态}
+\NormalTok{    STATE\_RUNNING,           }\CommentTok{// 运行状态}
+\NormalTok{    STATE\_AVOIDING,          }\CommentTok{// 避障状态}
+\NormalTok{    STATE\_ERROR,             }\CommentTok{// 错误状态}
+\NormalTok{\} MainState\_t;}
+
+\NormalTok{MainState\_t main\_state = STATE\_INIT;}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{状态转换}:
+
+\begin{verbatim}
+STATE_INIT → STATE_IDLE → STATE_RUNNING ⇄ STATE_AVOIDING
+                                ↓
+                           STATE_ERROR
+\end{verbatim}
+
+\textbf{状态机实现}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ MainStateMachine(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{switch}\NormalTok{ (main\_state) \{}
+        \ControlFlowTok{case}\NormalTok{ STATE\_INIT:}
+            \CommentTok{// 系统初始化}
+\NormalTok{            System\_Init();}
+\NormalTok{            main\_state = STATE\_IDLE;}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ STATE\_IDLE:}
+            \CommentTok{// 等待指令}
+            \ControlFlowTok{if}\NormalTok{ (Command\_Received()) \{}
+\NormalTok{                main\_state = STATE\_RUNNING;}
+\NormalTok{            \}}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ STATE\_RUNNING:}
+            \CommentTok{// 执行运动}
+            \ControlFlowTok{if}\NormalTok{ (Obstacle\_Detected() \&\& system\_state.avoid\_enable) \{}
+\NormalTok{                main\_state = STATE\_AVOIDING;}
+\NormalTok{            \}}
+\NormalTok{            Execute\_Movement();}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ STATE\_AVOIDING:}
+            \CommentTok{// 执行避障}
+\NormalTok{            Execute\_Avoidance();}
+            \ControlFlowTok{if}\NormalTok{ (Avoidance\_Finished()) \{}
+\NormalTok{                main\_state = STATE\_RUNNING;}
+\NormalTok{            \}}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ STATE\_ERROR:}
+            \CommentTok{// 错误处理}
+\NormalTok{            Error\_Handler();}
+            \ControlFlowTok{break}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux8fd0ux52a8ux72b6ux6001ux673a}{%
+\paragraph{3.4.2 运动状态机}\label{ux8fd0ux52a8ux72b6ux6001ux673a}}
+
+运动状态机管理舵机的运动过程。
+
+\textbf{状态定义}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{enum}\NormalTok{ \{}
+\NormalTok{    MOVE\_STATE\_IDLE,         }\CommentTok{// 空闲}
+\NormalTok{    MOVE\_STATE\_PREPARING,    }\CommentTok{// 准备}
+\NormalTok{    MOVE\_STATE\_MOVING,       }\CommentTok{// 运动中}
+\NormalTok{    MOVE\_STATE\_FINISHING,    }\CommentTok{// 结束}
+\NormalTok{\} MoveState\_t;}
+
+\NormalTok{MoveState\_t move\_state = MOVE\_STATE\_IDLE;}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{状态机实现}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ MoveStateMachine(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{switch}\NormalTok{ (move\_state) \{}
+        \ControlFlowTok{case}\NormalTok{ MOVE\_STATE\_IDLE:}
+            \CommentTok{// 等待运动指令}
+            \ControlFlowTok{if}\NormalTok{ (Move\_Command\_Received()) \{}
+\NormalTok{                move\_state = MOVE\_STATE\_PREPARING;}
+\NormalTok{            \}}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ MOVE\_STATE\_PREPARING:}
+            \CommentTok{// 准备运动(读取当前角度,计算目标角度)}
+\NormalTok{            Prepare\_Movement();}
+\NormalTok{            move\_state = MOVE\_STATE\_MOVING;}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ MOVE\_STATE\_MOVING:}
+            \CommentTok{// 执行运动(平滑运动)}
+            \ControlFlowTok{if}\NormalTok{ (Movement\_Finished()) \{}
+\NormalTok{                move\_state = MOVE\_STATE\_FINISHING;}
+\NormalTok{            \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{                Update\_Servo\_Angles();}
+\NormalTok{            \}}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ MOVE\_STATE\_FINISHING:}
+            \CommentTok{// 结束运动(清理状态)}
+\NormalTok{            Finish\_Movement();}
+\NormalTok{            move\_state = MOVE\_STATE\_IDLE;}
+            \ControlFlowTok{break}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux56dbux7ae0-ux5916ux8bbeux9a71ux52a8ux7a0bux5e8fux5f00ux53d1}{%
+\subsection{第四章
+外设驱动程序开发}\label{ux7b2cux56dbux7ae0-ux5916ux8bbeux9a71ux52a8ux7a0bux5e8fux5f00ux53d1}}
+
+\hypertarget{gpioux9a71ux52a8}{%
+\subsubsection{4.1 GPIO驱动}\label{gpioux9a71ux52a8}}
+
+\hypertarget{gpioux914dux7f6e}{%
+\paragraph{4.1.1 GPIO配置}\label{gpioux914dux7f6e}}
+
+GPIO(General Purpose Input/Output)是STM32最基本的外设。GPIO配置步骤:
+
+\textbf{步骤1: 使能时钟}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_GPIOA, ENABLE);}
+\NormalTok{RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_GPIOB, ENABLE);}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{步骤2: 配置GPIO模式}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{GPIO\_InitTypeDef GPIO\_InitStructure;}
+
+\CommentTok{// 配置输出引脚(LED)}
+\NormalTok{GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_13;}
+\NormalTok{GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_Out\_PP;     }\CommentTok{// 推挽输出}
+\NormalTok{GPIO\_InitStructure.GPIO\_Speed = GPIO\_Speed\_50MHz;}
+\NormalTok{GPIO\_Init(GPIOC, \&GPIO\_InitStructure);}
+
+\CommentTok{// 配置输入引脚(按键)}
+\NormalTok{GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_0;}
+\NormalTok{GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_IPU;        }\CommentTok{// 上拉输入}
+\NormalTok{GPIO\_Init(GPIOA, \&GPIO\_InitStructure);}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{GPIO模式}: - \texttt{GPIO\_Mode\_AIN}: 模拟输入 -
+\texttt{GPIO\_Mode\_IN\_FLOATING}: 浮空输入 - \texttt{GPIO\_Mode\_IPD}:
+下拉输入 - \texttt{GPIO\_Mode\_IPU}: 上拉输入 -
+\texttt{GPIO\_Mode\_Out\_OD}: 开漏输出 - \texttt{GPIO\_Mode\_Out\_PP}:
+推挽输出 - \texttt{GPIO\_Mode\_AF\_OD}: 复用开漏输出 -
+\texttt{GPIO\_Mode\_AF\_PP}: 复用推挽输出
+
+\hypertarget{gpioux64cdux4f5c}{%
+\paragraph{4.1.2 GPIO操作}\label{gpioux64cdux4f5c}}
+
+\textbf{输出操作}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 设置引脚为高电平}
+\NormalTok{GPIO\_SetBits(GPIOC, GPIO\_Pin\_13);}
+
+\CommentTok{// 设置引脚为低电平}
+\NormalTok{GPIO\_ResetBits(GPIOC, GPIO\_Pin\_13);}
+
+\CommentTok{// 翻转引脚电平}
+\NormalTok{GPIO\_WriteBit(GPIOC, GPIO\_Pin\_13, }
+\NormalTok{    (BitAction)(}\DecValTok{1}\NormalTok{ {-} GPIO\_ReadOutputDataBit(GPIOC, GPIO\_Pin\_13)));}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{输入操作}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 读取引脚电平}
+\DataTypeTok{uint8\_t}\NormalTok{ pin\_state = GPIO\_ReadInputDataBit(GPIOA, GPIO\_Pin\_0);}
+
+\ControlFlowTok{if}\NormalTok{ (pin\_state == }\DecValTok{0}\NormalTok{) \{}
+    \CommentTok{// 引脚为低电平}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+    \CommentTok{// 引脚为高电平}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{gpioux4e2dux65ad}{%
+\paragraph{4.1.3 GPIO中断}\label{gpioux4e2dux65ad}}
+
+GPIO可以配置为外部中断,用于检测引脚电平变化。
+
+\textbf{配置步骤}:
+
+\textbf{步骤1: 配置GPIO为输入模式}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_0;}
+\NormalTok{GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_IPU;}
+\NormalTok{GPIO\_Init(GPIOA, \&GPIO\_InitStructure);}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{步骤2: 配置EXTI(外部中断)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 使能AFIO时钟}
+\NormalTok{RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_AFIO, ENABLE);}
+
+\CommentTok{// 连接EXTI线到GPIO引脚}
+\NormalTok{GPIO\_EXTILineConfig(GPIO\_PortSourceGPIOA, GPIO\_PinSource0);}
+
+\CommentTok{// 配置EXTI}
+\NormalTok{EXTI\_InitTypeDef EXTI\_InitStructure;}
+\NormalTok{EXTI\_InitStructure.EXTI\_Line = EXTI\_Line0;}
+\NormalTok{EXTI\_InitStructure.EXTI\_Mode = EXTI\_Mode\_Interrupt;}
+\NormalTok{EXTI\_InitStructure.EXTI\_Trigger = EXTI\_Trigger\_Falling;  }\CommentTok{// 下降沿触发}
+\NormalTok{EXTI\_InitStructure.EXTI\_LineCmd = ENABLE;}
+\NormalTok{EXTI\_Init(\&EXTI\_InitStructure);}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{步骤3: 配置NVIC(中断控制器)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NVIC\_InitTypeDef NVIC\_InitStructure;}
+\NormalTok{NVIC\_InitStructure.NVIC\_IRQChannel = EXTI0\_IRQn;}
+\NormalTok{NVIC\_InitStructure.NVIC\_IRQChannelPreemptionPriority = }\DecValTok{1}\NormalTok{;}
+\NormalTok{NVIC\_InitStructure.NVIC\_IRQChannelSubPriority = }\DecValTok{1}\NormalTok{;}
+\NormalTok{NVIC\_InitStructure.NVIC\_IRQChannelCmd = ENABLE;}
+\NormalTok{NVIC\_Init(\&NVIC\_InitStructure);}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{步骤4: 编写中断服务函数}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ EXTI0\_IRQHandler(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{if}\NormalTok{ (EXTI\_GetITStatus(EXTI\_Line0) != RESET) \{}
+        \CommentTok{// 处理中断}
+        \CommentTok{// ...}
+        
+        \CommentTok{// 清除中断标志}
+\NormalTok{        EXTI\_ClearITPendingBit(EXTI\_Line0);}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux5b9aux65f6ux5668ux9a71ux52a8}{%
+\subsubsection{4.2 定时器驱动}\label{ux5b9aux65f6ux5668ux9a71ux52a8}}
+
+\hypertarget{ux5b9aux65f6ux5668ux57faux672cux914dux7f6e}{%
+\paragraph{4.2.1
+定时器基本配置}\label{ux5b9aux65f6ux5668ux57faux672cux914dux7f6e}}
+
+STM32F103C8T6有4个定时器: - TIM1: 高级定时器 - TIM2, TIM3, TIM4:
+通用定时器
+
+本项目使用TIM3生成PWM信号,使用TIM4测量超声波回波时间。
+
+\textbf{TIM3配置(PWM输出)}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ TIM3\_PWM\_Init(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 1. 使能时钟}
+\NormalTok{    RCC\_APB1PeriphClockCmd(RCC\_APB1Periph\_TIM3, ENABLE);}
+\NormalTok{    RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_GPIOA | RCC\_APB2Periph\_GPIOB, ENABLE);}
+    
+    \CommentTok{// 2. 配置GPIO为复用推挽输出}
+\NormalTok{    GPIO\_InitTypeDef GPIO\_InitStructure;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_AF\_PP;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Speed = GPIO\_Speed\_50MHz;}
+    
+\NormalTok{    GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_6 | GPIO\_Pin\_7;}
+\NormalTok{    GPIO\_Init(GPIOA, \&GPIO\_InitStructure);}
+    
+\NormalTok{    GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_0 | GPIO\_Pin\_1;}
+\NormalTok{    GPIO\_Init(GPIOB, \&GPIO\_InitStructure);}
+    
+    \CommentTok{// 3. 配置定时器时基单元}
+\NormalTok{    TIM\_TimeBaseInitTypeDef TIM\_TimeBaseInitStructure;}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_Period = }\DecValTok{20000}\NormalTok{ {-} }\DecValTok{1}\NormalTok{;        }\CommentTok{// ARR}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_Prescaler = }\DecValTok{72}\NormalTok{ {-} }\DecValTok{1}\NormalTok{;        }\CommentTok{// PSC}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_ClockDivision = TIM\_CKD\_DIV1;}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_CounterMode = TIM\_CounterMode\_Up;}
+\NormalTok{    TIM\_TimeBaseInit(TIM3, \&TIM\_TimeBaseInitStructure);}
+    
+    \CommentTok{// 4. 配置PWM模式}
+\NormalTok{    TIM\_OCInitTypeDef TIM\_OCInitStructure;}
+\NormalTok{    TIM\_OCStructInit(\&TIM\_OCInitStructure);}
+\NormalTok{    TIM\_OCInitStructure.TIM\_OCMode = TIM\_OCMode\_PWM1;}
+\NormalTok{    TIM\_OCInitStructure.TIM\_OutputState = TIM\_OutputState\_Enable;}
+\NormalTok{    TIM\_OCInitStructure.TIM\_OCPolarity = TIM\_OCPolarity\_High;}
+\NormalTok{    TIM\_OCInitStructure.TIM\_Pulse = }\DecValTok{0}\NormalTok{;}
+    
+\NormalTok{    TIM\_OC1Init(TIM3, \&TIM\_OCInitStructure);}
+\NormalTok{    TIM\_OC2Init(TIM3, \&TIM\_OCInitStructure);}
+\NormalTok{    TIM\_OC3Init(TIM3, \&TIM\_OCInitStructure);}
+\NormalTok{    TIM\_OC4Init(TIM3, \&TIM\_OCInitStructure);}
+    
+    \CommentTok{// 5. 使能定时器}
+\NormalTok{    TIM\_Cmd(TIM3, ENABLE);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{TIM4配置(定时计数)}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ TIM4\_Init(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 1. 使能时钟}
+\NormalTok{    RCC\_APB1PeriphClockCmd(RCC\_APB1Periph\_TIM4, ENABLE);}
+    
+    \CommentTok{// 2. 配置定时器}
+\NormalTok{    TIM\_TimeBaseInitTypeDef TIM\_TimeBaseInitStructure;}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_Period = }\DecValTok{65535}\NormalTok{;           }\CommentTok{// ARR(最大值)}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_Prescaler = }\DecValTok{72}\NormalTok{ {-} }\DecValTok{1}\NormalTok{;       }\CommentTok{// PSC(1MHz计数频率)}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_ClockDivision = TIM\_CKD\_DIV1;}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_CounterMode = TIM\_CounterMode\_Up;}
+\NormalTok{    TIM\_TimeBaseInit(TIM4, \&TIM\_TimeBaseInitStructure);}
+    
+    \CommentTok{// 3. 使能定时器}
+\NormalTok{    TIM\_Cmd(TIM4, ENABLE);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{pwmux8f93ux51faux63a7ux5236}{%
+\paragraph{4.2.2 PWM输出控制}\label{pwmux8f93ux51faux63a7ux5236}}
+
+\textbf{设置PWM占空比}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ PWM\_SetCompare1(}\DataTypeTok{uint16\_t}\NormalTok{ compare)}
+\NormalTok{\{}
+\NormalTok{    TIM\_SetCompare1(TIM3, compare);}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ PWM\_SetCompare2(}\DataTypeTok{uint16\_t}\NormalTok{ compare)}
+\NormalTok{\{}
+\NormalTok{    TIM\_SetCompare2(TIM3, compare);}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ PWM\_SetCompare3(}\DataTypeTok{uint16\_t}\NormalTok{ compare)}
+\NormalTok{\{}
+\NormalTok{    TIM\_SetCompare3(TIM3, compare);}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ PWM\_SetCompare4(}\DataTypeTok{uint16\_t}\NormalTok{ compare)}
+\NormalTok{\{}
+\NormalTok{    TIM\_SetCompare4(TIM3, compare);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{读取PWM占空比}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{uint16\_t}\NormalTok{ PWM\_GetCompare1(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{return}\NormalTok{ TIM\_GetCapture1(TIM3);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux5b9aux65f6ux5668ux4e2dux65ad}{%
+\paragraph{4.2.3 定时器中断}\label{ux5b9aux65f6ux5668ux4e2dux65ad}}
+
+定时器可以配置为定时中断,用于周期性执行任务。
+
+\textbf{配置步骤}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ TIM2\_Init(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 1. 使能时钟}
+\NormalTok{    RCC\_APB1PeriphClockCmd(RCC\_APB1Periph\_TIM2, ENABLE);}
+    
+    \CommentTok{// 2. 配置定时器(1ms中断一次)}
+\NormalTok{    TIM\_TimeBaseInitTypeDef TIM\_TimeBaseInitStructure;}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_Period = }\DecValTok{1000}\NormalTok{ {-} }\DecValTok{1}\NormalTok{;        }\CommentTok{// ARR}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_Prescaler = }\DecValTok{72}\NormalTok{ {-} }\DecValTok{1}\NormalTok{;       }\CommentTok{// PSC}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_ClockDivision = TIM\_CKD\_DIV1;}
+\NormalTok{    TIM\_TimeBaseInitStructure.TIM\_CounterMode = TIM\_CounterMode\_Up;}
+\NormalTok{    TIM\_TimeBaseInit(TIM2, \&TIM\_TimeBaseInitStructure);}
+    
+    \CommentTok{// 3. 使能更新中断}
+\NormalTok{    TIM\_ITConfig(TIM2, TIM\_IT\_Update, ENABLE);}
+    
+    \CommentTok{// 4. 配置NVIC}
+\NormalTok{    NVIC\_InitTypeDef NVIC\_InitStructure;}
+\NormalTok{    NVIC\_InitStructure.NVIC\_IRQChannel = TIM2\_IRQn;}
+\NormalTok{    NVIC\_InitStructure.NVIC\_IRQChannelPreemptionPriority = }\DecValTok{2}\NormalTok{;}
+\NormalTok{    NVIC\_InitStructure.NVIC\_IRQChannelSubPriority = }\DecValTok{1}\NormalTok{;}
+\NormalTok{    NVIC\_InitStructure.NVIC\_IRQChannelCmd = ENABLE;}
+\NormalTok{    NVIC\_Init(\&NVIC\_InitStructure);}
+    
+    \CommentTok{// 5. 使能定时器}
+\NormalTok{    TIM\_Cmd(TIM2, ENABLE);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{中断服务函数}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ TIM2\_IRQHandler(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{if}\NormalTok{ (TIM\_GetITStatus(TIM2, TIM\_IT\_Update) != RESET) \{}
+        \CommentTok{// 每1ms执行一次}
+        \CommentTok{// ...}
+        
+        \CommentTok{// 清除中断标志}
+\NormalTok{        TIM\_ClearITPendingBit(TIM2, TIM\_IT\_Update);}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux4e32ux53e3ux9a71ux52a8}{%
+\subsubsection{4.3 串口驱动}\label{ux4e32ux53e3ux9a71ux52a8}}
+
+\hypertarget{ux4e32ux53e3ux914dux7f6e}{%
+\paragraph{4.3.1 串口配置}\label{ux4e32ux53e3ux914dux7f6e}}
+
+STM32F103C8T6有3个USART。本项目使用USART1连接蓝牙,USART2连接语音合成,USART3连接语音识别。
+
+\textbf{USART1配置}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ USART1\_Init(}\DataTypeTok{uint32\_t}\NormalTok{ baudrate)}
+\NormalTok{\{}
+    \CommentTok{// 1. 使能时钟}
+\NormalTok{    RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_USART1, ENABLE);}
+\NormalTok{    RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_GPIOA, ENABLE);}
+    
+    \CommentTok{// 2. 配置GPIO}
+\NormalTok{    GPIO\_InitTypeDef GPIO\_InitStructure;}
+    
+    \CommentTok{// TX引脚: 复用推挽输出}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_9;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_AF\_PP;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Speed = GPIO\_Speed\_50MHz;}
+\NormalTok{    GPIO\_Init(GPIOA, \&GPIO\_InitStructure);}
+    
+    \CommentTok{// RX引脚: 浮空输入或上拉输入}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_10;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_IPU;}
+\NormalTok{    GPIO\_Init(GPIOA, \&GPIO\_InitStructure);}
+    
+    \CommentTok{// 3. 配置USART}
+\NormalTok{    USART\_InitTypeDef USART\_InitStructure;}
+\NormalTok{    USART\_InitStructure.USART\_BaudRate = baudrate;}
+\NormalTok{    USART\_InitStructure.USART\_WordLength = USART\_WordLength\_8b;}
+\NormalTok{    USART\_InitStructure.USART\_StopBits = USART\_StopBits\_1;}
+\NormalTok{    USART\_InitStructure.USART\_Parity = USART\_Parity\_No;}
+\NormalTok{    USART\_InitStructure.USART\_Mode = USART\_Mode\_Tx | USART\_Mode\_Rx;}
+\NormalTok{    USART\_InitStructure.USART\_HardwareFlowControl = USART\_HardwareFlowControl\_None;}
+\NormalTok{    USART\_Init(USART1, \&USART\_InitStructure);}
+    
+    \CommentTok{// 4. 使能接收中断}
+\NormalTok{    USART\_ITConfig(USART1, USART\_IT\_RXNE, ENABLE);}
+    
+    \CommentTok{// 5. 配置NVIC}
+\NormalTok{    NVIC\_InitTypeDef NVIC\_InitStructure;}
+\NormalTok{    NVIC\_InitStructure.NVIC\_IRQChannel = USART1\_IRQn;}
+\NormalTok{    NVIC\_InitStructure.NVIC\_IRQChannelPreemptionPriority = }\DecValTok{1}\NormalTok{;}
+\NormalTok{    NVIC\_InitStructure.NVIC\_IRQChannelSubPriority = }\DecValTok{1}\NormalTok{;}
+\NormalTok{    NVIC\_InitStructure.NVIC\_IRQChannelCmd = ENABLE;}
+\NormalTok{    NVIC\_Init(\&NVIC\_InitStructure);}
+    
+    \CommentTok{// 6. 使能USART}
+\NormalTok{    USART\_Cmd(USART1, ENABLE);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux4e32ux53e3ux53d1ux9001}{%
+\paragraph{4.3.2 串口发送}\label{ux4e32ux53e3ux53d1ux9001}}
+
+\textbf{发送单个字节}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ USART1\_SendByte(}\DataTypeTok{uint8\_t}\NormalTok{ byte)}
+\NormalTok{\{}
+    \CommentTok{// 等待发送缓冲区空}
+    \ControlFlowTok{while}\NormalTok{ (USART\_GetFlagStatus(USART1, USART\_FLAG\_TXE) == RESET);}
+    
+    \CommentTok{// 发送数据}
+\NormalTok{    USART\_SendData(USART1, byte);}
+    
+    \CommentTok{// 等待发送完成}
+    \ControlFlowTok{while}\NormalTok{ (USART\_GetFlagStatus(USART1, USART\_FLAG\_TC) == RESET);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{发送字符串}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ USART1\_SendString(}\DataTypeTok{char}\NormalTok{ *str)}
+\NormalTok{\{}
+    \ControlFlowTok{while}\NormalTok{ (*str != }\CharTok{\textquotesingle{}\textbackslash{}0\textquotesingle{}}\NormalTok{) \{}
+\NormalTok{        USART1\_SendByte(*str);}
+\NormalTok{        str++;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{发送数组}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ USART1\_SendArray(}\DataTypeTok{uint8\_t}\NormalTok{ *array, }\DataTypeTok{uint16\_t}\NormalTok{ length)}
+\NormalTok{\{}
+    \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{uint16\_t}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} length; i++) \{}
+\NormalTok{        USART1\_SendByte(array[i]);}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux4e32ux53e3ux63a5ux6536}{%
+\paragraph{4.3.3 串口接收}\label{ux4e32ux53e3ux63a5ux6536}}
+
+串口接收通过中断实现。
+
+\textbf{中断服务函数}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ USART1\_IRQHandler(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{if}\NormalTok{ (USART\_GetITStatus(USART1, USART\_IT\_RXNE) != RESET) \{}
+        \CommentTok{// 读取接收到的数据}
+        \DataTypeTok{uint8\_t}\NormalTok{ data = USART\_ReceiveData(USART1);}
+        
+        \CommentTok{// 将数据存入接收队列}
+\NormalTok{        RxQueue\_Push(\&usart1\_rx\_queue, data);}
+        
+        \CommentTok{// 清除中断标志(读取数据后自动清除)}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{接收队列操作}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ RxQueue\_Init(RxQueue\_t *queue)}
+\NormalTok{\{}
+\NormalTok{    queue{-}\textgreater{}head = }\DecValTok{0}\NormalTok{;}
+\NormalTok{    queue{-}\textgreater{}tail = }\DecValTok{0}\NormalTok{;}
+\NormalTok{    queue{-}\textgreater{}count = }\DecValTok{0}\NormalTok{;}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ RxQueue\_Push(RxQueue\_t *queue, }\DataTypeTok{uint8\_t}\NormalTok{ data)}
+\NormalTok{\{}
+    \ControlFlowTok{if}\NormalTok{ (queue{-}\textgreater{}count \textless{} }\DecValTok{256}\NormalTok{) \{}
+\NormalTok{        queue{-}\textgreater{}buffer[queue{-}\textgreater{}tail] = data;}
+\NormalTok{        queue{-}\textgreater{}tail = (queue{-}\textgreater{}tail + }\DecValTok{1}\NormalTok{) \% }\DecValTok{256}\NormalTok{;}
+\NormalTok{        queue{-}\textgreater{}count++;}
+\NormalTok{    \}}
+\NormalTok{\}}
+
+\DataTypeTok{uint8\_t}\NormalTok{ RxQueue\_Pop(RxQueue\_t *queue)}
+\NormalTok{\{}
+    \DataTypeTok{uint8\_t}\NormalTok{ data = }\DecValTok{0}\NormalTok{;}
+    
+    \ControlFlowTok{if}\NormalTok{ (queue{-}\textgreater{}count \textgreater{} }\DecValTok{0}\NormalTok{) \{}
+\NormalTok{        data = queue{-}\textgreater{}buffer[queue{-}\textgreater{}head];}
+\NormalTok{        queue{-}\textgreater{}head = (queue{-}\textgreater{}head + }\DecValTok{1}\NormalTok{) \% }\DecValTok{256}\NormalTok{;}
+\NormalTok{        queue{-}\textgreater{}count{-}{-};}
+\NormalTok{    \}}
+    
+    \ControlFlowTok{return}\NormalTok{ data;}
+\NormalTok{\}}
+
+\DataTypeTok{uint8\_t}\NormalTok{ RxQueue\_IsEmpty(RxQueue\_t *queue)}
+\NormalTok{\{}
+    \ControlFlowTok{return}\NormalTok{ (queue{-}\textgreater{}count == }\DecValTok{0}\NormalTok{);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{i2cux9a71ux52a8}{%
+\subsubsection{4.4 I2C驱动}\label{i2cux9a71ux52a8}}
+
+\hypertarget{i2cux914dux7f6e}{%
+\paragraph{4.4.1 I2C配置}\label{i2cux914dux7f6e}}
+
+I2C用于连接OLED显示屏。STM32的I2C外设配置较为复杂,也可以使用GPIO模拟I2C。
+
+\textbf{硬件I2C配置}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ I2C1\_Init(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 1. 使能时钟}
+\NormalTok{    RCC\_APB1PeriphClockCmd(RCC\_APB1Periph\_I2C1, ENABLE);}
+\NormalTok{    RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_GPIOB, ENABLE);}
+    
+    \CommentTok{// 2. 配置GPIO}
+\NormalTok{    GPIO\_InitTypeDef GPIO\_InitStructure;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_6 | GPIO\_Pin\_7;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_AF\_OD;  }\CommentTok{// 复用开漏输出}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Speed = GPIO\_Speed\_50MHz;}
+\NormalTok{    GPIO\_Init(GPIOB, \&GPIO\_InitStructure);}
+    
+    \CommentTok{// 3. 配置I2C}
+\NormalTok{    I2C\_InitTypeDef I2C\_InitStructure;}
+\NormalTok{    I2C\_InitStructure.I2C\_Mode = I2C\_Mode\_I2C;}
+\NormalTok{    I2C\_InitStructure.I2C\_DutyCycle = I2C\_DutyCycle\_2;}
+\NormalTok{    I2C\_InitStructure.I2C\_OwnAddress1 = }\BaseNTok{0x00}\NormalTok{;}
+\NormalTok{    I2C\_InitStructure.I2C\_Ack = I2C\_Ack\_Enable;}
+\NormalTok{    I2C\_InitStructure.I2C\_AcknowledgedAddress = I2C\_AcknowledgedAddress\_7bit;}
+\NormalTok{    I2C\_InitStructure.I2C\_ClockSpeed = }\DecValTok{400000}\NormalTok{;  }\CommentTok{// 400kHz}
+\NormalTok{    I2C\_Init(I2C1, \&I2C\_InitStructure);}
+    
+    \CommentTok{// 4. 使能I2C}
+\NormalTok{    I2C\_Cmd(I2C1, ENABLE);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{软件I2C(GPIO模拟)}:
+
+由于硬件I2C配置复杂,且容易出现死锁问题,本项目采用GPIO模拟I2C。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#define I2C\_SCL\_PIN GPIO\_Pin\_6}
+\PreprocessorTok{\#define I2C\_SDA\_PIN GPIO\_Pin\_7}
+\PreprocessorTok{\#define I2C\_GPIO GPIOB}
+
+\DataTypeTok{void}\NormalTok{ I2C\_GPIO\_Init(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_GPIOB, ENABLE);}
+    
+\NormalTok{    GPIO\_InitTypeDef GPIO\_InitStructure;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Pin = I2C\_SCL\_PIN | I2C\_SDA\_PIN;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_Out\_OD;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Speed = GPIO\_Speed\_50MHz;}
+\NormalTok{    GPIO\_Init(I2C\_GPIO, \&GPIO\_InitStructure);}
+    
+\NormalTok{    GPIO\_SetBits(I2C\_GPIO, I2C\_SCL\_PIN | I2C\_SDA\_PIN);}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ I2C\_Start(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    GPIO\_SetBits(I2C\_GPIO, I2C\_SDA\_PIN);}
+\NormalTok{    GPIO\_SetBits(I2C\_GPIO, I2C\_SCL\_PIN);}
+\NormalTok{    Delay\_us(}\DecValTok{5}\NormalTok{);}
+\NormalTok{    GPIO\_ResetBits(I2C\_GPIO, I2C\_SDA\_PIN);}
+\NormalTok{    Delay\_us(}\DecValTok{5}\NormalTok{);}
+\NormalTok{    GPIO\_ResetBits(I2C\_GPIO, I2C\_SCL\_PIN);}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ I2C\_Stop(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    GPIO\_ResetBits(I2C\_GPIO, I2C\_SDA\_PIN);}
+\NormalTok{    GPIO\_SetBits(I2C\_GPIO, I2C\_SCL\_PIN);}
+\NormalTok{    Delay\_us(}\DecValTok{5}\NormalTok{);}
+\NormalTok{    GPIO\_SetBits(I2C\_GPIO, I2C\_SDA\_PIN);}
+\NormalTok{    Delay\_us(}\DecValTok{5}\NormalTok{);}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ I2C\_SendByte(}\DataTypeTok{uint8\_t}\NormalTok{ byte)}
+\NormalTok{\{}
+    \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{uint8\_t}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} }\DecValTok{8}\NormalTok{; i++) \{}
+        \ControlFlowTok{if}\NormalTok{ (byte \& }\BaseNTok{0x80}\NormalTok{) \{}
+\NormalTok{            GPIO\_SetBits(I2C\_GPIO, I2C\_SDA\_PIN);}
+\NormalTok{        \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{            GPIO\_ResetBits(I2C\_GPIO, I2C\_SDA\_PIN);}
+\NormalTok{        \}}
+\NormalTok{        byte \textless{}\textless{}= }\DecValTok{1}\NormalTok{;}
+\NormalTok{        Delay\_us(}\DecValTok{2}\NormalTok{);}
+\NormalTok{        GPIO\_SetBits(I2C\_GPIO, I2C\_SCL\_PIN);}
+\NormalTok{        Delay\_us(}\DecValTok{5}\NormalTok{);}
+\NormalTok{        GPIO\_ResetBits(I2C\_GPIO, I2C\_SCL\_PIN);}
+\NormalTok{        Delay\_us(}\DecValTok{2}\NormalTok{);}
+\NormalTok{    \}}
+\NormalTok{\}}
+
+\DataTypeTok{uint8\_t}\NormalTok{ I2C\_ReceiveAck(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{uint8\_t}\NormalTok{ ack;}
+\NormalTok{    GPIO\_SetBits(I2C\_GPIO, I2C\_SDA\_PIN);}
+\NormalTok{    Delay\_us(}\DecValTok{2}\NormalTok{);}
+\NormalTok{    GPIO\_SetBits(I2C\_GPIO, I2C\_SCL\_PIN);}
+\NormalTok{    Delay\_us(}\DecValTok{2}\NormalTok{);}
+\NormalTok{    ack = GPIO\_ReadInputDataBit(I2C\_GPIO, I2C\_SDA\_PIN);}
+\NormalTok{    Delay\_us(}\DecValTok{2}\NormalTok{);}
+\NormalTok{    GPIO\_ResetBits(I2C\_GPIO, I2C\_SCL\_PIN);}
+\NormalTok{    Delay\_us(}\DecValTok{2}\NormalTok{);}
+    \ControlFlowTok{return}\NormalTok{ ack;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{i2cux6570ux636eux4f20ux8f93}{%
+\paragraph{4.4.2 I2C数据传输}\label{i2cux6570ux636eux4f20ux8f93}}
+
+\textbf{写数据}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ I2C\_WriteData(}\DataTypeTok{uint8\_t}\NormalTok{ addr, }\DataTypeTok{uint8\_t}\NormalTok{ reg, }\DataTypeTok{uint8\_t}\NormalTok{ data)}
+\NormalTok{\{}
+\NormalTok{    I2C\_Start();}
+\NormalTok{    I2C\_SendByte(addr \textless{}\textless{} }\DecValTok{1}\NormalTok{ | }\DecValTok{0}\NormalTok{);  }\CommentTok{// 发送设备地址+写命令}
+\NormalTok{    I2C\_ReceiveAck();}
+\NormalTok{    I2C\_SendByte(reg);             }\CommentTok{// 发送寄存器地址}
+\NormalTok{    I2C\_ReceiveAck();}
+\NormalTok{    I2C\_SendByte(data);            }\CommentTok{// 发送数据}
+\NormalTok{    I2C\_ReceiveAck();}
+\NormalTok{    I2C\_Stop();}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{读数据}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{uint8\_t}\NormalTok{ I2C\_ReadData(}\DataTypeTok{uint8\_t}\NormalTok{ addr, }\DataTypeTok{uint8\_t}\NormalTok{ reg)}
+\NormalTok{\{}
+    \DataTypeTok{uint8\_t}\NormalTok{ data;}
+    
+\NormalTok{    I2C\_Start();}
+\NormalTok{    I2C\_SendByte(addr \textless{}\textless{} }\DecValTok{1}\NormalTok{ | }\DecValTok{0}\NormalTok{);  }\CommentTok{// 发送设备地址+写命令}
+\NormalTok{    I2C\_ReceiveAck();}
+\NormalTok{    I2C\_SendByte(reg);             }\CommentTok{// 发送寄存器地址}
+\NormalTok{    I2C\_ReceiveAck();}
+    
+\NormalTok{    I2C\_Start();                   }\CommentTok{// 重新启动}
+\NormalTok{    I2C\_SendByte(addr \textless{}\textless{} }\DecValTok{1}\NormalTok{ | }\DecValTok{1}\NormalTok{);  }\CommentTok{// 发送设备地址+读命令}
+\NormalTok{    I2C\_ReceiveAck();}
+\NormalTok{    data = I2C\_ReceiveByte();      }\CommentTok{// 接收数据}
+\NormalTok{    I2C\_SendAck(}\DecValTok{1}\NormalTok{);                }\CommentTok{// 发送NACK}
+\NormalTok{    I2C\_Stop();}
+    
+    \ControlFlowTok{return}\NormalTok{ data;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e94ux7ae0-ux5e94ux7528ux7a0bux5e8fux5f00ux53d1}{%
+\subsection{第五章
+应用程序开发}\label{ux7b2cux4e94ux7ae0-ux5e94ux7528ux7a0bux5e8fux5f00ux53d1}}
+
+\hypertarget{ux4e3bux7a0bux5e8fux8bbeux8ba1}{%
+\subsubsection{5.1 主程序设计}\label{ux4e3bux7a0bux5e8fux8bbeux8ba1}}
+
+\hypertarget{ux4e3bux7a0bux5e8fux6d41ux7a0b}{%
+\paragraph{5.1.1 主程序流程}\label{ux4e3bux7a0bux5e8fux6d41ux7a0b}}
+
+主程序采用``初始化+主循环''结构:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{int}\NormalTok{ main(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 系统初始化}
+\NormalTok{    System\_Init();}
+    
+    \CommentTok{// 主循环}
+    \ControlFlowTok{while}\NormalTok{ (}\DecValTok{1}\NormalTok{) \{}
+        \CommentTok{// 读取传感器数据}
+\NormalTok{        Sensor\_Update();}
+        
+        \CommentTok{// 处理通信数据}
+\NormalTok{        Communication\_Process();}
+        
+        \CommentTok{// 执行运动控制}
+\NormalTok{        Movement\_Control();}
+        
+        \CommentTok{// 更新显示}
+\NormalTok{        Display\_Update();}
+        
+        \CommentTok{// 延时}
+\NormalTok{        Delay\_ms(}\DecValTok{50}\NormalTok{);}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux7cfbux7edfux521dux59cbux5316}{%
+\paragraph{5.1.2 系统初始化}\label{ux7cfbux7edfux521dux59cbux5316}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ System\_Init(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 1. 配置系统时钟(72MHz)}
+\NormalTok{    SystemInit();}
+    
+    \CommentTok{// 2. 配置NVIC优先级分组}
+\NormalTok{    NVIC\_PriorityGroupConfig(NVIC\_PriorityGroup\_2);}
+    
+    \CommentTok{// 3. 初始化延时函数}
+\NormalTok{    Delay\_Init();}
+    
+    \CommentTok{// 4. 初始化GPIO}
+\NormalTok{    GPIO\_Init\_All();}
+    
+    \CommentTok{// 5. 初始化定时器}
+\NormalTok{    TIM3\_PWM\_Init();}
+\NormalTok{    TIM4\_Init();}
+    
+    \CommentTok{// 6. 初始化串口}
+\NormalTok{    USART1\_Init(}\DecValTok{9600}\NormalTok{);   }\CommentTok{// 蓝牙}
+\NormalTok{    USART2\_Init(}\DecValTok{9600}\NormalTok{);   }\CommentTok{// 语音合成}
+\NormalTok{    USART3\_Init(}\DecValTok{9600}\NormalTok{);   }\CommentTok{// 语音识别}
+    
+    \CommentTok{// 7. 初始化I2C}
+\NormalTok{    I2C\_GPIO\_Init();}
+    
+    \CommentTok{// 8. 初始化OLED}
+\NormalTok{    OLED\_Init();}
+\NormalTok{    OLED\_ShowString(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\StringTok{"System Init..."}\NormalTok{);}
+    
+    \CommentTok{// 9. 初始化舵机(回中位)}
+\NormalTok{    Servo\_Init();}
+    
+    \CommentTok{// 10. 初始化系统状态}
+\NormalTok{    system\_state.current\_mode = MODE\_STAND;}
+\NormalTok{    system\_state.previous\_mode = MODE\_STAND;}
+\NormalTok{    system\_state.avoid\_enable = }\DecValTok{1}\NormalTok{;}
+\NormalTok{    system\_state.stamina = }\DecValTok{100}\NormalTok{;}
+    
+    \CommentTok{// 11. 延时等待系统稳定}
+\NormalTok{    Delay\_ms(}\DecValTok{1000}\NormalTok{);}
+    
+    \CommentTok{// 12. 显示就绪信息}
+\NormalTok{    OLED\_Clear();}
+\NormalTok{    OLED\_ShowString(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\StringTok{"Ready!"}\NormalTok{);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux4f20ux611fux5668ux66f4ux65b0}{%
+\paragraph{5.1.3 传感器更新}\label{ux4f20ux611fux5668ux66f4ux65b0}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Sensor\_Update(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 更新超声波测距}
+\NormalTok{    sensor\_data.distance = UltrasonicWave\_GetDistance\_Filtered();}
+    
+    \CommentTok{// 更新红外传感器}
+\NormalTok{    sensor\_data.front\_ir = GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_2);}
+\NormalTok{    sensor\_data.back\_ir = GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_3);}
+\NormalTok{    sensor\_data.left\_ir = GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_4);}
+\NormalTok{    sensor\_data.right\_ir = GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_5);}
+    
+    \CommentTok{// 更新时间戳}
+\NormalTok{    sensor\_data.timestamp = GetSystemTick();}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux901aux4fe1ux5904ux7406}{%
+\paragraph{5.1.4 通信处理}\label{ux901aux4fe1ux5904ux7406}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Communication\_Process(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 处理蓝牙指令}
+    \ControlFlowTok{if}\NormalTok{ (!RxQueue\_IsEmpty(\&usart1\_rx\_queue)) \{}
+        \DataTypeTok{uint8\_t}\NormalTok{ cmd = RxQueue\_Pop(\&usart1\_rx\_queue);}
+\NormalTok{        Command\_Parse(cmd);}
+\NormalTok{    \}}
+    
+    \CommentTok{// 处理语音识别指令}
+    \ControlFlowTok{if}\NormalTok{ (!RxQueue\_IsEmpty(\&usart3\_rx\_queue)) \{}
+        \DataTypeTok{uint8\_t}\NormalTok{ cmd = RxQueue\_Pop(\&usart3\_rx\_queue);}
+\NormalTok{        Voice\_Command\_Parse(cmd);}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux8fd0ux52a8ux63a7ux5236}{%
+\paragraph{5.1.5 运动控制}\label{ux8fd0ux52a8ux63a7ux5236}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Movement\_Control(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 检查是否需要避障}
+    \ControlFlowTok{if}\NormalTok{ (system\_state.avoid\_enable \&\& Obstacle\_Detected()) \{}
+\NormalTok{        Avoidance\_Execute();}
+        \ControlFlowTok{return}\NormalTok{;}
+\NormalTok{    \}}
+    
+    \CommentTok{// 根据当前模式执行运动}
+    \ControlFlowTok{switch}\NormalTok{ (system\_state.current\_mode) \{}
+        \ControlFlowTok{case}\NormalTok{ MODE\_STAND:}
+\NormalTok{            move\_stand();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case}\NormalTok{ MODE\_FORWARD:}
+\NormalTok{            move\_forward();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case}\NormalTok{ MODE\_BACKWARD:}
+\NormalTok{            move\_behind();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case}\NormalTok{ MODE\_TURN\_LEFT:}
+\NormalTok{            move\_left();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case}\NormalTok{ MODE\_TURN\_RIGHT:}
+\NormalTok{            move\_right();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case}\NormalTok{ MODE\_SIT:}
+\NormalTok{            move\_sit();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case}\NormalTok{ MODE\_LIE:}
+\NormalTok{            move\_lie();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case}\NormalTok{ MODE\_HELLO:}
+\NormalTok{            move\_hello();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case}\NormalTok{ MODE\_STRETCH:}
+\NormalTok{            move\_stretch();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case}\NormalTok{ MODE\_DANCE:}
+\NormalTok{            move\_dance();}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{default}\NormalTok{:}
+\NormalTok{            move\_stand();}
+            \ControlFlowTok{break}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux901aux4fe1ux534fux8baeux8bbeux8ba1}{%
+\subsubsection{5.2
+通信协议设计}\label{ux901aux4fe1ux534fux8baeux8bbeux8ba1}}
+
+\hypertarget{ux84ddux7259ux901aux4fe1ux534fux8bae}{%
+\paragraph{5.2.1
+蓝牙通信协议}\label{ux84ddux7259ux901aux4fe1ux534fux8bae}}
+
+蓝牙通信采用单字符指令:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+指令 & 功能\tabularnewline
+\midrule
+\endhead
+`0' & 站立\tabularnewline
+`1' & 前进\tabularnewline
+`2' & 后退\tabularnewline
+`3' & 左转\tabularnewline
+`4' & 右转\tabularnewline
+`5' & 坐下\tabularnewline
+`6' & 趴下\tabularnewline
+`7' & 打招呼\tabularnewline
+`8' & 伸懒腰\tabularnewline
+`9' & 跳舞\tabularnewline
+`a' & 开启避障\tabularnewline
+`b' & 关闭避障\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{指令解析}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Command\_Parse(}\DataTypeTok{uint8\_t}\NormalTok{ cmd)}
+\NormalTok{\{}
+    \CommentTok{// 保存上一个模式}
+\NormalTok{    system\_state.previous\_mode = system\_state.current\_mode;}
+    
+    \CommentTok{// 解析指令}
+    \ControlFlowTok{switch}\NormalTok{ (cmd) \{}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}0\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_STAND;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}1\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_FORWARD;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}2\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_BACKWARD;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}3\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_TURN\_LEFT;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}4\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_TURN\_RIGHT;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}5\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_SIT;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}6\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_LIE;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}7\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_HELLO;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}8\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_STRETCH;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}9\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.current\_mode = MODE\_DANCE;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.avoid\_enable = }\DecValTok{1}\NormalTok{;}
+\NormalTok{            OLED\_ShowString(}\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\StringTok{"Avoid: ON "}\NormalTok{);}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \CharTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{:}
+\NormalTok{            system\_state.avoid\_enable = }\DecValTok{0}\NormalTok{;}
+\NormalTok{            OLED\_ShowString(}\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\StringTok{"Avoid: OFF"}\NormalTok{);}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{default}\NormalTok{:}
+            \ControlFlowTok{break}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux8bedux97f3ux5408ux6210ux534fux8bae}{%
+\paragraph{5.2.2
+语音合成协议}\label{ux8bedux97f3ux5408ux6210ux534fux8bae}}
+
+SYN6288语音合成模块使用自定义协议:
+
+\textbf{数据帧格式}:
+
+\begin{verbatim}
+[帧头][长度][命令][参数][数据][校验]
+ 0xFD  1字节  1字节  1字节  N字节  1字节
+\end{verbatim}
+
+\textbf{发送语音合成指令}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ SYN6288\_Speak(}\DataTypeTok{char}\NormalTok{ *text)}
+\NormalTok{\{}
+    \DataTypeTok{uint16\_t}\NormalTok{ length = strlen(text) + }\DecValTok{2}\NormalTok{;}
+    \DataTypeTok{uint8\_t}\NormalTok{ buffer[}\DecValTok{256}\NormalTok{];}
+    \DataTypeTok{uint8\_t}\NormalTok{ checksum = }\DecValTok{0}\NormalTok{;}
+    
+\NormalTok{    buffer[}\DecValTok{0}\NormalTok{] = }\BaseNTok{0xFD}\NormalTok{;                    }\CommentTok{// 帧头}
+\NormalTok{    buffer[}\DecValTok{1}\NormalTok{] = (length \textgreater{}\textgreater{} }\DecValTok{8}\NormalTok{) \& }\BaseNTok{0xFF}\NormalTok{;    }\CommentTok{// 长度高字节}
+\NormalTok{    buffer[}\DecValTok{2}\NormalTok{] = length \& }\BaseNTok{0xFF}\NormalTok{;           }\CommentTok{// 长度低字节}
+\NormalTok{    buffer[}\DecValTok{3}\NormalTok{] = }\BaseNTok{0x01}\NormalTok{;                    }\CommentTok{// 命令(合成播放)}
+\NormalTok{    buffer[}\DecValTok{4}\NormalTok{] = }\BaseNTok{0x00}\NormalTok{;                    }\CommentTok{// 参数(背景音乐)}
+    
+    \CommentTok{// 复制文本数据}
+    \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{uint16\_t}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} strlen(text); i++) \{}
+\NormalTok{        buffer[}\DecValTok{5}\NormalTok{ + i] = text[i];}
+\NormalTok{    \}}
+    
+    \CommentTok{// 计算校验和}
+    \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{uint16\_t}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} length + }\DecValTok{3}\NormalTok{; i++) \{}
+\NormalTok{        checksum \^{}= buffer[i];}
+\NormalTok{    \}}
+\NormalTok{    buffer[length + }\DecValTok{3}\NormalTok{] = checksum;}
+    
+    \CommentTok{// 发送数据}
+\NormalTok{    USART2\_SendArray(buffer, length + }\DecValTok{4}\NormalTok{);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux8bedux97f3ux8bc6ux522bux534fux8bae}{%
+\paragraph{5.2.3
+语音识别协议}\label{ux8bedux97f3ux8bc6ux522bux534fux8bae}}
+
+LD3320语音识别模块输出识别结果的ASCII码。
+
+\textbf{识别结果映射}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Voice\_Command\_Parse(}\DataTypeTok{uint8\_t}\NormalTok{ result)}
+\NormalTok{\{}
+    \ControlFlowTok{switch}\NormalTok{ (result) \{}
+        \ControlFlowTok{case} \BaseNTok{0x01}\NormalTok{:  }\CommentTok{// "前进"}
+\NormalTok{            system\_state.current\_mode = MODE\_FORWARD;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \BaseNTok{0x02}\NormalTok{:  }\CommentTok{// "后退"}
+\NormalTok{            system\_state.current\_mode = MODE\_BACKWARD;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \BaseNTok{0x03}\NormalTok{:  }\CommentTok{// "左转"}
+\NormalTok{            system\_state.current\_mode = MODE\_TURN\_LEFT;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \BaseNTok{0x04}\NormalTok{:  }\CommentTok{// "右转"}
+\NormalTok{            system\_state.current\_mode = MODE\_TURN\_RIGHT;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \BaseNTok{0x05}\NormalTok{:  }\CommentTok{// "停止"}
+\NormalTok{            system\_state.current\_mode = MODE\_STAND;}
+            \ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{default}\NormalTok{:}
+            \ControlFlowTok{break}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux4efbux52a1ux8c03ux5ea6ux8bbeux8ba1}{%
+\subsubsection{5.3
+任务调度设计}\label{ux4efbux52a1ux8c03ux5ea6ux8bbeux8ba1}}
+
+\hypertarget{ux65f6ux95f4ux7247ux8f6eux8be2ux8c03ux5ea6}{%
+\paragraph{5.3.1
+时间片轮询调度}\label{ux65f6ux95f4ux7247ux8f6eux8be2ux8c03ux5ea6}}
+
+由于系统任务较少,采用简单的时间片轮询调度:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{uint32\_t}\NormalTok{ system\_tick = }\DecValTok{0}\NormalTok{;}
+
+\DataTypeTok{void}\NormalTok{ SysTick\_Handler(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    system\_tick++;}
+\NormalTok{\}}
+
+\DataTypeTok{uint32\_t}\NormalTok{ GetSystemTick(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{return}\NormalTok{ system\_tick;}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ Task\_Scheduler(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{static} \DataTypeTok{uint32\_t}\NormalTok{ last\_sensor\_update = }\DecValTok{0}\NormalTok{;}
+    \DataTypeTok{static} \DataTypeTok{uint32\_t}\NormalTok{ last\_display\_update = }\DecValTok{0}\NormalTok{;}
+    \DataTypeTok{static} \DataTypeTok{uint32\_t}\NormalTok{ last\_battery\_check = }\DecValTok{0}\NormalTok{;}
+    
+    \DataTypeTok{uint32\_t}\NormalTok{ current\_tick = GetSystemTick();}
+    
+    \CommentTok{// 传感器更新任务(100ms)}
+    \ControlFlowTok{if}\NormalTok{ (current\_tick {-} last\_sensor\_update \textgreater{}= }\DecValTok{100}\NormalTok{) \{}
+\NormalTok{        Sensor\_Update();}
+\NormalTok{        last\_sensor\_update = current\_tick;}
+\NormalTok{    \}}
+    
+    \CommentTok{// 显示更新任务(500ms)}
+    \ControlFlowTok{if}\NormalTok{ (current\_tick {-} last\_display\_update \textgreater{}= }\DecValTok{500}\NormalTok{) \{}
+\NormalTok{        Display\_Update();}
+\NormalTok{        last\_display\_update = current\_tick;}
+\NormalTok{    \}}
+    
+    \CommentTok{// 电池检查任务(5000ms)}
+    \ControlFlowTok{if}\NormalTok{ (current\_tick {-} last\_battery\_check \textgreater{}= }\DecValTok{5000}\NormalTok{) \{}
+\NormalTok{        Battery\_Check();}
+\NormalTok{        last\_battery\_check = current\_tick;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux4f18ux5148ux7ea7ux8c03ux5ea6}{%
+\paragraph{5.3.2 优先级调度}\label{ux4f18ux5148ux7ea7ux8c03ux5ea6}}
+
+对于有实时性要求的任务,可以使用优先级调度:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{enum}\NormalTok{ \{}
+\NormalTok{    TASK\_PRIORITY\_HIGH = }\DecValTok{0}\NormalTok{,}
+\NormalTok{    TASK\_PRIORITY\_MEDIUM,}
+\NormalTok{    TASK\_PRIORITY\_LOW}
+\NormalTok{\} TaskPriority\_t;}
+
+\KeywordTok{typedef} \KeywordTok{struct}\NormalTok{ \{}
+    \DataTypeTok{void}\NormalTok{ (*function)(}\DataTypeTok{void}\NormalTok{);}
+\NormalTok{    TaskPriority\_t priority;}
+    \DataTypeTok{uint32\_t}\NormalTok{ period;}
+    \DataTypeTok{uint32\_t}\NormalTok{ last\_run;}
+\NormalTok{\} Task\_t;}
+
+\NormalTok{Task\_t task\_list[] = \{}
+\NormalTok{    \{Sensor\_Update, TASK\_PRIORITY\_HIGH, }\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{\},}
+\NormalTok{    \{Movement\_Control, TASK\_PRIORITY\_HIGH, }\DecValTok{50}\NormalTok{, }\DecValTok{0}\NormalTok{\},}
+\NormalTok{    \{Display\_Update, TASK\_PRIORITY\_MEDIUM, }\DecValTok{500}\NormalTok{, }\DecValTok{0}\NormalTok{\},}
+\NormalTok{    \{Battery\_Check, TASK\_PRIORITY\_LOW, }\DecValTok{5000}\NormalTok{, }\DecValTok{0}\NormalTok{\}}
+\NormalTok{\};}
+
+\DataTypeTok{void}\NormalTok{ Task\_Scheduler\_Priority(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{uint32\_t}\NormalTok{ current\_tick = GetSystemTick();}
+    
+    \CommentTok{// 按优先级执行任务}
+    \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{uint8\_t}\NormalTok{ priority = TASK\_PRIORITY\_HIGH; priority \textless{}= TASK\_PRIORITY\_LOW; priority++) \{}
+        \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{uint8\_t}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} }\KeywordTok{sizeof}\NormalTok{(task\_list) / }\KeywordTok{sizeof}\NormalTok{(Task\_t); i++) \{}
+            \ControlFlowTok{if}\NormalTok{ (task\_list[i].priority == priority) \{}
+                \ControlFlowTok{if}\NormalTok{ (current\_tick {-} task\_list[i].last\_run \textgreater{}= task\_list[i].period) \{}
+\NormalTok{                    task\_list[i].function();}
+\NormalTok{                    task\_list[i].last\_run = current\_tick;}
+\NormalTok{                \}}
+\NormalTok{            \}}
+\NormalTok{        \}}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux516dux7ae0-ux7cfbux7edfux8c03ux8bd5ux4e0eux4f18ux5316}{%
+\subsection{第六章
+系统调试与优化}\label{ux7b2cux516dux7ae0-ux7cfbux7edfux8c03ux8bd5ux4e0eux4f18ux5316}}
+
+\hypertarget{ux8c03ux8bd5ux65b9ux6cd5}{%
+\subsubsection{6.1 调试方法}\label{ux8c03ux8bd5ux65b9ux6cd5}}
+
+\hypertarget{ux4e32ux53e3ux8c03ux8bd5}{%
+\paragraph{6.1.1 串口调试}\label{ux4e32ux53e3ux8c03ux8bd5}}
+
+串口是最常用的调试方法。通过串口输出调试信息,可以实时查看程序运行状态。
+
+\textbf{重定向printf到串口}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#include }\ImportTok{\textless{}stdio.h\textgreater{}}
+
+\CommentTok{// 重定向fputc函数}
+\DataTypeTok{int}\NormalTok{ fputc(}\DataTypeTok{int}\NormalTok{ ch, }\DataTypeTok{FILE}\NormalTok{ *f)}
+\NormalTok{\{}
+\NormalTok{    USART1\_SendByte((}\DataTypeTok{uint8\_t}\NormalTok{)ch);}
+    \ControlFlowTok{return}\NormalTok{ ch;}
+\NormalTok{\}}
+
+\CommentTok{// 使用printf输出调试信息}
+\NormalTok{printf(}\StringTok{"Distance: \%.2f cm}\SpecialCharTok{\textbackslash{}r\textbackslash{}n}\StringTok{"}\NormalTok{, distance);}
+\NormalTok{printf(}\StringTok{"Mode: \%d}\SpecialCharTok{\textbackslash{}r\textbackslash{}n}\StringTok{"}\NormalTok{, system\_state.current\_mode);}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{调试宏定义}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#define DEBUG\_ENABLE 1}
+
+\PreprocessorTok{\#if DEBUG\_ENABLE}
+    \PreprocessorTok{\#define DEBUG\_PRINT(fmt, ...) printf(fmt, \#\#\_\_VA\_ARGS\_\_)}
+\PreprocessorTok{\#else}
+    \PreprocessorTok{\#define DEBUG\_PRINT(fmt, ...)}
+\PreprocessorTok{\#endif}
+
+\CommentTok{// 使用}
+\NormalTok{DEBUG\_PRINT(}\StringTok{"Servo1 angle: \%d}\SpecialCharTok{\textbackslash{}r\textbackslash{}n}\StringTok{"}\NormalTok{, angle);}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ledux6307ux793aux8c03ux8bd5}{%
+\paragraph{6.1.2 LED指示调试}\label{ledux6307ux793aux8c03ux8bd5}}
+
+使用LED指示灯显示程序运行状态:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#define LED\_PIN GPIO\_Pin\_13}
+\PreprocessorTok{\#define LED\_GPIO GPIOC}
+
+\DataTypeTok{void}\NormalTok{ LED\_Init(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_GPIOC, ENABLE);}
+    
+\NormalTok{    GPIO\_InitTypeDef GPIO\_InitStructure;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Pin = LED\_PIN;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_Out\_PP;}
+\NormalTok{    GPIO\_InitStructure.GPIO\_Speed = GPIO\_Speed\_50MHz;}
+\NormalTok{    GPIO\_Init(LED\_GPIO, \&GPIO\_InitStructure);}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ LED\_On(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    GPIO\_ResetBits(LED\_GPIO, LED\_PIN);}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ LED\_Off(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    GPIO\_SetBits(LED\_GPIO, LED\_PIN);}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ LED\_Toggle(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    GPIO\_WriteBit(LED\_GPIO, LED\_PIN, }
+\NormalTok{        (BitAction)(}\DecValTok{1}\NormalTok{ {-} GPIO\_ReadOutputDataBit(LED\_GPIO, LED\_PIN)));}
+\NormalTok{\}}
+
+\CommentTok{// 使用LED指示程序运行}
+\DataTypeTok{void}\NormalTok{ main\_loop(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{while}\NormalTok{ (}\DecValTok{1}\NormalTok{) \{}
+\NormalTok{        LED\_Toggle();  }\CommentTok{// LED闪烁表示程序正常运行}
+\NormalTok{        Delay\_ms(}\DecValTok{500}\NormalTok{);}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux5728ux7ebfux8c03ux8bd5}{%
+\paragraph{6.1.3 在线调试}\label{ux5728ux7ebfux8c03ux8bd5}}
+
+使用Keil的在线调试功能,可以设置断点、单步执行、查看变量等。
+
+\textbf{设置断点}: - 在代码行号处单击,设置断点 - 按F9切换断点
+
+\textbf{单步执行}: - F10: 单步跳过(Step Over) - F11: 单步进入(Step Into)
+- Shift+F11: 单步跳出(Step Out)
+
+\textbf{查看变量}: - 在Watch窗口添加变量 - 鼠标悬停在变量上查看值
+
+\textbf{查看寄存器}: - View → Peripheral → 选择外设 - 查看外设寄存器的值
+
+\hypertarget{ux903bux8f91ux5206ux6790ux4eeaux8c03ux8bd5}{%
+\paragraph{6.1.4
+逻辑分析仪调试}\label{ux903bux8f91ux5206ux6790ux4eeaux8c03ux8bd5}}
+
+使用逻辑分析仪可以查看数字信号的波形,分析时序问题。
+
+\textbf{测量PWM波形}: - 将逻辑分析仪探头连接到PWM输出引脚 -
+设置采样率(如10MHz) - 触发条件设置为上升沿 - 观察PWM波形的频率和占空比
+
+\textbf{分析I2C通信}: - 连接SCL和SDA引脚 - 使用I2C协议解码功能 -
+查看地址、数据、ACK等信息
+
+\hypertarget{ux6027ux80fdux4f18ux5316}{%
+\subsubsection{6.2 性能优化}\label{ux6027ux80fdux4f18ux5316}}
+
+\hypertarget{ux4ee3ux7801ux4f18ux5316}{%
+\paragraph{6.2.1 代码优化}\label{ux4ee3ux7801ux4f18ux5316}}
+
+\textbf{编译器优化等级}:
+
+Keil MDK支持多个优化等级: - -O0: 不优化 - -O1: 基本优化 - -O2: 较高优化
+- -O3: 最高优化
+
+在Options for Target → C/C++ → Optimization中设置。
+
+建议使用-O2,在性能和代码大小之间取得平衡。
+
+\textbf{循环优化}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 优化前}
+\ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{int}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} }\DecValTok{100}\NormalTok{; i++) \{}
+\NormalTok{    array[i] = i * }\DecValTok{2}\NormalTok{;}
+\NormalTok{\}}
+
+\CommentTok{// 优化后(循环展开)}
+\ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{int}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} }\DecValTok{100}\NormalTok{; i += }\DecValTok{4}\NormalTok{) \{}
+\NormalTok{    array[i] = i * }\DecValTok{2}\NormalTok{;}
+\NormalTok{    array[i+}\DecValTok{1}\NormalTok{] = (i+}\DecValTok{1}\NormalTok{) * }\DecValTok{2}\NormalTok{;}
+\NormalTok{    array[i+}\DecValTok{2}\NormalTok{] = (i+}\DecValTok{2}\NormalTok{) * }\DecValTok{2}\NormalTok{;}
+\NormalTok{    array[i+}\DecValTok{3}\NormalTok{] = (i+}\DecValTok{3}\NormalTok{) * }\DecValTok{2}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{查表法}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 优化前(计算三角函数)}
+\DataTypeTok{float}\NormalTok{ angle\_rad = angle * }\FloatTok{3.14159}\NormalTok{ / }\FloatTok{180.0}\NormalTok{;}
+\DataTypeTok{float}\NormalTok{ sin\_value = sin(angle\_rad);}
+
+\CommentTok{// 优化后(查表)}
+\DataTypeTok{const} \DataTypeTok{float}\NormalTok{ sin\_table[}\DecValTok{91}\NormalTok{] = \{}\FloatTok{0.0}\NormalTok{, }\FloatTok{0.017}\NormalTok{, }\FloatTok{0.035}\NormalTok{, ...\};}
+\DataTypeTok{float}\NormalTok{ sin\_value = sin\_table[angle];}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux5185ux5b58ux4f18ux5316}{%
+\paragraph{6.2.2 内存优化}\label{ux5185ux5b58ux4f18ux5316}}
+
+\textbf{减少全局变量}:
+
+全局变量占用SRAM,应尽量使用局部变量。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 不推荐}
+\DataTypeTok{uint8\_t}\NormalTok{ temp\_buffer[}\DecValTok{1024}\NormalTok{];}
+
+\DataTypeTok{void}\NormalTok{ function1(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 使用temp\_buffer}
+\NormalTok{\}}
+
+\CommentTok{// 推荐}
+\DataTypeTok{void}\NormalTok{ function1(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{uint8\_t}\NormalTok{ temp\_buffer[}\DecValTok{1024}\NormalTok{];}
+    \CommentTok{// 使用temp\_buffer}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{使用const修饰常量}:
+
+const修饰的常量存储在Flash中,不占用SRAM。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 不推荐}
+\DataTypeTok{uint8\_t}\NormalTok{ lookup\_table[}\DecValTok{256}\NormalTok{] = \{}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, ...\};}
+
+\CommentTok{// 推荐}
+\DataTypeTok{const} \DataTypeTok{uint8\_t}\NormalTok{ lookup\_table[}\DecValTok{256}\NormalTok{] = \{}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, ...\};}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{减少栈使用}:
+
+避免在函数中定义大数组,防止栈溢出。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 不推荐}
+\DataTypeTok{void}\NormalTok{ function(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{uint8\_t}\NormalTok{ large\_array[}\DecValTok{2048}\NormalTok{];}
+    \CommentTok{// ...}
+\NormalTok{\}}
+
+\CommentTok{// 推荐}
+\DataTypeTok{static} \DataTypeTok{uint8\_t}\NormalTok{ large\_array[}\DecValTok{2048}\NormalTok{];}
+
+\DataTypeTok{void}\NormalTok{ function(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 使用large\_array}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux529fux8017ux4f18ux5316}{%
+\paragraph{6.2.3 功耗优化}\label{ux529fux8017ux4f18ux5316}}
+
+\textbf{降低系统时钟}:
+
+如果不需要高性能,可以降低系统时钟频率,减少功耗。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 从72MHz降低到36MHz}
+\NormalTok{RCC\_PLLConfig(RCC\_PLLSource\_HSE\_Div1, RCC\_PLLMul\_9);  }\CommentTok{// 8MHz * 9 / 2 = 36MHz}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{使用睡眠模式}:
+
+在空闲时进入睡眠模式,降低功耗。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Enter\_Sleep\_Mode(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    \_\_WFI();  }\CommentTok{// Wait For Interrupt}
+\NormalTok{\}}
+
+\DataTypeTok{void}\NormalTok{ main\_loop(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{while}\NormalTok{ (}\DecValTok{1}\NormalTok{) \{}
+        \CommentTok{// 执行任务}
+\NormalTok{        Task\_Execute();}
+        
+        \CommentTok{// 进入睡眠,等待中断唤醒}
+\NormalTok{        Enter\_Sleep\_Mode();}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{关闭未使用的外设}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 关闭未使用的外设时钟}
+\NormalTok{RCC\_APB1PeriphClockCmd(RCC\_APB1Periph\_TIM2, DISABLE);}
+\NormalTok{RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_ADC1, DISABLE);}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux5e38ux89c1ux95eeux9898ux4e0eux89e3ux51b3}{%
+\subsubsection{6.3
+常见问题与解决}\label{ux5e38ux89c1ux95eeux9898ux4e0eux89e3ux51b3}}
+
+\hypertarget{ux8235ux673aux6296ux52a8}{%
+\paragraph{6.3.1 舵机抖动}\label{ux8235ux673aux6296ux52a8}}
+
+\textbf{问题}: 舵机在静止时抖动。
+
+\textbf{原因}: 1. PWM信号不稳定 2. 电源电压波动 3. 舵机质量问题
+
+\textbf{解决方法}: 1. 检查PWM频率和占空比是否正确 2. 增大电源滤波电容 3.
+更换质量更好的舵机
+
+\hypertarget{ux4e32ux53e3ux4e71ux7801}{%
+\paragraph{6.3.2 串口乱码}\label{ux4e32ux53e3ux4e71ux7801}}
+
+\textbf{问题}: 串口接收到的数据是乱码。
+
+\textbf{原因}: 1. 波特率不匹配 2. 数据位、停止位、校验位设置错误 3.
+接线错误(TX和RX接反)
+
+\textbf{解决方法}: 1. 检查波特率设置 2. 检查串口参数(8N1) 3.
+检查接线(TX接RX,RX接TX)
+
+\hypertarget{i2cux901aux4fe1ux5931ux8d25}{%
+\paragraph{6.3.3 I2C通信失败}\label{i2cux901aux4fe1ux5931ux8d25}}
+
+\textbf{问题}: OLED显示屏无显示。
+
+\textbf{原因}: 1. I2C地址错误 2. 上拉电阻缺失或阻值不合适 3. 时序不正确
+
+\textbf{解决方法}: 1. 使用I2C扫描程序确认设备地址 2.
+检查SCL和SDA的上拉电阻(4.7kΩ) 3. 使用逻辑分析仪检查I2C时序
+
+\hypertarget{ux7a0bux5e8fux8dd1ux98de}{%
+\paragraph{6.3.4 程序跑飞}\label{ux7a0bux5e8fux8dd1ux98de}}
+
+\textbf{问题}: 程序运行一段时间后死机或重启。
+
+\textbf{原因}: 1. 栈溢出 2. 数组越界 3. 指针错误 4. 看门狗复位
+
+\textbf{解决方法}: 1. 增大栈空间 2. 检查数组访问是否越界 3.
+检查指针是否为空 4. 关闭看门狗或定期喂狗
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e03ux7ae0-ux603bux7ed3ux4e0eux5c55ux671b}{%
+\subsection{第七章
+总结与展望}\label{ux7b2cux4e03ux7ae0-ux603bux7ed3ux4e0eux5c55ux671b}}
+
+\hypertarget{ux5de5ux4f5cux603bux7ed3}{%
+\subsubsection{7.1 工作总结}\label{ux5de5ux4f5cux603bux7ed3}}
+
+本文从嵌入式系统开发的角度,详细介绍了基于STM32的四足机器狗控制系统的设计与实现过程。主要完成了以下工作:
+
+\textbf{硬件系统设计}。设计了基于STM32F103C8T6的硬件平台,包括最小系统、外设接口电路、电源管理系统等。硬件设计遵循工程规范,考虑了电源滤波、信号完整性、电磁兼容等问题。
+
+\textbf{软件架构设计}。采用分层架构,将软件系统分为硬件抽象层、驱动层、中间层和应用层。这种架构提高了代码的模块化程度和可维护性。
+
+\textbf{外设驱动开发}。详细介绍了GPIO、定时器、串口、I2C等外设的配置方法和驱动开发技术。通过实际代码示例,展示了STM32外设的使用方法。
+
+\textbf{应用程序开发}。实现了主程序、通信协议、任务调度等功能。通过状态机设计,实现了清晰的程序逻辑。
+
+\textbf{系统调试与优化}。介绍了串口调试、LED指示调试、在线调试、逻辑分析仪调试等方法。提出了代码优化、内存优化、功耗优化等策略。
+
+通过本项目的开发,积累了丰富的嵌入式系统开发经验,掌握了STM32的使用方法,为今后的嵌入式系统开发打下了坚实基础。
+
+\hypertarget{ux5f00ux53d1ux7ecfux9a8c}{%
+\subsubsection{7.2 开发经验}\label{ux5f00ux53d1ux7ecfux9a8c}}
+
+在项目开发过程中,总结了以下经验:
+
+\textbf{硬件设计要充分考虑可靠性}。电源滤波、信号完整性、电磁兼容等问题都会影响系统稳定性。在设计阶段就要充分考虑这些问题,避免后期调试困难。
+
+\textbf{软件架构要模块化}。模块化的软件架构便于开发、测试和维护。每个模块应该有清晰的接口,模块之间的耦合度要低。
+
+\textbf{调试要分步进行}。不要一次性集成所有功能,应该分模块逐步调试。先调试基本功能,再调试复杂功能。
+
+\textbf{文档要及时整理}。在开发过程中要及时整理文档,记录设计思路、遇到的问题和解决方法。这些文档对后期维护和二次开发非常有帮助。
+
+\textbf{代码要规范}。遵循编码规范,使用有意义的变量名和函数名,添加必要的注释。规范的代码易于阅读和维护。
+
+\hypertarget{ux672aux6765ux6539ux8fdbux65b9ux5411}{%
+\subsubsection{7.3
+未来改进方向}\label{ux672aux6765ux6539ux8fdbux65b9ux5411}}
+
+本项目还有以下改进方向:
+
+\textbf{引入RTOS}。当前系统使用裸机程序,任务调度较为简单。引入RTOS(如FreeRTOS)可以实现更灵活的任务管理和资源分配。
+
+\textbf{增加传感器}。增加IMU(惯性测量单元)、电流传感器等,实现姿态反馈控制和电流监测。
+
+\textbf{优化通信协议}。当前通信协议较为简单,可以设计更完善的协议,支持参数配置、状态查询等功能。
+
+\textbf{增加数据记录功能}。通过SD卡或Flash存储运行数据,用于后期分析和优化。
+
+\textbf{移植到其他平台}。将代码移植到STM32F4、STM32H7等更高性能的平台,或移植到其他MCU(如ESP32)。
+
+\textbf{开发上位机软件}。开发PC端或手机端的上位机软件,实现图形化控制和参数配置。
+
+\hypertarget{ux7ed3ux8bed}{%
+\subsubsection{7.4 结语}\label{ux7ed3ux8bed}}
+
+嵌入式系统开发是一个理论与实践紧密结合的过程。通过本项目的开发,不仅学习了STM32的使用方法,更重要的是掌握了嵌入式系统开发的思路和方法。希望本文能为嵌入式系统学习者提供有价值的参考。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux81f4ux8c22}{%
+\subsection{致谢}\label{ux81f4ux8c22}}
+
+本项目的完成离不开多方面的支持和帮助。感谢指导老师的悉心指导,感谢实验室同学的帮助,感谢开源社区提供的技术资料,感谢家人的理解和支持。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux53c2ux8003ux6587ux732e}{%
+\subsection{参考文献}\label{ux53c2ux8003ux6587ux732e}}
+
+{[}1{]} 刘火良, 杨森. STM32库开发实战指南{[}M{]}. 北京: 机械工业出版社,
+2016.
+
+{[}2{]} 野火. STM32库开发实战指南{[}M{]}. 北京: 机械工业出版社, 2018.
+
+{[}3{]} ARM. Cortex-M3 Technical Reference Manual{[}R{]}. 2010.
+
+{[}4{]} STMicroelectronics. STM32F103xx Reference Manual{[}R{]}. 2015.
+
+{[}5{]} STMicroelectronics. STM32F10xxx Cortex-M3 Programming
+Manual{[}R{]}. 2010.
+
+{[}6{]} 周立功. 深入浅出ARM7-LPC213x/214x{[}M{]}. 北京:
+北京航空航天大学出版社, 2005.
+
+{[}7{]} Joseph Yiu. The Definitive Guide to ARM Cortex-M3 and Cortex-M4
+Processors{[}M{]}. Newnes, 2013.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{论文字数}: 约22,000字 \textbf{完成日期}: 2025年10月
+\textbf{作者}: {[}待填写{]}
+
+\end{document}

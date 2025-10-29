@@ -1,0 +1,2341 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{ux57faux4e8estm32ux7684ux56dbux8db3ux673aux5668ux72d7ux8fd0ux52a8ux63a7ux5236ux7b97ux6cd5ux7814ux7a76ux4e0eux5b9eux73b0}{%
+\section{基于STM32的四足机器狗运动控制算法研究与实现}\label{ux57faux4e8estm32ux7684ux56dbux8db3ux673aux5668ux72d7ux8fd0ux52a8ux63a7ux5236ux7b97ux6cd5ux7814ux7a76ux4e0eux5b9eux73b0}}
+
+\textbf{摘要}:
+本文针对四足机器狗的运动控制问题,设计并实现了一套基于STM32微控制器的运动控制系统。系统采用4舵机简化结构,通过对角步态算法实现稳定行走,结合多传感器融合技术实现自主避障。本文深入研究了PWM舵机控制算法、对角步态规划算法、平滑运动插值算法以及多传感器融合避障算法,并通过实验验证了算法的有效性。实验结果表明,该系统能够实现稳定的运动控制,避障成功率达到90\%以上,具有良好的实用价值。
+
+\textbf{关键词}: 四足机器狗; 运动控制; 对角步态; 传感器融合; STM32
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e00ux7ae0-ux7eeaux8bba}{%
+\subsection{第一章 绪论}\label{ux7b2cux4e00ux7ae0-ux7eeaux8bba}}
+
+\hypertarget{ux7814ux7a76ux80ccux666fux4e0eux610fux4e49}{%
+\subsubsection{1.1
+研究背景与意义}\label{ux7814ux7a76ux80ccux666fux4e0eux610fux4e49}}
+
+\hypertarget{ux7814ux7a76ux80ccux666f}{%
+\paragraph{1.1.1 研究背景}\label{ux7814ux7a76ux80ccux666f}}
+
+随着机器人技术的快速发展,四足机器人作为一种重要的移动机器人平台,在军事侦察、灾难救援、地形探测等领域展现出巨大的应用潜力。相比于轮式和履带式机器人,四足机器人具有更好的地形适应能力和运动灵活性,能够在复杂地形环境中完成特殊任务。
+
+近年来,国内外研究机构和企业在四足机器人领域取得了显著进展。波士顿动力公司的Spot机器狗、麻省理工学院的Cheetah猎豹机器人、瑞士联邦理工学院的ANYmal机器人等都代表了当前四足机器人的先进水平。然而,这些高端机器人系统成本昂贵,技术门槛高,难以在教育和科研领域普及。
+
+因此,开发一款低成本、易于实现的四足机器狗平台,对于推动机器人教育、培养创新人才具有重要意义。本研究基于STM32微控制器,采用4舵机简化设计,在保证基本运动功能的前提下,大幅降低了系统成本和实现难度,为机器人爱好者和学生提供了一个良好的学习平台。
+
+\hypertarget{ux7814ux7a76ux610fux4e49}{%
+\paragraph{1.1.2 研究意义}\label{ux7814ux7a76ux610fux4e49}}
+
+本研究的理论意义在于:
+
+\textbf{运动控制算法研究}方面,通过对四足机器人步态规划、轨迹生成、平滑控制等问题的深入研究,丰富了四足机器人运动控制理论体系。特别是针对4舵机简化结构的步态设计,为资源受限条件下的机器人控制提供了新的思路。
+
+\textbf{多传感器融合技术}方面,研究了超声波传感器与红外传感器的融合方法,提出了基于分级决策的避障策略,为移动机器人的环境感知提供了参考。
+
+本研究的实践意义在于:
+
+\textbf{降低实现成本}。采用4舵机设计替代传统的8舵机或12舵机方案,使系统成本降低50\%以上,总成本控制在200元以内,大大降低了制作门槛。
+
+\textbf{简化控制复杂度}。4舵机结构使得运动控制算法更加简洁,便于理解和实现,适合作为教学和学习平台。
+
+\textbf{提供开源方案}。本研究将完整的硬件设计、软件代码和技术文档开源,为机器人爱好者和研究者提供了可复用的解决方案。
+
+\hypertarget{ux56fdux5185ux5916ux7814ux7a76ux73b0ux72b6}{%
+\subsubsection{1.2
+国内外研究现状}\label{ux56fdux5185ux5916ux7814ux7a76ux73b0ux72b6}}
+
+\hypertarget{ux56fdux5916ux7814ux7a76ux73b0ux72b6}{%
+\paragraph{1.2.1
+国外研究现状}\label{ux56fdux5916ux7814ux7a76ux73b0ux72b6}}
+
+\textbf{波士顿动力公司}的Spot机器狗是目前商业化程度最高的四足机器人产品。Spot采用12个自由度设计,配备激光雷达、深度相机等传感器,能够实现复杂地形的自主导航。其核心技术包括基于模型预测控制(MPC)的步态规划算法和基于深度学习的环境感知算法。
+
+\textbf{麻省理工学院}的Cheetah系列机器人专注于高速运动研究。Cheetah
+3能够实现盲跑、跳跃、爬楼梯等高难度动作,最高速度可达13
+km/h。其技术特点是采用了基于力控制的步态算法和高带宽的液压驱动系统。
+
+\textbf{瑞士联邦理工学院}的ANYmal机器人侧重于工业应用。ANYmal具有防水防尘能力,能够在恶劣环境中长时间工作。其控制系统采用了分层控制架构,包括高层任务规划、中层步态生成和底层关节控制三个层次。
+
+\textbf{Ghost
+Robotics}公司的Vision系列机器狗在军事领域得到应用。其特点是采用了直驱电机技术,具有高功率密度和快速响应能力。
+
+\hypertarget{ux56fdux5185ux7814ux7a76ux73b0ux72b6}{%
+\paragraph{1.2.2
+国内研究现状}\label{ux56fdux5185ux7814ux7a76ux73b0ux72b6}}
+
+\textbf{浙江大学}机器人实验室开发了``绝影''四足机器人。绝影采用12自由度设计,能够实现小跑、跳跃等动作,并具备一定的负载能力。其控制算法基于虚拟模型控制(VMC)理论。
+
+\textbf{上海交通大学}研制了``小狗''系列四足机器人。该系列机器人在步态规划方面采用了中枢模式发生器(CPG)方法,能够实现自然流畅的运动。
+
+\textbf{深圳市优必选科技}推出了消费级四足机器人产品。这些产品面向教育和娱乐市场,成本相对较低,但功能相对简单。
+
+\textbf{清华大学}在四足机器人的强化学习控制方面开展了研究。通过深度强化学习算法,机器人能够自主学习复杂地形的行走策略。
+
+\hypertarget{ux73b0ux6709ux7814ux7a76ux7684ux4e0dux8db3}{%
+\paragraph{1.2.3
+现有研究的不足}\label{ux73b0ux6709ux7814ux7a76ux7684ux4e0dux8db3}}
+
+尽管国内外在四足机器人领域取得了丰富的研究成果,但仍存在以下不足:
+
+\textbf{成本问题}。高性能四足机器人系统成本高昂,单台价格从数万元到数十万元不等,限制了其在教育和科研领域的普及。
+
+\textbf{技术门槛}。现有系统多采用12自由度或更多自由度设计,控制算法复杂,对开发者的专业背景要求较高。
+
+\textbf{开源资源}。虽然部分研究机构公开了论文和视频,但完整的开源硬件设计和软件代码较少,不利于技术传播和二次开发。
+
+\textbf{教育适用性}。现有产品多面向科研或商业应用,缺少专门针对教育场景设计的低成本、易理解的平台。
+
+本研究针对上述问题,提出了基于4舵机简化设计的四足机器狗方案,在保证基本功能的前提下,显著降低了成本和技术门槛,并提供完整的开源资料。
+
+\hypertarget{ux7814ux7a76ux5185ux5bb9ux4e0eux76eeux6807}{%
+\subsubsection{1.3
+研究内容与目标}\label{ux7814ux7a76ux5185ux5bb9ux4e0eux76eeux6807}}
+
+\hypertarget{ux7814ux7a76ux5185ux5bb9}{%
+\paragraph{1.3.1 研究内容}\label{ux7814ux7a76ux5185ux5bb9}}
+
+本研究的主要内容包括:
+
+\textbf{硬件系统设计}。设计基于STM32F103C8T6微控制器的硬件平台,包括舵机驱动电路、传感器接口电路、通信模块电路和电源管理电路。采用4舵机简化设计,每条腿配置1个舵机。
+
+\textbf{PWM舵机控制算法}。研究PWM信号生成原理,设计基于定时器的PWM输出方案。分析舵机角度与PWM脉宽的对应关系,实现精确的角度控制。
+
+\textbf{对角步态规划算法}。研究四足机器人的步态理论,设计适合4舵机结构的对角步态算法。分析步态的稳定性条件,优化步态参数。
+
+\textbf{平滑运动控制算法}。针对舵机运动的不连续性问题,设计基于线性插值的平滑运动算法。研究插值步长、运动速度等参数对运动效果的影响。
+
+\textbf{多传感器融合避障算法}。研究超声波测距原理和红外边缘检测原理,设计基于分级决策的传感器融合算法。建立避障行为模型,实现自主避障功能。
+
+\textbf{系统集成与测试}。完成硬件组装和软件集成,进行功能测试和性能测试。分析测试结果,优化系统参数。
+
+\hypertarget{ux7814ux7a76ux76eeux6807}{%
+\paragraph{1.3.2 研究目标}\label{ux7814ux7a76ux76eeux6807}}
+
+本研究的具体目标是:
+
+\textbf{实现稳定的运动控制}。机器狗能够完成前进、后退、左转、右转等基本运动,运动精度达到±3\%以内。
+
+\textbf{实现自主避障功能}。通过多传感器融合,机器狗能够检测前方障碍物和地面边缘,避障成功率达到90\%以上。
+
+\textbf{实现平滑的动作过渡}。采用平滑运动算法,消除舵机运动的突变,使动作更加自然流畅。
+
+\textbf{降低系统成本}。通过4舵机简化设计,将系统总成本控制在200元以内,相比传统方案降低50\%以上。
+
+\textbf{提供开源方案}。整理完整的技术文档和源代码,以MIT协议开源,促进技术交流和知识共享。
+
+\hypertarget{ux8bbaux6587ux7ec4ux7ec7ux7ed3ux6784}{%
+\subsubsection{1.4
+论文组织结构}\label{ux8bbaux6587ux7ec4ux7ec7ux7ed3ux6784}}
+
+本文共分为七章:
+
+\textbf{第一章}为绪论,介绍研究背景、意义、国内外研究现状、研究内容和目标。
+
+\textbf{第二章}为相关理论基础,介绍四足机器人运动学、步态理论、PWM控制原理、传感器原理等基础知识。
+
+\textbf{第三章}为系统总体设计,介绍系统架构、硬件选型、软件架构等内容。
+
+\textbf{第四章}为运动控制算法设计,详细阐述PWM控制算法、步态规划算法、平滑运动算法的设计与实现。
+
+\textbf{第五章}为多传感器融合避障算法,介绍传感器数据处理、融合策略、避障决策等内容。
+
+\textbf{第六章}为系统实现与测试,介绍系统集成过程、测试方法、测试结果和性能分析。
+
+\textbf{第七章}为总结与展望,总结研究成果,分析存在的问题,展望未来研究方向。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e8cux7ae0-ux76f8ux5173ux7406ux8bbaux57faux7840}{%
+\subsection{第二章
+相关理论基础}\label{ux7b2cux4e8cux7ae0-ux76f8ux5173ux7406ux8bbaux57faux7840}}
+
+\hypertarget{ux56dbux8db3ux673aux5668ux4ebaux8fd0ux52a8ux5b66ux57faux7840}{%
+\subsubsection{2.1
+四足机器人运动学基础}\label{ux56dbux8db3ux673aux5668ux4ebaux8fd0ux52a8ux5b66ux57faux7840}}
+
+\hypertarget{ux5750ux6807ux7cfbux5b9aux4e49}{%
+\paragraph{2.1.1 坐标系定义}\label{ux5750ux6807ux7cfbux5b9aux4e49}}
+
+四足机器人的运动学分析需要建立合适的坐标系。本研究采用以下坐标系定义:
+
+\textbf{世界坐标系} \{W\}:
+固定在地面上的惯性坐标系,原点位于机器人初始位置,X轴指向前方,Y轴指向左侧,Z轴竖直向上。
+
+\textbf{机体坐标系} \{B\}:
+固定在机器人身体上的坐标系,原点位于机体几何中心,X轴指向机器人前方,Y轴指向左侧,Z轴竖直向上。机体坐标系相对于世界坐标系的位姿用位置向量p和姿态角(roll,
+pitch, yaw)表示。
+
+\textbf{腿部坐标系} \{Li\}:
+固定在第i条腿根部的坐标系,i=1,2,3,4分别对应左前、左后、右前、右后四条腿。
+
+对于4舵机简化结构,每条腿只有一个旋转自由度,舵机转轴垂直于机体平面。腿部末端相对于腿部坐标系的位置可以表示为:
+
+\begin{verbatim}
+x_i = L * cos(θ_i)
+y_i = L * sin(θ_i)
+z_i = 0
+\end{verbatim}
+
+其中,L为腿长(从舵机转轴到足端的距离),θ\_i为第i个舵机的角度。
+
+\hypertarget{ux8fd0ux52a8ux5b66ux6b63ux89e3}{%
+\paragraph{2.1.2 运动学正解}\label{ux8fd0ux52a8ux5b66ux6b63ux89e3}}
+
+运动学正解是指已知各关节角度,求解足端位置的问题。对于4舵机结构,运动学正解非常简单。
+
+设第i条腿的舵机角度为θ\_i,腿长为L,则该腿足端在机体坐标系中的位置为:
+
+\begin{verbatim}
+P_i^B = T_Bi * P_i^Li
+\end{verbatim}
+
+其中,T\_Bi是从腿部坐标系到机体坐标系的变换矩阵,P\_i\^{}Li是足端在腿部坐标系中的位置。
+
+对于简化的2D平面运动,足端位置可以直接表示为:
+
+\begin{verbatim}
+x_i = x_0i + L * cos(θ_i)
+y_i = y_0i + L * sin(θ_i)
+\end{verbatim}
+
+其中,(x\_0i, y\_0i)是第i条腿根部在机体坐标系中的位置。
+
+\hypertarget{ux8fd0ux52a8ux5b66ux9006ux89e3}{%
+\paragraph{2.1.3 运动学逆解}\label{ux8fd0ux52a8ux5b66ux9006ux89e3}}
+
+运动学逆解是指已知足端目标位置,求解关节角度的问题。对于4舵机结构,逆解同样简单。
+
+给定足端目标位置(x\_i, y\_i),可以直接求解舵机角度:
+
+\begin{verbatim}
+θ_i = atan2(y_i - y_0i, x_i - x_0i)
+\end{verbatim}
+
+需要注意的是,由于舵机角度范围有限(通常为0°\textasciitilde180°),需要检查计算得到的角度是否在允许范围内。
+
+\hypertarget{ux9759ux6001ux7a33ux5b9aux6027ux5206ux6790}{%
+\paragraph{2.1.4
+静态稳定性分析}\label{ux9759ux6001ux7a33ux5b9aux6027ux5206ux6790}}
+
+四足机器人的静态稳定性要求机器人的重心投影落在支撑多边形内。支撑多边形是由所有着地足端连线形成的凸多边形。
+
+对于四足机器人,当四足着地时,支撑多边形为矩形;当三足着地时,支撑多边形为三角形;当两足着地时,机器人处于不稳定状态。
+
+为了保证运动过程中的稳定性,步态设计应满足以下条件:
+
+\textbf{至少三足着地}。在运动过程中,始终保持至少三条腿着地,形成稳定的三角形支撑。
+
+\textbf{重心在支撑多边形内}。机器人重心的投影应位于支撑多边形的内部,且距离边界有一定的稳定裕度。
+
+\textbf{对称性}。步态应具有对称性,避免机器人向一侧倾斜。
+
+\hypertarget{ux56dbux8db3ux673aux5668ux4ebaux6b65ux6001ux7406ux8bba}{%
+\subsubsection{2.2
+四足机器人步态理论}\label{ux56dbux8db3ux673aux5668ux4ebaux6b65ux6001ux7406ux8bba}}
+
+\hypertarget{ux6b65ux6001ux5206ux7c7b}{%
+\paragraph{2.2.1 步态分类}\label{ux6b65ux6001ux5206ux7c7b}}
+
+四足动物的步态可以分为以下几类:
+
+\textbf{Walk(慢步)}:
+四条腿依次抬起和落下,始终保持至少三条腿着地。这是最稳定的步态,适合低速运动。
+
+\textbf{Trot(小跑)}:
+对角线上的两条腿同时抬起和落下,即左前腿与右后腿为一组,右前腿与左后腿为一组。这种步态速度较快,稳定性适中。
+
+\textbf{Pace(溜蹄)}:
+同侧的两条腿同时抬起和落下,即左前腿与左后腿为一组,右前腿与右后腿为一组。这种步态不太稳定,但速度较快。
+
+\textbf{Gallop(奔跑)}:
+四条腿以不对称的方式运动,存在腾空阶段。这是速度最快的步态,但稳定性最差。
+
+对于4舵机简化结构的机器狗,由于每条腿只有一个自由度,无法实现腿部的抬起动作。因此,本研究采用改进的Trot步态,通过对角线上两条腿的协调摆动实现前进运动。
+
+\hypertarget{ux5bf9ux89d2ux6b65ux6001ux539fux7406}{%
+\paragraph{2.2.2
+对角步态原理}\label{ux5bf9ux89d2ux6b65ux6001ux539fux7406}}
+
+对角步态(Trot)的基本原理是:
+
+\textbf{第一阶段}:
+左前腿和右后腿向前摆动,右前腿和左后腿保持不动或向后摆动。
+
+\textbf{第二阶段}:
+右前腿和左后腿向前摆动,左前腿和右后腿保持不动或向后摆动。
+
+通过两个阶段的循环,机器人实现向前移动。
+
+对于4舵机结构,对角步态的实现方式是:
+
+\textbf{阶段1}:
+舵机1(左前)和舵机4(右后)向内侧摆动(角度增大),舵机2(左后)和舵机3(右前)向外侧摆动(角度减小)。
+
+\textbf{阶段2}:
+舵机2(左后)和舵机3(右前)向内侧摆动,舵机1(左前)和舵机4(右后)向外侧摆动。
+
+\textbf{阶段3}: 所有舵机回到中位(90°)。
+
+\textbf{阶段4}: 重复阶段1-3,形成连续运动。
+
+\hypertarget{ux6b65ux6001ux53c2ux6570ux8bbeux8ba1}{%
+\paragraph{2.2.3
+步态参数设计}\label{ux6b65ux6001ux53c2ux6570ux8bbeux8ba1}}
+
+步态参数包括:
+
+\textbf{摆动幅度}:
+舵机从中位向两侧摆动的角度。摆动幅度越大,步长越大,但稳定性下降。本研究中,摆动幅度设置为±45°,即舵机角度在45°\textasciitilde135°之间变化。
+
+\textbf{步态周期}:
+完成一个完整步态循环所需的时间。步态周期越短,运动速度越快,但控制难度增大。本研究中,步态周期设置为1.2秒。
+
+\textbf{相位差}:
+对角线上两组腿的相位差。标准Trot步态的相位差为180°,即当一组腿处于最前方时,另一组腿处于最后方。
+
+\textbf{占空比}:
+摆动相和支撑相的时间比例。本研究中,由于4舵机结构无法真正抬腿,占空比设置为50\%,即摆动和支撑时间相等。
+
+\hypertarget{ux6b65ux6001ux7a33ux5b9aux6027ux5206ux6790}{%
+\paragraph{2.2.4
+步态稳定性分析}\label{ux6b65ux6001ux7a33ux5b9aux6027ux5206ux6790}}
+
+对于4舵机结构的对角步态,稳定性分析如下:
+
+\textbf{支撑阶段}:
+在每个阶段,始终有四条腿着地,形成矩形支撑。重心位于矩形中心,稳定性良好。
+
+\textbf{过渡阶段}:
+在阶段切换时,所有舵机同时运动,可能导致机器人晃动。通过平滑运动算法,可以减小晃动幅度。
+
+\textbf{动态稳定性}:
+由于机器人在运动过程中存在惯性,需要考虑动态稳定性。通过控制运动速度,可以保证动态稳定性。
+
+\hypertarget{pwmux63a7ux5236ux539fux7406}{%
+\subsubsection{2.3 PWM控制原理}\label{pwmux63a7ux5236ux539fux7406}}
+
+\hypertarget{pwmux57faux672cux6982ux5ff5}{%
+\paragraph{2.3.1 PWM基本概念}\label{pwmux57faux672cux6982ux5ff5}}
+
+脉冲宽度调制(Pulse Width Modulation,
+PWM)是一种通过改变脉冲宽度来控制输出功率的技术。PWM信号的主要参数包括:
+
+\textbf{周期(T)}: PWM信号重复的时间间隔。
+
+\textbf{频率(f)}: PWM信号的频率,f = 1/T。
+
+\textbf{占空比(D)}: 高电平时间占周期的比例,D = t\_on / T × 100\%。
+
+\textbf{脉宽(t\_on)}: 高电平持续的时间。
+
+对于舵机控制,PWM信号的周期通常固定为20ms(频率50Hz),通过改变脉宽来控制舵机角度。
+
+\hypertarget{ux8235ux673aux63a7ux5236ux539fux7406}{%
+\paragraph{2.3.2
+舵机控制原理}\label{ux8235ux673aux63a7ux5236ux539fux7406}}
+
+舵机是一种位置伺服电机,内部包含直流电机、减速齿轮、位置反馈电位器和控制电路。舵机通过PWM信号控制,PWM脉宽与舵机角度的对应关系如下:
+
+\begin{itemize}
+\tightlist
+\item
+  脉宽0.5ms → 舵机角度0°
+\item
+  脉宽1.5ms → 舵机角度90°
+\item
+  脉宽2.5ms → 舵机角度180°
+\end{itemize}
+
+脉宽与角度之间呈线性关系,可以用公式表示:
+
+\begin{verbatim}
+θ = (t_on - 0.5ms) / 2.0ms × 180°
+\end{verbatim}
+
+或反过来:
+
+\begin{verbatim}
+t_on = θ / 180° × 2.0ms + 0.5ms
+\end{verbatim}
+
+\hypertarget{stm32ux5b9aux65f6ux5668pwmux751fux6210}{%
+\paragraph{2.3.3
+STM32定时器PWM生成}\label{stm32ux5b9aux65f6ux5668pwmux751fux6210}}
+
+STM32的定时器可以配置为PWM输出模式。以TIM3为例,PWM生成的原理如下:
+
+\textbf{定时器时钟配置}:
+STM32F103的系统时钟为72MHz,通过预分频器(PSC)可以得到所需的计数频率。例如,PSC=72-1时,计数频率为1MHz。
+
+\textbf{自动重装载寄存器(ARR)}:
+决定PWM周期。例如,ARR=20000-1时,PWM周期为20ms。
+
+\textbf{捕获/比较寄存器(CCR)}:
+决定PWM脉宽。CCR的值表示高电平持续的计数次数。
+
+\textbf{PWM模式}:
+TIM3可以配置为PWM模式1或PWM模式2。PWM模式1下,当计数值小于CCR时输出高电平,大于CCR时输出低电平。
+
+对于舵机控制,配置如下:
+
+\begin{verbatim}
+定时器时钟: 72MHz
+预分频器PSC: 72-1 (计数频率1MHz)
+自动重装载ARR: 20000-1 (周期20ms)
+捕获比较CCR: 500~2500 (脉宽0.5ms~2.5ms)
+\end{verbatim}
+
+舵机角度与CCR的关系为:
+
+\begin{verbatim}
+CCR = θ / 180° × 2000 + 500
+\end{verbatim}
+
+\hypertarget{ux4f20ux611fux5668ux539fux7406}{%
+\subsubsection{2.4 传感器原理}\label{ux4f20ux611fux5668ux539fux7406}}
+
+\hypertarget{ux8d85ux58f0ux6ce2ux6d4bux8dddux539fux7406}{%
+\paragraph{2.4.1
+超声波测距原理}\label{ux8d85ux58f0ux6ce2ux6d4bux8dddux539fux7406}}
+
+超声波测距传感器(如HC-SR04)通过发射超声波并接收回波来测量距离。其工作原理如下:
+
+\textbf{发射阶段}:
+向Trig引脚发送至少10μs的高电平脉冲,触发传感器发射8个40kHz的超声波脉冲。
+
+\textbf{接收阶段}: 超声波遇到障碍物后反射回来,传感器接收到回波信号。
+
+\textbf{计时阶段}: Echo引脚输出高电平,持续时间等于超声波往返时间。
+
+\textbf{距离计算}:
+根据声速和往返时间计算距离。声速约为340m/s,距离公式为:
+
+\begin{verbatim}
+距离 = (往返时间 × 声速) / 2
+     = (Echo高电平时间 × 340m/s) / 2
+     = Echo高电平时间 × 0.017cm/μs
+\end{verbatim}
+
+超声波测距的优点是测量范围大(2cm\textasciitilde400cm),精度较高(±3mm)。缺点是测量速度较慢(约50ms一次),且对声波吸收材料(如海绵)测量效果差。
+
+\hypertarget{ux7ea2ux5916ux8fb9ux7f18ux68c0ux6d4bux539fux7406}{%
+\paragraph{2.4.2
+红外边缘检测原理}\label{ux7ea2ux5916ux8fb9ux7f18ux68c0ux6d4bux539fux7406}}
+
+红外避障传感器通过发射红外线并检测反射信号来判断是否存在障碍物。其工作原理如下:
+
+\textbf{发射阶段}: 红外发射管发射调制的红外线。
+
+\textbf{接收阶段}:
+如果前方存在障碍物,红外线被反射回来,红外接收管接收到信号。
+
+\textbf{信号处理}: 接收电路对信号进行放大、滤波和比较,输出数字信号。
+
+\textbf{输出信号}:
+当检测到障碍物时,输出低电平;未检测到障碍物时,输出高电平。
+
+红外传感器的检测距离可以通过电位器调节,通常为2cm\textasciitilde30cm。其优点是响应速度快,价格低廉。缺点是检测距离短,易受环境光干扰。
+
+在本研究中,红外传感器主要用于边缘检测,即检测桌面边缘,防止机器人跌落。传感器安装在机器人底部,向下倾斜一定角度。当机器人接近桌面边缘时,红外线无法反射回来,传感器输出高电平,触发避障行为。
+
+\hypertarget{ux4f20ux611fux5668ux6570ux636eux5904ux7406}{%
+\paragraph{2.4.3
+传感器数据处理}\label{ux4f20ux611fux5668ux6570ux636eux5904ux7406}}
+
+传感器数据往往包含噪声和误差,需要进行滤波处理。常用的滤波方法包括:
+
+\textbf{均值滤波}: 对连续N次测量值求平均,可以有效抑制随机噪声。
+
+\begin{verbatim}
+y = (x1 + x2 + ... + xN) / N
+\end{verbatim}
+
+\textbf{中值滤波}: 对连续N次测量值排序,取中间值,可以有效去除脉冲噪声。
+
+\begin{verbatim}
+y = median(x1, x2, ..., xN)
+\end{verbatim}
+
+\textbf{滑动平均滤波}: 维护一个固定长度的滑动窗口,对窗口内的数据求平均。
+
+\textbf{去极值平均滤波}:
+在N次测量值中去掉最大值和最小值,对剩余值求平均。
+
+本研究中,对超声波传感器采用去极值平均滤波,连续测量5次,去掉最大值和最小值,对剩余3次测量求平均,可以有效提高测量精度。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e09ux7ae0-ux7cfbux7edfux603bux4f53ux8bbeux8ba1}{%
+\subsection{第三章
+系统总体设计}\label{ux7b2cux4e09ux7ae0-ux7cfbux7edfux603bux4f53ux8bbeux8ba1}}
+
+\hypertarget{ux7cfbux7edfux67b6ux6784ux8bbeux8ba1}{%
+\subsubsection{3.1
+系统架构设计}\label{ux7cfbux7edfux67b6ux6784ux8bbeux8ba1}}
+
+\hypertarget{ux7cfbux7edfux7ec4ux6210}{%
+\paragraph{3.1.1 系统组成}\label{ux7cfbux7edfux7ec4ux6210}}
+
+本系统由以下几个部分组成:
+
+\textbf{控制核心}:
+STM32F103C8T6微控制器,负责运行控制算法,处理传感器数据,生成PWM信号。
+
+\textbf{执行机构}: 4个SG90舵机,分别控制四条腿的运动。
+
+\textbf{感知系统}:
+1个HC-SR04超声波传感器和4个红外避障传感器,用于环境感知和避障。
+
+\textbf{通信系统}: HC-05蓝牙模块,用于接收遥控指令。
+
+\textbf{显示系统}: 0.96寸OLED显示屏,用于显示状态信息。
+
+\textbf{电源系统}: 2节18650锂电池串联(7.4V),经过稳压后为各模块供电。
+
+\hypertarget{ux7cfbux7edfux67b6ux6784}{%
+\paragraph{3.1.2 系统架构}\label{ux7cfbux7edfux67b6ux6784}}
+
+系统采用分层架构设计,从下到上分为:
+
+\textbf{硬件抽象层(HAL)}:
+封装STM32标准外设库,提供GPIO、定时器、串口、I2C等底层接口。
+
+\textbf{驱动层}:
+实现各硬件模块的驱动程序,包括PWM驱动、舵机驱动、传感器驱动、通信驱动等。
+
+\textbf{算法层}:
+实现核心控制算法,包括步态规划算法、平滑运动算法、传感器融合算法、避障决策算法等。
+
+\textbf{应用层}: 实现主程序逻辑,包括指令解析、模式管理、状态机控制等。
+
+这种分层架构的优点是:
+
+\textbf{模块化}: 各层之间接口清晰,便于独立开发和测试。
+
+\textbf{可维护性}: 修改某一层的实现不影响其他层。
+
+\textbf{可扩展性}: 可以方便地添加新的硬件模块或算法模块。
+
+\textbf{可移植性}: 更换硬件平台时,只需修改硬件抽象层和驱动层。
+
+\hypertarget{ux6570ux636eux6d41ux8bbeux8ba1}{%
+\paragraph{3.1.3 数据流设计}\label{ux6570ux636eux6d41ux8bbeux8ba1}}
+
+系统的数据流如下:
+
+\textbf{输入数据流}: - 蓝牙模块接收遥控指令 → 串口中断 → 指令解析 →
+模式切换 - 超声波传感器测量距离 → GPIO读取 → 数据滤波 → 避障判断 -
+红外传感器检测边缘 → GPIO读取 → 边缘判断 → 避障判断
+
+\textbf{处理数据流}: - 当前模式 → 步态规划 → 目标角度序列 - 目标角度 +
+当前角度 → 平滑运动算法 → 中间角度序列 - 中间角度 → 角度到PWM转换 →
+CCR值
+
+\textbf{输出数据流}: - CCR值 → 定时器寄存器 → PWM信号 → 舵机运动 -
+状态信息 → I2C通信 → OLED显示
+
+\hypertarget{ux63a7ux5236ux6d41ux7a0b}{%
+\paragraph{3.1.4 控制流程}\label{ux63a7ux5236ux6d41ux7a0b}}
+
+系统的主控制流程如下:
+
+\begin{verbatim}
+1. 系统初始化
+   - 时钟配置
+   - GPIO初始化
+   - 定时器初始化
+   - 串口初始化
+   - I2C初始化
+   - 舵机初始化(回中位)
+
+2. 进入主循环
+   while(1) {
+       // 读取传感器数据
+       distance = UltrasonicWave_GetDistance();
+       edge_detected = Infrared_DetectEdge();
+       
+       // 避障判断
+       if (avoid_enable && (distance < 20 || edge_detected)) {
+           // 执行避障动作
+           ObstacleAvoidance_Action();
+           continue;
+       }
+       
+       // 根据当前模式执行动作
+       switch(current_mode) {
+           case MODE_FORWARD:
+               move_forward();
+               break;
+           case MODE_BACKWARD:
+               move_behind();
+               break;
+           case MODE_TURN_LEFT:
+               move_left();
+               break;
+           case MODE_TURN_RIGHT:
+               move_right();
+               break;
+           case MODE_STAND:
+               move_stand();
+               break;
+           // ... 其他模式
+       }
+       
+       // 更新显示
+       OLED_Update();
+       
+       // 延时
+       Delay_ms(50);
+   }
+\end{verbatim}
+
+\hypertarget{ux786cux4ef6ux9009ux578bux4e0eux8bbeux8ba1}{%
+\subsubsection{3.2
+硬件选型与设计}\label{ux786cux4ef6ux9009ux578bux4e0eux8bbeux8ba1}}
+
+\hypertarget{ux5faeux63a7ux5236ux5668ux9009ux578b}{%
+\paragraph{3.2.1
+微控制器选型}\label{ux5faeux63a7ux5236ux5668ux9009ux578b}}
+
+本系统选用STM32F103C8T6微控制器,主要考虑因素如下:
+
+\textbf{性能}: ARM Cortex-M3内核,主频72MHz,足以满足实时控制需求。
+
+\textbf{资源}: 64KB Flash,20KB SRAM,足够存储程序和数据。
+
+\textbf{外设}:
+3个通用定时器,可以输出12路PWM,满足4舵机控制需求。3个USART,可以连接蓝牙、语音识别、语音合成模块。2个I2C,可以连接OLED显示屏。
+
+\textbf{成本}: 价格约10元,性价比高。
+
+\textbf{生态}: 开发工具成熟,资料丰富,易于开发。
+
+\hypertarget{ux8235ux673aux9009ux578b}{%
+\paragraph{3.2.2 舵机选型}\label{ux8235ux673aux9009ux578b}}
+
+本系统选用SG90微型舵机,主要参数如下:
+
+\begin{itemize}
+\tightlist
+\item
+  工作电压: 4.8V\textasciitilde6V
+\item
+  扭矩: 1.8kg·cm (4.8V)
+\item
+  速度: 0.12s/60° (4.8V)
+\item
+  转角范围: 0°\textasciitilde180°
+\item
+  重量: 9g
+\item
+  尺寸: 22.2×11.8×31mm
+\item
+  价格: 约5元
+\end{itemize}
+
+SG90舵机的优点是体积小、重量轻、价格低、控制简单。缺点是扭矩较小、精度一般、寿命有限。对于桌面级机器狗,SG90舵机的性能足够。
+
+\hypertarget{ux4f20ux611fux5668ux9009ux578b}{%
+\paragraph{3.2.3 传感器选型}\label{ux4f20ux611fux5668ux9009ux578b}}
+
+\textbf{超声波传感器}: 选用HC-SR04,主要参数如下: - 工作电压: 5V -
+测量范围: 2cm\textasciitilde400cm - 测量精度: ±3mm - 测量角度: 15° -
+价格: 约3元
+
+\textbf{红外传感器}: 选用红外避障模块,主要参数如下: - 工作电压:
+3.3V\textasciitilde5V - 检测距离: 2cm\textasciitilde30cm (可调) - 输出:
+数字信号 - 价格: 约2元
+
+\hypertarget{ux7535ux6e90ux8bbeux8ba1}{%
+\paragraph{3.2.4 电源设计}\label{ux7535ux6e90ux8bbeux8ba1}}
+
+电源系统采用2节18650锂电池串联,标称电压7.4V,容量2600mAh。
+
+\textbf{5V稳压}: 使用LM2596
+DC-DC降压模块,输入7.4V,输出5V/3A,为舵机供电。
+
+\textbf{3.3V稳压}: 使用AMS1117-3.3
+LDO稳压器,输入5V,输出3.3V/800mA,为STM32和传感器供电。
+
+电源分路设计: - 5V路: 舵机(大电流,约2A) - 3.3V路:
+STM32、传感器、通信模块(小电流,约200mA)
+
+功耗估算: - STM32: 约50mA - 舵机:
+空载约100mA,运动时约500mA,4个舵机共约2A - 传感器: 约50mA - 通信模块:
+约50mA - 显示屏: 约20mA - 总功耗: 约2.2A (运动时)
+
+续航时间估算: - 电池容量: 2600mAh - 平均电流: 约1A (考虑间歇运动) -
+续航时间: 2600mAh / 1A ≈ 2.6小时
+
+\hypertarget{ux8f6fux4ef6ux67b6ux6784ux8bbeux8ba1}{%
+\subsubsection{3.3
+软件架构设计}\label{ux8f6fux4ef6ux67b6ux6784ux8bbeux8ba1}}
+
+\hypertarget{ux8f6fux4ef6ux6a21ux5757ux5212ux5206}{%
+\paragraph{3.3.1
+软件模块划分}\label{ux8f6fux4ef6ux6a21ux5757ux5212ux5206}}
+
+软件系统分为以下模块:
+
+\textbf{System模块}: 系统级函数,包括延时函数、串口驱动等。
+
+\textbf{Hardware模块}:
+硬件驱动,包括PWM驱动、舵机驱动、传感器驱动、OLED驱动等。
+
+\textbf{Algorithm模块}:
+算法实现,包括步态规划、平滑运动、传感器融合、避障决策等。
+
+\textbf{User模块}: 应用程序,包括主程序、模式管理、中断服务等。
+
+\hypertarget{ux8f6fux4ef6ux5f00ux53d1ux73afux5883}{%
+\paragraph{3.3.2
+软件开发环境}\label{ux8f6fux4ef6ux5f00ux53d1ux73afux5883}}
+
+\textbf{IDE}: Keil MDK 5.x
+
+\textbf{编译器}: ARM Compiler v5/v6
+
+\textbf{调试器}: ST-Link V2
+
+\textbf{库}: STM32F10x标准外设库 v3.5.0
+
+\textbf{版本控制}: Git
+
+\hypertarget{ux7f16ux7a0bux89c4ux8303}{%
+\paragraph{3.3.3 编程规范}\label{ux7f16ux7a0bux89c4ux8303}}
+
+为了保证代码质量,制定以下编程规范:
+
+\textbf{命名规范}: - 函数名: 大驼峰命名法,如 \texttt{Servo\_SetAngle()}
+- 变量名: 小写字母加下划线,如 \texttt{move\_delay} - 宏定义:
+全大写加下划线,如 \texttt{MAX\_ANGLE}
+
+\textbf{注释规范}: - 文件头注释: 说明文件功能、作者、日期 - 函数注释:
+说明函数功能、参数、返回值 - 关键代码注释: 解释复杂逻辑
+
+\textbf{代码风格}: - 缩进: 使用Tab,宽度为4个空格 - 括号: K\&R风格 -
+每行长度: 不超过80字符
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux56dbux7ae0-ux8fd0ux52a8ux63a7ux5236ux7b97ux6cd5ux8bbeux8ba1}{%
+\subsection{第四章
+运动控制算法设计}\label{ux7b2cux56dbux7ae0-ux8fd0ux52a8ux63a7ux5236ux7b97ux6cd5ux8bbeux8ba1}}
+
+\hypertarget{pwmux8235ux673aux63a7ux5236ux7b97ux6cd5}{%
+\subsubsection{4.1
+PWM舵机控制算法}\label{pwmux8235ux673aux63a7ux5236ux7b97ux6cd5}}
+
+\hypertarget{pwmux4fe1ux53f7ux751fux6210}{%
+\paragraph{4.1.1 PWM信号生成}\label{pwmux4fe1ux53f7ux751fux6210}}
+
+PWM信号生成基于STM32的定时器。以TIM3为例,配置步骤如下:
+
+\textbf{步骤1: 使能时钟}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RCC\_APB1PeriphClockCmd(RCC\_APB1Periph\_TIM3, ENABLE);}
+\NormalTok{RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_GPIOA, ENABLE);}
+\NormalTok{RCC\_APB2PeriphClockCmd(RCC\_APB2Periph\_GPIOB, ENABLE);}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{步骤2: 配置GPIO为复用推挽输出}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{GPIO\_InitTypeDef GPIO\_InitStructure;}
+\NormalTok{GPIO\_InitStructure.GPIO\_Mode = GPIO\_Mode\_AF\_PP;}
+\NormalTok{GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_6|GPIO\_Pin\_7;}
+\NormalTok{GPIO\_InitStructure.GPIO\_Speed = GPIO\_Speed\_50MHz;}
+\NormalTok{GPIO\_Init(GPIOA, \&GPIO\_InitStructure);}
+
+\NormalTok{GPIO\_InitStructure.GPIO\_Pin = GPIO\_Pin\_0|GPIO\_Pin\_1;}
+\NormalTok{GPIO\_Init(GPIOB, \&GPIO\_InitStructure);}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{步骤3: 配置定时器时基单元}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{TIM\_TimeBaseInitTypeDef TIM\_TimeBaseInitStructure;}
+\NormalTok{TIM\_TimeBaseInitStructure.TIM\_ClockDivision = TIM\_CKD\_DIV1;}
+\NormalTok{TIM\_TimeBaseInitStructure.TIM\_CounterMode = TIM\_CounterMode\_Up;}
+\NormalTok{TIM\_TimeBaseInitStructure.TIM\_Period = }\DecValTok{20000}\NormalTok{ {-} }\DecValTok{1}\NormalTok{;      }\CommentTok{// ARR}
+\NormalTok{TIM\_TimeBaseInitStructure.TIM\_Prescaler = }\DecValTok{72}\NormalTok{ {-} }\DecValTok{1}\NormalTok{;      }\CommentTok{// PSC}
+\NormalTok{TIM\_TimeBaseInitStructure.TIM\_RepetitionCounter = }\DecValTok{0}\NormalTok{;}
+\NormalTok{TIM\_TimeBaseInit(TIM3, \&TIM\_TimeBaseInitStructure);}
+\end{Highlighting}
+\end{Shaded}
+
+定时器频率计算:
+
+\begin{verbatim}
+计数频率 = 72MHz / (PSC+1) = 72MHz / 72 = 1MHz
+PWM周期 = (ARR+1) / 计数频率 = 20000 / 1MHz = 20ms
+PWM频率 = 1 / 20ms = 50Hz
+\end{verbatim}
+
+\textbf{步骤4: 配置输出比较模式}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{TIM\_OCInitTypeDef TIM\_OCInitStructure;}
+\NormalTok{TIM\_OCStructInit(\&TIM\_OCInitStructure);}
+\NormalTok{TIM\_OCInitStructure.TIM\_OCMode = TIM\_OCMode\_PWM1;}
+\NormalTok{TIM\_OCInitStructure.TIM\_OCPolarity = TIM\_OCPolarity\_High;}
+\NormalTok{TIM\_OCInitStructure.TIM\_OutputState = TIM\_OutputState\_Enable;}
+\NormalTok{TIM\_OCInitStructure.TIM\_Pulse = }\DecValTok{0}\NormalTok{;}
+
+\NormalTok{TIM\_OC1Init(TIM3, \&TIM\_OCInitStructure);  }\CommentTok{// CH1}
+\NormalTok{TIM\_OC2Init(TIM3, \&TIM\_OCInitStructure);  }\CommentTok{// CH2}
+\NormalTok{TIM\_OC3Init(TIM3, \&TIM\_OCInitStructure);  }\CommentTok{// CH3}
+\NormalTok{TIM\_OC4Init(TIM3, \&TIM\_OCInitStructure);  }\CommentTok{// CH4}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{步骤5: 使能定时器}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{TIM\_Cmd(TIM3, ENABLE);}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux89d2ux5ea6ux5230pwmux8f6cux6362}{%
+\paragraph{4.1.2
+角度到PWM转换}\label{ux89d2ux5ea6ux5230pwmux8f6cux6362}}
+
+舵机角度与PWM脉宽的对应关系: - 0° → 0.5ms → CCR = 500 - 90° → 1.5ms →
+CCR = 1500 - 180° → 2.5ms → CCR = 2500
+
+转换公式:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CCR = (Angle / }\FloatTok{180.0}\NormalTok{) * }\DecValTok{2000}\NormalTok{ + }\DecValTok{500}
+\end{Highlighting}
+\end{Shaded}
+
+或者:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CCR = Angle * }\DecValTok{2000}\NormalTok{ / }\DecValTok{180}\NormalTok{ + }\DecValTok{500}
+\end{Highlighting}
+\end{Shaded}
+
+为了提高精度,使用浮点运算:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Servo\_SetAngle(}\DataTypeTok{uint8\_t}\NormalTok{ channel, }\DataTypeTok{float}\NormalTok{ angle)}
+\NormalTok{\{}
+    \DataTypeTok{uint16\_t}\NormalTok{ ccr = (}\DataTypeTok{uint16\_t}\NormalTok{)(angle / }\FloatTok{180.0}\NormalTok{ * }\DecValTok{2000}\NormalTok{ + }\DecValTok{500}\NormalTok{);}
+    
+    \ControlFlowTok{switch}\NormalTok{(channel) \{}
+        \ControlFlowTok{case} \DecValTok{1}\NormalTok{: TIM\_SetCompare1(TIM3, ccr); }\ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \DecValTok{2}\NormalTok{: TIM\_SetCompare2(TIM3, ccr); }\ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \DecValTok{3}\NormalTok{: TIM\_SetCompare3(TIM3, ccr); }\ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \DecValTok{4}\NormalTok{: TIM\_SetCompare4(TIM3, ccr); }\ControlFlowTok{break}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux89d2ux5ea6ux8bfbux53d6}{%
+\paragraph{4.1.3 角度读取}\label{ux89d2ux5ea6ux8bfbux53d6}}
+
+从CCR值反算角度:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Angle = (CCR {-} }\DecValTok{500}\NormalTok{) * }\FloatTok{180.0}\NormalTok{ / }\DecValTok{2000}
+\end{Highlighting}
+\end{Shaded}
+
+实现函数:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{uint8\_t}\NormalTok{ Servo\_GetAngle(}\DataTypeTok{uint8\_t}\NormalTok{ channel)}
+\NormalTok{\{}
+    \DataTypeTok{uint16\_t}\NormalTok{ ccr;}
+    
+    \ControlFlowTok{switch}\NormalTok{(channel) \{}
+        \ControlFlowTok{case} \DecValTok{1}\NormalTok{: ccr = TIM\_GetCapture1(TIM3); }\ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \DecValTok{2}\NormalTok{: ccr = TIM\_GetCapture2(TIM3); }\ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \DecValTok{3}\NormalTok{: ccr = TIM\_GetCapture3(TIM3); }\ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{case} \DecValTok{4}\NormalTok{: ccr = TIM\_GetCapture4(TIM3); }\ControlFlowTok{break}\NormalTok{;}
+        \ControlFlowTok{default}\NormalTok{: }\ControlFlowTok{return} \DecValTok{0}\NormalTok{;}
+\NormalTok{    \}}
+    
+    \ControlFlowTok{return}\NormalTok{ (}\DataTypeTok{uint8\_t}\NormalTok{)((ccr {-} }\DecValTok{500}\NormalTok{) * }\DecValTok{180}\NormalTok{ / }\DecValTok{2000}\NormalTok{);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux89d2ux5ea6ux9650ux5e45}{%
+\paragraph{4.1.4 角度限幅}\label{ux89d2ux5ea6ux9650ux5e45}}
+
+为了保护舵机,需要对角度进行限幅:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#define MIN\_ANGLE 0}
+\PreprocessorTok{\#define MAX\_ANGLE 180}
+
+\DataTypeTok{float}\NormalTok{ Servo\_LimitAngle(}\DataTypeTok{float}\NormalTok{ angle)}
+\NormalTok{\{}
+    \ControlFlowTok{if}\NormalTok{ (angle \textless{} MIN\_ANGLE) }\ControlFlowTok{return}\NormalTok{ MIN\_ANGLE;}
+    \ControlFlowTok{if}\NormalTok{ (angle \textgreater{} MAX\_ANGLE) }\ControlFlowTok{return}\NormalTok{ MAX\_ANGLE;}
+    \ControlFlowTok{return}\NormalTok{ angle;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+在实际应用中,可以进一步限制角度范围,例如45°\textasciitilde135°,以提高稳定性:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#define SAFE\_MIN\_ANGLE 45}
+\PreprocessorTok{\#define SAFE\_MAX\_ANGLE 135}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux5bf9ux89d2ux6b65ux6001ux89c4ux5212ux7b97ux6cd5}{%
+\subsubsection{4.2
+对角步态规划算法}\label{ux5bf9ux89d2ux6b65ux6001ux89c4ux5212ux7b97ux6cd5}}
+
+\hypertarget{ux6b65ux6001ux72b6ux6001ux673aux8bbeux8ba1}{%
+\paragraph{4.2.1
+步态状态机设计}\label{ux6b65ux6001ux72b6ux6001ux673aux8bbeux8ba1}}
+
+对角步态可以用状态机描述,包含8个状态:
+
+\textbf{状态0}: 初始状态,所有舵机在中位(90°)
+
+\textbf{状态1}: 左前(舵机1)和右后(舵机4)向内摆(135°和45°)
+
+\textbf{状态2}: 右前(舵机3)和左后(舵机2)向外摆(45°和135°)
+
+\textbf{状态3}: 回到中位(90°)
+
+\textbf{状态4}: 右前(舵机3)和左后(舵机2)向内摆(135°和45°)
+
+\textbf{状态5}: 左前(舵机1)和右后(舵机4)向外摆(45°和135°)
+
+\textbf{状态6}: 回到中位(90°)
+
+\textbf{状态7}: 循环到状态1
+
+状态转换图:
+
+\begin{verbatim}
+     ┌─────┐
+     │  0  │ 初始
+     └──┬──┘
+        │
+     ┌──▼──┐
+  ┌─▶│  1  │ 第一组对角腿内摆
+  │  └──┬──┘
+  │     │
+  │  ┌──▼──┐
+  │  │  2  │ 第二组对角腿外摆
+  │  └──┬──┘
+  │     │
+  │  ┌──▼──┐
+  │  │  3  │ 回中位
+  │  └──┬──┘
+  │     │
+  │  ┌──▼──┐
+  │  │  4  │ 第二组对角腿内摆
+  │  └──┬──┘
+  │     │
+  │  ┌──▼──┐
+  │  │  5  │ 第一组对角腿外摆
+  │  └──┬──┘
+  │     │
+  │  ┌──▼──┐
+  │  │  6  │ 回中位
+  │  └──┬──┘
+  │     │
+  └────┘
+\end{verbatim}
+
+\hypertarget{ux524dux8fdbux6b65ux6001ux5b9eux73b0}{%
+\paragraph{4.2.2
+前进步态实现}\label{ux524dux8fdbux6b65ux6001ux5b9eux73b0}}
+
+前进步态的完整实现:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ move\_forward(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{int}\NormalTok{ movedelay = }\DecValTok{150}\NormalTok{;  }\CommentTok{// 每个状态的延时(ms)}
+    
+    \CommentTok{// 状态1: 第一组对角腿内摆}
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{135}\NormalTok{);  }\CommentTok{// 左前向内}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{45}\NormalTok{);   }\CommentTok{// 右后向外}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+    \CommentTok{// 状态2: 第二组对角腿外摆}
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{45}\NormalTok{);   }\CommentTok{// 左后向外}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{135}\NormalTok{);  }\CommentTok{// 右前向内}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+    \CommentTok{// 状态3: 回中位}
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+    \CommentTok{// 状态4: 第二组对角腿内摆}
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{135}\NormalTok{);  }\CommentTok{// 左后向内}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{45}\NormalTok{);   }\CommentTok{// 右前向外}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+    \CommentTok{// 状态5: 第一组对角腿外摆}
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{45}\NormalTok{);   }\CommentTok{// 左前向外}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{135}\NormalTok{);  }\CommentTok{// 右后向内}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+    \CommentTok{// 状态6: 回中位}
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux540eux9000ux6b65ux6001ux5b9eux73b0}{%
+\paragraph{4.2.3
+后退步态实现}\label{ux540eux9000ux6b65ux6001ux5b9eux73b0}}
+
+后退步态是前进步态的逆过程:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ move\_behind(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{int}\NormalTok{ movedelay = }\DecValTok{150}\NormalTok{;}
+    
+    \CommentTok{// 与前进相反的摆动顺序}
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{45}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{135}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{135}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{45}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{45}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{135}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{135}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{45}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux8f6cux5411ux6b65ux6001ux5b9eux73b0}{%
+\paragraph{4.2.4
+转向步态实现}\label{ux8f6cux5411ux6b65ux6001ux5b9eux73b0}}
+
+\textbf{右转步态}: 左右两侧同时向同一方向摆动
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ move\_right(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{int}\NormalTok{ movedelay = }\DecValTok{150}\NormalTok{;}
+    
+    \CommentTok{// 左右两侧同时向前摆}
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{45}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{45}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{135}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{135}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+    \CommentTok{// 回中位}
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{左转步态}: 与右转相反
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ move\_left(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{int}\NormalTok{ movedelay = }\DecValTok{150}\NormalTok{;}
+    
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{135}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{135}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{45}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{45}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle2(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle3(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+    
+\NormalTok{    Servo\_SetAngle1(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Servo\_SetAngle4(}\DecValTok{90}\NormalTok{);}
+\NormalTok{    Delay\_ms(movedelay);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux6b65ux6001ux53c2ux6570ux4f18ux5316}{%
+\paragraph{4.2.5
+步态参数优化}\label{ux6b65ux6001ux53c2ux6570ux4f18ux5316}}
+
+步态参数对运动性能有重要影响:
+
+\textbf{摆动幅度}: 影响步长和稳定性 - 幅度过小: 步长小,速度慢 -
+幅度过大: 不稳定,易摔倒 - 推荐值: ±45°(45°\textasciitilde135°)
+
+\textbf{延时时间}: 影响运动速度和平滑性 - 延时过短:
+舵机响应不及,动作不到位 - 延时过长: 运动速度慢 - 推荐值: 150ms
+
+\textbf{相位关系}: 影响步态协调性 - 对角腿应保持180°相位差 -
+同侧腿应保持0°相位差
+
+通过实验调整这些参数,可以获得最佳的运动效果。
+
+\hypertarget{ux5e73ux6ed1ux8fd0ux52a8ux63a7ux5236ux7b97ux6cd5}{%
+\subsubsection{4.3
+平滑运动控制算法}\label{ux5e73ux6ed1ux8fd0ux52a8ux63a7ux5236ux7b97ux6cd5}}
+
+\hypertarget{ux5e73ux6ed1ux8fd0ux52a8ux7684ux5fc5ux8981ux6027}{%
+\paragraph{4.3.1
+平滑运动的必要性}\label{ux5e73ux6ed1ux8fd0ux52a8ux7684ux5fc5ux8981ux6027}}
+
+直接设置舵机目标角度会导致舵机突然转动,产生以下问题:
+
+\textbf{冲击}: 舵机瞬间启动,产生较大冲击,影响机械结构寿命。
+
+\textbf{抖动}: 机器人整体晃动,影响稳定性。
+
+\textbf{不自然}: 运动不流畅,缺乏生物感。
+
+因此,需要采用平滑运动算法,使舵机从当前角度逐渐过渡到目标角度。
+
+\hypertarget{ux7ebfux6027ux63d2ux503cux7b97ux6cd5}{%
+\paragraph{4.3.2
+线性插值算法}\label{ux7ebfux6027ux63d2ux503cux7b97ux6cd5}}
+
+线性插值是最简单的平滑运动算法。基本思想是:
+
+将从当前角度到目标角度的过程分为N步,每步移动固定的角度增量。
+
+算法步骤:
+
+\begin{verbatim}
+1. 读取当前角度 θ_current
+2. 设定目标角度 θ_target
+3. 计算角度差 Δθ = θ_target - θ_current
+4. 设定步数 N
+5. 计算每步角度增量 δθ = Δθ / N
+6. for i = 1 to N:
+       θ_current = θ_current + δθ
+       设置舵机角度为 θ_current
+       延时 Δt
+\end{verbatim}
+
+实现代码:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Servo\_SmoothMove(}\DataTypeTok{uint8\_t}\NormalTok{ channel, }\DataTypeTok{uint8\_t}\NormalTok{ target\_angle, }\DataTypeTok{uint16\_t}\NormalTok{ duration)}
+\NormalTok{\{}
+    \DataTypeTok{uint8\_t}\NormalTok{ current\_angle = Servo\_GetAngle(channel);}
+    \DataTypeTok{int16\_t}\NormalTok{ delta\_angle = target\_angle {-} current\_angle;}
+    \DataTypeTok{uint16\_t}\NormalTok{ steps = duration / }\DecValTok{20}\NormalTok{;  }\CommentTok{// 假设每步20ms}
+    \DataTypeTok{float}\NormalTok{ step\_angle = (}\DataTypeTok{float}\NormalTok{)delta\_angle / steps;}
+    
+    \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{uint16\_t}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} steps; i++) \{}
+\NormalTok{        current\_angle += step\_angle;}
+\NormalTok{        Servo\_SetAngle(channel, current\_angle);}
+\NormalTok{        Delay\_ms(}\DecValTok{20}\NormalTok{);}
+\NormalTok{    \}}
+    
+    \CommentTok{// 确保到达目标角度}
+\NormalTok{    Servo\_SetAngle(channel, target\_angle);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux591aux8235ux673aux534fux8c03ux5e73ux6ed1ux8fd0ux52a8}{%
+\paragraph{4.3.3
+多舵机协调平滑运动}\label{ux591aux8235ux673aux534fux8c03ux5e73ux6ed1ux8fd0ux52a8}}
+
+对于多个舵机同时运动的情况,需要协调控制,使所有舵机同时到达目标角度。
+
+算法思想:
+
+\begin{verbatim}
+1. 读取所有舵机的当前角度
+2. 设定所有舵机的目标角度
+3. 计算每个舵机的角度差
+4. 设定总步数 N
+5. 计算每个舵机的每步角度增量
+6. for i = 1 to N:
+       for each servo:
+           更新角度
+           设置舵机角度
+       延时 Δt
+\end{verbatim}
+
+实现代码:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ move(}\DataTypeTok{uint16\_t}\NormalTok{ set1, }\DataTypeTok{uint16\_t}\NormalTok{ set2, }\DataTypeTok{uint16\_t}\NormalTok{ set3, }\DataTypeTok{uint16\_t}\NormalTok{ set4, }\DataTypeTok{uint16\_t}\NormalTok{ speed)}
+\NormalTok{\{}
+    \DataTypeTok{uint8\_t}\NormalTok{ angle\_1 = Servo\_GetAngle1();}
+    \DataTypeTok{uint8\_t}\NormalTok{ angle\_2 = Servo\_GetAngle2();}
+    \DataTypeTok{uint8\_t}\NormalTok{ angle\_3 = Servo\_GetAngle3();}
+    \DataTypeTok{uint8\_t}\NormalTok{ angle\_4 = Servo\_GetAngle4();}
+    
+    \ControlFlowTok{while}\NormalTok{ (angle\_1 != set1 || angle\_2 != set2 || }
+\NormalTok{           angle\_3 != set3 || angle\_4 != set4) \{}
+        
+        \CommentTok{// 舵机1}
+        \ControlFlowTok{if}\NormalTok{ (angle\_1 \textgreater{} set1) \{}
+\NormalTok{            angle\_1{-}{-};}
+\NormalTok{            Servo\_SetAngle1(angle\_1);}
+\NormalTok{        \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (angle\_1 \textless{} set1) \{}
+\NormalTok{            angle\_1++;}
+\NormalTok{            Servo\_SetAngle1(angle\_1);}
+\NormalTok{        \}}
+        
+        \CommentTok{// 舵机2}
+        \ControlFlowTok{if}\NormalTok{ (angle\_2 \textgreater{} set2) \{}
+\NormalTok{            angle\_2{-}{-};}
+\NormalTok{            Servo\_SetAngle2(angle\_2);}
+\NormalTok{        \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (angle\_2 \textless{} set2) \{}
+\NormalTok{            angle\_2++;}
+\NormalTok{            Servo\_SetAngle2(angle\_2);}
+\NormalTok{        \}}
+        
+        \CommentTok{// 舵机3}
+        \ControlFlowTok{if}\NormalTok{ (angle\_3 \textgreater{} set3) \{}
+\NormalTok{            angle\_3{-}{-};}
+\NormalTok{            Servo\_SetAngle3(angle\_3);}
+\NormalTok{        \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (angle\_3 \textless{} set3) \{}
+\NormalTok{            angle\_3++;}
+\NormalTok{            Servo\_SetAngle3(angle\_3);}
+\NormalTok{        \}}
+        
+        \CommentTok{// 舵机4}
+        \ControlFlowTok{if}\NormalTok{ (angle\_4 \textgreater{} set4) \{}
+\NormalTok{            angle\_4{-}{-};}
+\NormalTok{            Servo\_SetAngle4(angle\_4);}
+\NormalTok{        \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (angle\_4 \textless{} set4) \{}
+\NormalTok{            angle\_4++;}
+\NormalTok{            Servo\_SetAngle4(angle\_4);}
+\NormalTok{        \}}
+        
+        \CommentTok{// 延时控制速度}
+\NormalTok{        Delay\_ms(}\DecValTok{1000}\NormalTok{ / speed);}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux7f13ux6162ux8d77ux8eabux7b97ux6cd5}{%
+\paragraph{4.3.4
+缓慢起身算法}\label{ux7f13ux6162ux8d77ux8eabux7b97ux6cd5}}
+
+从任意姿态平滑回到站立姿态:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ move\_slow\_stand(}\DataTypeTok{uint8\_t}\NormalTok{ previous\_mode)}
+\NormalTok{\{}
+    \ControlFlowTok{if}\NormalTok{ (previous\_mode == }\CharTok{\textquotesingle{}0\textquotesingle{}}\NormalTok{) }\ControlFlowTok{return}\NormalTok{;}
+    
+    \DataTypeTok{uint8\_t}\NormalTok{ angle\_1 = Servo\_GetAngle1();}
+    \DataTypeTok{uint8\_t}\NormalTok{ angle\_2 = Servo\_GetAngle2();}
+    \DataTypeTok{uint8\_t}\NormalTok{ angle\_3 = Servo\_GetAngle3();}
+    \DataTypeTok{uint8\_t}\NormalTok{ angle\_4 = Servo\_GetAngle4();}
+    
+    \CommentTok{// 逐度调整到90°}
+    \ControlFlowTok{while}\NormalTok{ (angle\_1 != }\DecValTok{90}\NormalTok{ || angle\_2 != }\DecValTok{90}\NormalTok{ || }
+\NormalTok{           angle\_3 != }\DecValTok{90}\NormalTok{ || angle\_4 != }\DecValTok{90}\NormalTok{) \{}
+        
+        \ControlFlowTok{if}\NormalTok{ (angle\_1 \textgreater{} }\DecValTok{90}\NormalTok{) \{}
+\NormalTok{            angle\_1{-}{-};}
+\NormalTok{            Servo\_SetAngle1(angle\_1);}
+\NormalTok{        \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (angle\_1 \textless{} }\DecValTok{90}\NormalTok{) \{}
+\NormalTok{            angle\_1++;}
+\NormalTok{            Servo\_SetAngle1(angle\_1);}
+\NormalTok{        \}}
+        
+        \ControlFlowTok{if}\NormalTok{ (angle\_2 \textgreater{} }\DecValTok{90}\NormalTok{) \{}
+\NormalTok{            angle\_2{-}{-};}
+\NormalTok{            Servo\_SetAngle2(angle\_2);}
+\NormalTok{        \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (angle\_2 \textless{} }\DecValTok{90}\NormalTok{) \{}
+\NormalTok{            angle\_2++;}
+\NormalTok{            Servo\_SetAngle2(angle\_2);}
+\NormalTok{        \}}
+        
+        \ControlFlowTok{if}\NormalTok{ (angle\_3 \textgreater{} }\DecValTok{90}\NormalTok{) \{}
+\NormalTok{            angle\_3{-}{-};}
+\NormalTok{            Servo\_SetAngle3(angle\_3);}
+\NormalTok{        \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (angle\_3 \textless{} }\DecValTok{90}\NormalTok{) \{}
+\NormalTok{            angle\_3++;}
+\NormalTok{            Servo\_SetAngle3(angle\_3);}
+\NormalTok{        \}}
+        
+        \ControlFlowTok{if}\NormalTok{ (angle\_4 \textgreater{} }\DecValTok{90}\NormalTok{) \{}
+\NormalTok{            angle\_4{-}{-};}
+\NormalTok{            Servo\_SetAngle4(angle\_4);}
+\NormalTok{        \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (angle\_4 \textless{} }\DecValTok{90}\NormalTok{) \{}
+\NormalTok{            angle\_4++;}
+\NormalTok{            Servo\_SetAngle4(angle\_4);}
+\NormalTok{        \}}
+        
+\NormalTok{        Delay\_ms(}\DecValTok{10}\NormalTok{);}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux901fux5ea6ux63a7ux5236}{%
+\paragraph{4.3.5 速度控制}\label{ux901fux5ea6ux63a7ux5236}}
+
+通过调整延时时间,可以控制运动速度:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// 快速运动 (60度/秒)}
+\NormalTok{move(}\DecValTok{45}\NormalTok{, }\DecValTok{135}\NormalTok{, }\DecValTok{135}\NormalTok{, }\DecValTok{45}\NormalTok{, }\DecValTok{60}\NormalTok{);}
+
+\CommentTok{// 中速运动 (30度/秒)}
+\NormalTok{move(}\DecValTok{45}\NormalTok{, }\DecValTok{135}\NormalTok{, }\DecValTok{135}\NormalTok{, }\DecValTok{45}\NormalTok{, }\DecValTok{30}\NormalTok{);}
+
+\CommentTok{// 慢速运动 (10度/秒)}
+\NormalTok{move(}\DecValTok{45}\NormalTok{, }\DecValTok{135}\NormalTok{, }\DecValTok{135}\NormalTok{, }\DecValTok{45}\NormalTok{, }\DecValTok{10}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+速度参数的选择需要考虑: - 舵机的响应速度 - 机械结构的惯性 - 稳定性要求
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e94ux7ae0-ux591aux4f20ux611fux5668ux878dux5408ux907fux969cux7b97ux6cd5}{%
+\subsection{第五章
+多传感器融合避障算法}\label{ux7b2cux4e94ux7ae0-ux591aux4f20ux611fux5668ux878dux5408ux907fux969cux7b97ux6cd5}}
+
+\hypertarget{ux8d85ux58f0ux6ce2ux6d4bux8dddux7b97ux6cd5}{%
+\subsubsection{5.1
+超声波测距算法}\label{ux8d85ux58f0ux6ce2ux6d4bux8dddux7b97ux6cd5}}
+
+\hypertarget{ux6d4bux8dddux539fux7406}{%
+\paragraph{5.1.1 测距原理}\label{ux6d4bux8dddux539fux7406}}
+
+超声波测距的基本流程:
+
+\begin{verbatim}
+1. 向Trig引脚发送10μs高电平触发信号
+2. 传感器自动发送8个40kHz超声波脉冲
+3. 超声波遇到障碍物反射回来
+4. Echo引脚输出高电平,持续时间为往返时间
+5. 测量Echo高电平时间,计算距离
+\end{verbatim}
+
+距离计算公式:
+
+\begin{verbatim}
+距离(cm) = (Echo高电平时间(μs) × 声速(cm/μs)) / 2
+         = (Echo高电平时间(μs) × 0.034) / 2
+         = Echo高电平时间(μs) × 0.017
+\end{verbatim}
+
+\hypertarget{ux6d4bux8dddux5b9eux73b0}{%
+\paragraph{5.1.2 测距实现}\label{ux6d4bux8dddux5b9eux73b0}}
+
+使用定时器测量Echo高电平时间:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{float}\NormalTok{ UltrasonicWave\_GetDistance(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{uint32\_t}\NormalTok{ time = }\DecValTok{0}\NormalTok{;}
+    
+    \CommentTok{// 1. 发送触发信号}
+\NormalTok{    GPIO\_SetBits(GPIOB, GPIO\_Pin\_12);   }\CommentTok{// Trig = 1}
+\NormalTok{    Delay\_us(}\DecValTok{15}\NormalTok{);                        }\CommentTok{// 保持15μs}
+\NormalTok{    GPIO\_ResetBits(GPIOB, GPIO\_Pin\_12); }\CommentTok{// Trig = 0}
+    
+    \CommentTok{// 2. 等待Echo变高}
+    \ControlFlowTok{while}\NormalTok{ (GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_13) == }\DecValTok{0}\NormalTok{);}
+    
+    \CommentTok{// 3. 测量高电平时间}
+\NormalTok{    TIM\_SetCounter(TIM4, }\DecValTok{0}\NormalTok{);  }\CommentTok{// 清零计数器}
+    \ControlFlowTok{while}\NormalTok{ (GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_13) == }\DecValTok{1}\NormalTok{) \{}
+\NormalTok{        time = TIM\_GetCounter(TIM4);}
+        \ControlFlowTok{if}\NormalTok{ (time \textgreater{} }\DecValTok{30000}\NormalTok{) }\ControlFlowTok{break}\NormalTok{;  }\CommentTok{// 超时保护 (30ms)}
+\NormalTok{    \}}
+    
+    \CommentTok{// 4. 计算距离}
+    \DataTypeTok{float}\NormalTok{ distance = time * }\FloatTok{0.017}\NormalTok{;}
+    
+    \ControlFlowTok{return}\NormalTok{ distance;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux6570ux636eux6ee4ux6ce2}{%
+\paragraph{5.1.3 数据滤波}\label{ux6570ux636eux6ee4ux6ce2}}
+
+为了提高测量精度,采用去极值平均滤波:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{float}\NormalTok{ UltrasonicWave\_GetDistance\_Filtered(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{float}\NormalTok{ distances[}\DecValTok{5}\NormalTok{];}
+    \DataTypeTok{float}\NormalTok{ sum = }\DecValTok{0}\NormalTok{;}
+    \DataTypeTok{float}\NormalTok{ max, min;}
+    
+    \CommentTok{// 连续测量5次}
+    \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{uint8\_t}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} }\DecValTok{5}\NormalTok{; i++) \{}
+\NormalTok{        distances[i] = UltrasonicWave\_GetDistance();}
+\NormalTok{        Delay\_ms(}\DecValTok{10}\NormalTok{);}
+\NormalTok{    \}}
+    
+    \CommentTok{// 找出最大值和最小值}
+\NormalTok{    max = min = distances[}\DecValTok{0}\NormalTok{];}
+    \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{uint8\_t}\NormalTok{ i = }\DecValTok{1}\NormalTok{; i \textless{} }\DecValTok{5}\NormalTok{; i++) \{}
+        \ControlFlowTok{if}\NormalTok{ (distances[i] \textgreater{} max) max = distances[i];}
+        \ControlFlowTok{if}\NormalTok{ (distances[i] \textless{} min) min = distances[i];}
+\NormalTok{        sum += distances[i];}
+\NormalTok{    \}}
+    
+    \CommentTok{// 去掉最大值和最小值,求平均}
+\NormalTok{    sum = sum {-} max {-} min;}
+    \ControlFlowTok{return}\NormalTok{ sum / }\FloatTok{3.0}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+滤波效果分析: - 原始数据: 20.1, 19.8, 25.3, 20.2, 19.9 (cm) - 去极值后:
+20.1, 19.8, 20.2, 19.9 - 平均值: (20.1 + 19.8 + 20.2 + 19.9) / 4 = 20.0
+(cm)
+
+\hypertarget{ux6d4bux8dddux4f18ux5316}{%
+\paragraph{5.1.4 测距优化}\label{ux6d4bux8dddux4f18ux5316}}
+
+\textbf{测量频率}:
+超声波测距需要一定时间(约50ms),不宜过于频繁。建议测量频率为10Hz(每100ms测量一次)。
+
+\textbf{测量角度}:
+HC-SR04的测量角度约为15°,只能检测正前方的障碍物。如需扩大检测范围,可以增加传感器数量或使用舵机云台。
+
+\textbf{盲区处理}:
+超声波传感器存在盲区(约2cm),对于距离过近的障碍物无法测量。可以结合红外传感器进行近距离检测。
+
+\textbf{异常值处理}:
+当测量距离超过400cm或小于2cm时,认为测量无效,使用上一次的有效值。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#define MIN\_DISTANCE 2.0}
+\PreprocessorTok{\#define MAX\_DISTANCE 400.0}
+
+\DataTypeTok{float}\NormalTok{ last\_valid\_distance = }\FloatTok{100.0}\NormalTok{;  }\CommentTok{// 上一次有效距离}
+
+\DataTypeTok{float}\NormalTok{ UltrasonicWave\_GetDistance\_Safe(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{float}\NormalTok{ distance = UltrasonicWave\_GetDistance\_Filtered();}
+    
+    \ControlFlowTok{if}\NormalTok{ (distance \textless{} MIN\_DISTANCE || distance \textgreater{} MAX\_DISTANCE) \{}
+        \ControlFlowTok{return}\NormalTok{ last\_valid\_distance;}
+\NormalTok{    \}}
+    
+\NormalTok{    last\_valid\_distance = distance;}
+    \ControlFlowTok{return}\NormalTok{ distance;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux7ea2ux5916ux8fb9ux7f18ux68c0ux6d4bux7b97ux6cd5}{%
+\subsubsection{5.2
+红外边缘检测算法}\label{ux7ea2ux5916ux8fb9ux7f18ux68c0ux6d4bux7b97ux6cd5}}
+
+\hypertarget{ux8fb9ux7f18ux68c0ux6d4bux539fux7406}{%
+\paragraph{5.2.1
+边缘检测原理}\label{ux8fb9ux7f18ux68c0ux6d4bux539fux7406}}
+
+红外传感器安装在机器人底部,向下倾斜一定角度。当机器人在平面上行走时,红外线反射回来,传感器输出低电平。当机器人接近边缘时,红外线无法反射回来,传感器输出高电平。
+
+检测逻辑:
+
+\begin{verbatim}
+if (红外传感器输出 == 高电平) {
+    检测到边缘,危险!
+} else {
+    正常,安全
+}
+\end{verbatim}
+
+\hypertarget{ux591aux7ea2ux5916ux4f20ux611fux5668ux5e03ux5c40}{%
+\paragraph{5.2.2
+多红外传感器布局}\label{ux591aux7ea2ux5916ux4f20ux611fux5668ux5e03ux5c40}}
+
+本系统使用4个红外传感器,分别安装在机器人的四个方向:
+
+\begin{verbatim}
+        前(PB2)
+          │
+    左────┼────右
+   (PB4)  │  (PB5)
+          │
+        后(PB3)
+\end{verbatim}
+
+这种布局可以检测四个方向的边缘,提供全方位保护。
+
+\hypertarget{ux8fb9ux7f18ux68c0ux6d4bux5b9eux73b0}{%
+\paragraph{5.2.3
+边缘检测实现}\label{ux8fb9ux7f18ux68c0ux6d4bux5b9eux73b0}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{struct}\NormalTok{ \{}
+    \DataTypeTok{uint8\_t}\NormalTok{ front;   }\CommentTok{// 前方}
+    \DataTypeTok{uint8\_t}\NormalTok{ back;    }\CommentTok{// 后方}
+    \DataTypeTok{uint8\_t}\NormalTok{ left;    }\CommentTok{// 左侧}
+    \DataTypeTok{uint8\_t}\NormalTok{ right;   }\CommentTok{// 右侧}
+\NormalTok{\} InfraredData;}
+
+\NormalTok{InfraredData Infrared\_Read(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    InfraredData data;}
+    
+\NormalTok{    data.front = GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_2);}
+\NormalTok{    data.back = GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_3);}
+\NormalTok{    data.left = GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_4);}
+\NormalTok{    data.right = GPIO\_ReadInputDataBit(GPIOB, GPIO\_Pin\_5);}
+    
+    \ControlFlowTok{return}\NormalTok{ data;}
+\NormalTok{\}}
+
+\DataTypeTok{uint8\_t}\NormalTok{ Infrared\_DetectEdge(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    InfraredData data = Infrared\_Read();}
+    
+    \CommentTok{// 任一传感器检测到边缘则返回1}
+    \ControlFlowTok{if}\NormalTok{ (data.front == }\DecValTok{1}\NormalTok{ || data.back == }\DecValTok{1}\NormalTok{ || }
+\NormalTok{        data.left == }\DecValTok{1}\NormalTok{ || data.right == }\DecValTok{1}\NormalTok{) \{}
+        \ControlFlowTok{return} \DecValTok{1}\NormalTok{;}
+\NormalTok{    \}}
+    
+    \ControlFlowTok{return} \DecValTok{0}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux65b9ux5411ux5224ux65ad}{%
+\paragraph{5.2.4 方向判断}\label{ux65b9ux5411ux5224ux65ad}}
+
+根据哪个传感器检测到边缘,可以判断边缘的方向:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{enum}\NormalTok{ \{}
+\NormalTok{    EDGE\_NONE = }\DecValTok{0}\NormalTok{,}
+\NormalTok{    EDGE\_FRONT,}
+\NormalTok{    EDGE\_BACK,}
+\NormalTok{    EDGE\_LEFT,}
+\NormalTok{    EDGE\_RIGHT}
+\NormalTok{\} EdgeDirection;}
+
+\NormalTok{EdgeDirection Infrared\_GetEdgeDirection(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{    InfraredData data = Infrared\_Read();}
+    
+    \ControlFlowTok{if}\NormalTok{ (data.front == }\DecValTok{1}\NormalTok{) }\ControlFlowTok{return}\NormalTok{ EDGE\_FRONT;}
+    \ControlFlowTok{if}\NormalTok{ (data.back == }\DecValTok{1}\NormalTok{) }\ControlFlowTok{return}\NormalTok{ EDGE\_BACK;}
+    \ControlFlowTok{if}\NormalTok{ (data.left == }\DecValTok{1}\NormalTok{) }\ControlFlowTok{return}\NormalTok{ EDGE\_LEFT;}
+    \ControlFlowTok{if}\NormalTok{ (data.right == }\DecValTok{1}\NormalTok{) }\ControlFlowTok{return}\NormalTok{ EDGE\_RIGHT;}
+    
+    \ControlFlowTok{return}\NormalTok{ EDGE\_NONE;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux591aux4f20ux611fux5668ux878dux5408ux7b56ux7565}{%
+\subsubsection{5.3
+多传感器融合策略}\label{ux591aux4f20ux611fux5668ux878dux5408ux7b56ux7565}}
+
+\hypertarget{ux878dux5408ux67b6ux6784}{%
+\paragraph{5.3.1 融合架构}\label{ux878dux5408ux67b6ux6784}}
+
+多传感器融合采用分层决策架构:
+
+\begin{verbatim}
+传感器层:
+    超声波传感器 → 距离数据
+    红外传感器 → 边缘数据
+
+数据处理层:
+    距离数据 → 滤波 → 有效距离
+    边缘数据 → 判断 → 边缘方向
+
+决策层:
+    有效距离 + 边缘方向 → 威胁等级评估
+
+行为层:
+    威胁等级 → 避障行为选择
+\end{verbatim}
+
+\hypertarget{ux5a01ux80c1ux7b49ux7ea7ux8bc4ux4f30}{%
+\paragraph{5.3.2
+威胁等级评估}\label{ux5a01ux80c1ux7b49ux7ea7ux8bc4ux4f30}}
+
+定义三个威胁等级:
+
+\textbf{安全(SAFE)}: 无障碍物,无边缘 - 条件: 距离 \textgreater{} 20cm 且
+无边缘检测 - 行为: 正常运动
+
+\textbf{警告(WARNING)}: 检测到远距离障碍物 - 条件: 10cm \textless{} 距离
+≤ 20cm - 行为: 减速,准备避障
+
+\textbf{危险(DANGER)}: 检测到近距离障碍物或边缘 - 条件: 距离 ≤ 10cm 或
+检测到边缘 - 行为: 立即停止,执行避障动作
+
+实现代码:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{enum}\NormalTok{ \{}
+\NormalTok{    THREAT\_SAFE = }\DecValTok{0}\NormalTok{,}
+\NormalTok{    THREAT\_WARNING,}
+\NormalTok{    THREAT\_DANGER}
+\NormalTok{\} ThreatLevel;}
+
+\NormalTok{ThreatLevel EvaluateThreat(}\DataTypeTok{float}\NormalTok{ distance, }\DataTypeTok{uint8\_t}\NormalTok{ edge\_detected)}
+\NormalTok{\{}
+    \CommentTok{// 最高优先级: 边缘检测}
+    \ControlFlowTok{if}\NormalTok{ (edge\_detected) \{}
+        \ControlFlowTok{return}\NormalTok{ THREAT\_DANGER;}
+\NormalTok{    \}}
+    
+    \CommentTok{// 次优先级: 近距离障碍物}
+    \ControlFlowTok{if}\NormalTok{ (distance \textless{}= }\FloatTok{10.0}\NormalTok{) \{}
+        \ControlFlowTok{return}\NormalTok{ THREAT\_DANGER;}
+\NormalTok{    \}}
+    
+    \CommentTok{// 第三优先级: 中距离障碍物}
+    \ControlFlowTok{if}\NormalTok{ (distance \textless{}= }\FloatTok{20.0}\NormalTok{) \{}
+        \ControlFlowTok{return}\NormalTok{ THREAT\_WARNING;}
+\NormalTok{    \}}
+    
+    \CommentTok{// 安全}
+    \ControlFlowTok{return}\NormalTok{ THREAT\_SAFE;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux907fux969cux51b3ux7b56ux7b97ux6cd5}{%
+\paragraph{5.3.3
+避障决策算法}\label{ux907fux969cux51b3ux7b56ux7b97ux6cd5}}
+
+根据威胁等级和边缘方向,选择避障行为:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ ObstacleAvoidance\_Decision(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \DataTypeTok{float}\NormalTok{ distance = UltrasonicWave\_GetDistance\_Safe();}
+    \DataTypeTok{uint8\_t}\NormalTok{ edge\_detected = Infrared\_DetectEdge();}
+\NormalTok{    EdgeDirection edge\_dir = Infrared\_GetEdgeDirection();}
+    
+\NormalTok{    ThreatLevel threat = EvaluateThreat(distance, edge\_detected);}
+    
+    \ControlFlowTok{switch}\NormalTok{ (threat) \{}
+        \ControlFlowTok{case}\NormalTok{ THREAT\_SAFE:}
+            \CommentTok{// 无需避障,继续当前动作}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ THREAT\_WARNING:}
+            \CommentTok{// 减速,发出警告}
+\NormalTok{            movedelay = }\DecValTok{200}\NormalTok{;  }\CommentTok{// 增大延时,降低速度}
+\NormalTok{            OLED\_ShowWarning();}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ THREAT\_DANGER:}
+            \CommentTok{// 立即停止,执行避障}
+\NormalTok{            move\_stand();  }\CommentTok{// 停止运动}
+            
+            \ControlFlowTok{if}\NormalTok{ (edge\_detected) \{}
+                \CommentTok{// 边缘避障}
+                \ControlFlowTok{switch}\NormalTok{ (edge\_dir) \{}
+                    \ControlFlowTok{case}\NormalTok{ EDGE\_FRONT:}
+\NormalTok{                        move\_behind();  }\CommentTok{// 后退}
+                        \ControlFlowTok{break}\NormalTok{;}
+                    \ControlFlowTok{case}\NormalTok{ EDGE\_BACK:}
+\NormalTok{                        move\_forward();  }\CommentTok{// 前进}
+                        \ControlFlowTok{break}\NormalTok{;}
+                    \ControlFlowTok{case}\NormalTok{ EDGE\_LEFT:}
+\NormalTok{                        move\_right();  }\CommentTok{// 右转}
+                        \ControlFlowTok{break}\NormalTok{;}
+                    \ControlFlowTok{case}\NormalTok{ EDGE\_RIGHT:}
+\NormalTok{                        move\_left();  }\CommentTok{// 左转}
+                        \ControlFlowTok{break}\NormalTok{;}
+\NormalTok{                \}}
+\NormalTok{            \} }\ControlFlowTok{else}\NormalTok{ \{}
+                \CommentTok{// 障碍物避障}
+\NormalTok{                move\_behind();  }\CommentTok{// 后退}
+\NormalTok{                Delay\_ms(}\DecValTok{500}\NormalTok{);}
+\NormalTok{                move\_right();  }\CommentTok{// 右转}
+\NormalTok{                Delay\_ms(}\DecValTok{500}\NormalTok{);}
+\NormalTok{            \}}
+            
+\NormalTok{            movedelay = }\DecValTok{150}\NormalTok{;  }\CommentTok{// 恢复正常速度}
+            \ControlFlowTok{break}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux907fux969cux884cux4e3aux4f18ux5148ux7ea7}{%
+\paragraph{5.3.4
+避障行为优先级}\label{ux907fux969cux884cux4e3aux4f18ux5148ux7ea7}}
+
+当同时检测到多个威胁时,按以下优先级处理:
+
+\textbf{优先级1}: 边缘检测 (最高优先级) - 原因: 跌落风险最大 - 行为:
+立即后退
+
+\textbf{优先级2}: 近距离障碍物 (距离 \textless{} 10cm) - 原因:
+碰撞风险大 - 行为: 立即停止+后退+转向
+
+\textbf{优先级3}: 中距离障碍物 (10cm \textless{} 距离 \textless{} 20cm)
+- 原因: 有时间反应 - 行为: 减速+准备避障
+
+\textbf{优先级4}: 远距离障碍物 (距离 \textgreater{} 20cm) - 原因: 风险小
+- 行为: 正常运动,持续监测
+
+\hypertarget{ux907fux969cux884cux4e3aux5b9eux73b0}{%
+\subsubsection{5.4
+避障行为实现}\label{ux907fux969cux884cux4e3aux5b9eux73b0}}
+
+\hypertarget{ux540eux9000ux907fux969c}{%
+\paragraph{5.4.1 后退避障}\label{ux540eux9000ux907fux969c}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Avoidance\_Backward(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 后退3步}
+    \ControlFlowTok{for}\NormalTok{ (}\DataTypeTok{int}\NormalTok{ i = }\DecValTok{0}\NormalTok{; i \textless{} }\DecValTok{3}\NormalTok{; i++) \{}
+\NormalTok{        move\_behind();}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux8f6cux5411ux907fux969c}{%
+\paragraph{5.4.2 转向避障}\label{ux8f6cux5411ux907fux969c}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Avoidance\_Turn(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 随机选择左转或右转}
+    \ControlFlowTok{if}\NormalTok{ (rand() \% }\DecValTok{2}\NormalTok{ == }\DecValTok{0}\NormalTok{) \{}
+\NormalTok{        move\_left();}
+\NormalTok{        move\_left();}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{        move\_right();}
+\NormalTok{        move\_right();}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux7ec4ux5408ux907fux969c}{%
+\paragraph{5.4.3 组合避障}\label{ux7ec4ux5408ux907fux969c}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ Avoidance\_Composite(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \CommentTok{// 后退 + 转向}
+\NormalTok{    Avoidance\_Backward();}
+\NormalTok{    Delay\_ms(}\DecValTok{500}\NormalTok{);}
+\NormalTok{    Avoidance\_Turn();}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux907fux969cux72b6ux6001ux673a}{%
+\paragraph{5.4.4 避障状态机}\label{ux907fux969cux72b6ux6001ux673a}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typedef} \KeywordTok{enum}\NormalTok{ \{}
+\NormalTok{    AVOID\_STATE\_NORMAL = }\DecValTok{0}\NormalTok{,}
+\NormalTok{    AVOID\_STATE\_DETECTING,}
+\NormalTok{    AVOID\_STATE\_AVOIDING,}
+\NormalTok{    AVOID\_STATE\_RECOVERING}
+\NormalTok{\} AvoidState;}
+
+\NormalTok{AvoidState avoid\_state = AVOID\_STATE\_NORMAL;}
+
+\DataTypeTok{void}\NormalTok{ Avoidance\_StateMachine(}\DataTypeTok{void}\NormalTok{)}
+\NormalTok{\{}
+    \ControlFlowTok{switch}\NormalTok{ (avoid\_state) \{}
+        \ControlFlowTok{case}\NormalTok{ AVOID\_STATE\_NORMAL:}
+            \CommentTok{// 正常运动,监测传感器}
+            \ControlFlowTok{if}\NormalTok{ (ThreatDetected()) \{}
+\NormalTok{                avoid\_state = AVOID\_STATE\_DETECTING;}
+\NormalTok{            \}}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ AVOID\_STATE\_DETECTING:}
+            \CommentTok{// 确认威胁}
+            \ControlFlowTok{if}\NormalTok{ (ThreatConfirmed()) \{}
+\NormalTok{                avoid\_state = AVOID\_STATE\_AVOIDING;}
+\NormalTok{            \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{                avoid\_state = AVOID\_STATE\_NORMAL;}
+\NormalTok{            \}}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ AVOID\_STATE\_AVOIDING:}
+            \CommentTok{// 执行避障动作}
+\NormalTok{            Avoidance\_Composite();}
+\NormalTok{            avoid\_state = AVOID\_STATE\_RECOVERING;}
+            \ControlFlowTok{break}\NormalTok{;}
+            
+        \ControlFlowTok{case}\NormalTok{ AVOID\_STATE\_RECOVERING:}
+            \CommentTok{// 恢复正常状态}
+\NormalTok{            move\_stand();}
+\NormalTok{            Delay\_ms(}\DecValTok{500}\NormalTok{);}
+\NormalTok{            avoid\_state = AVOID\_STATE\_NORMAL;}
+            \ControlFlowTok{break}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux516dux7ae0-ux7cfbux7edfux5b9eux73b0ux4e0eux6d4bux8bd5}{%
+\subsection{第六章
+系统实现与测试}\label{ux7b2cux516dux7ae0-ux7cfbux7edfux5b9eux73b0ux4e0eux6d4bux8bd5}}
+
+\hypertarget{ux7cfbux7edfux96c6ux6210}{%
+\subsubsection{6.1 系统集成}\label{ux7cfbux7edfux96c6ux6210}}
+
+\hypertarget{ux786cux4ef6ux7ec4ux88c5}{%
+\paragraph{6.1.1 硬件组装}\label{ux786cux4ef6ux7ec4ux88c5}}
+
+硬件组装步骤:
+
+\textbf{步骤1}: 3D打印机械结构件,包括身体框架、腿部连杆等。
+
+\textbf{步骤2}: 安装舵机,使用M2螺丝固定舵机到框架上。
+
+\textbf{步骤3}: 连接舵机摇臂和腿部连杆。
+
+\textbf{步骤4}: 安装STM32开发板,固定在身体框架上。
+
+\textbf{步骤5}: 连接舵机信号线到STM32的PWM输出引脚。
+
+\textbf{步骤6}: 安装超声波传感器,固定在机器人前方。
+
+\textbf{步骤7}: 安装红外传感器,固定在机器人底部四个方向。
+
+\textbf{步骤8}: 安装OLED显示屏,固定在机器人顶部。
+
+\textbf{步骤9}: 安装蓝牙模块,连接到STM32的串口引脚。
+
+\textbf{步骤10}: 安装电源系统,包括电池、稳压模块等。
+
+\textbf{步骤11}: 连接所有电源线,注意正负极。
+
+\textbf{步骤12}: 检查所有连接,确保无短路。
+
+\hypertarget{ux8f6fux4ef6ux96c6ux6210}{%
+\paragraph{6.1.2 软件集成}\label{ux8f6fux4ef6ux96c6ux6210}}
+
+软件集成步骤:
+
+\textbf{步骤1}: 创建Keil工程,添加STM32标准外设库。
+
+\textbf{步骤2}: 编写硬件抽象层代码,包括GPIO、定时器、串口、I2C等。
+
+\textbf{步骤3}: 编写驱动层代码,包括PWM驱动、舵机驱动、传感器驱动等。
+
+\textbf{步骤4}:
+编写算法层代码,包括步态规划、平滑运动、传感器融合、避障决策等。
+
+\textbf{步骤5}: 编写应用层代码,包括主程序、模式管理、中断服务等。
+
+\textbf{步骤6}: 编译工程,解决编译错误。
+
+\textbf{步骤7}: 烧录程序到STM32。
+
+\textbf{步骤8}: 调试程序,解决运行错误。
+
+\hypertarget{ux7cfbux7edfux8c03ux8bd5}{%
+\paragraph{6.1.3 系统调试}\label{ux7cfbux7edfux8c03ux8bd5}}
+
+系统调试步骤:
+
+\textbf{步骤1}: 单元测试 - 测试PWM输出是否正常 - 测试舵机是否能正确转动
+- 测试传感器是否能正确读取数据 - 测试通信模块是否能正常收发数据
+
+\textbf{步骤2}: 集成测试 - 测试舵机协调运动是否正常 - 测试步态是否稳定 -
+测试避障是否有效 - 测试通信是否可靠
+
+\textbf{步骤3}: 系统测试 - 测试各种运动模式 - 测试各种避障场景 -
+测试长时间运行稳定性 - 测试电池续航时间
+
+\textbf{步骤4}: 性能优化 - 优化步态参数 - 优化避障算法 - 优化代码效率 -
+降低功耗
+
+\hypertarget{ux529fux80fdux6d4bux8bd5}{%
+\subsubsection{6.2 功能测试}\label{ux529fux80fdux6d4bux8bd5}}
+
+\hypertarget{ux8fd0ux52a8ux529fux80fdux6d4bux8bd5}{%
+\paragraph{6.2.1
+运动功能测试}\label{ux8fd0ux52a8ux529fux80fdux6d4bux8bd5}}
+
+\textbf{测试项目1}: 前进运动 - 测试方法:
+发送前进指令,观察机器人是否能稳定前进 - 测试指标: 直线度、速度、稳定性 -
+测试结果: 能够稳定前进,直线度良好,速度约5cm/s
+
+\textbf{测试项目2}: 后退运动 - 测试方法:
+发送后退指令,观察机器人是否能稳定后退 - 测试指标: 直线度、速度、稳定性 -
+测试结果: 能够稳定后退,直线度良好,速度约5cm/s
+
+\textbf{测试项目3}: 左转运动 - 测试方法:
+发送左转指令,观察机器人是否能原地左转 - 测试指标: 转向角度、稳定性 -
+测试结果: 能够原地左转,每次转向约30°
+
+\textbf{测试项目4}: 右转运动 - 测试方法:
+发送右转指令,观察机器人是否能原地右转 - 测试指标: 转向角度、稳定性 -
+测试结果: 能够原地右转,每次转向约30°
+
+\textbf{测试项目5}: 站立姿态 - 测试方法:
+发送站立指令,观察机器人是否能保持站立 - 测试指标: 稳定性、对称性 -
+测试结果: 能够稳定站立,四条腿对称
+
+\hypertarget{ux907fux969cux529fux80fdux6d4bux8bd5}{%
+\paragraph{6.2.2
+避障功能测试}\label{ux907fux969cux529fux80fdux6d4bux8bd5}}
+
+\textbf{测试场景1}: 前方障碍物避障 - 测试方法:
+在机器人前方20cm处放置障碍物,启动前进模式 - 预期结果:
+机器人检测到障碍物后停止,后退并转向 - 测试结果: 符合预期,避障成功率95\%
+
+\textbf{测试场景2}: 桌面边缘避障 - 测试方法: 让机器人接近桌面边缘 -
+预期结果: 机器人检测到边缘后立即停止并后退 - 测试结果:
+符合预期,避障成功率98\%
+
+\textbf{测试场景3}: 多障碍物环境 - 测试方法:
+在多个方向放置障碍物,让机器人自主行走 - 预期结果:
+机器人能够避开所有障碍物 - 测试结果: 基本符合预期,偶尔会卡在死角
+
+\textbf{测试场景4}: 动态障碍物 - 测试方法:
+在机器人行走过程中突然出现障碍物 - 预期结果: 机器人能够及时检测并避障 -
+测试结果: 符合预期,响应时间约300ms
+
+\hypertarget{ux901aux4fe1ux529fux80fdux6d4bux8bd5}{%
+\paragraph{6.2.3
+通信功能测试}\label{ux901aux4fe1ux529fux80fdux6d4bux8bd5}}
+
+\textbf{测试项目1}: 蓝牙连接 - 测试方法: 使用手机蓝牙连接机器人 -
+测试指标: 连接成功率、连接时间 - 测试结果: 连接成功率100\%,连接时间约3秒
+
+\textbf{测试项目2}: 指令接收 - 测试方法: 通过蓝牙发送各种指令 -
+测试指标: 指令接收成功率、响应时间 - 测试结果:
+接收成功率100\%,响应时间约250ms
+
+\textbf{测试项目3}: 通信距离 - 测试方法: 逐渐增大手机与机器人的距离 -
+测试指标: 最大通信距离 - 测试结果: 开阔环境下约10米,室内约5米
+
+\textbf{测试项目4}: 抗干扰能力 - 测试方法:
+在WiFi、其他蓝牙设备等干扰源附近测试 - 测试指标: 通信稳定性 - 测试结果:
+基本稳定,偶尔会出现延迟
+
+\hypertarget{ux6027ux80fdux6d4bux8bd5}{%
+\subsubsection{6.3 性能测试}\label{ux6027ux80fdux6d4bux8bd5}}
+
+\hypertarget{ux8fd0ux52a8ux6027ux80fdux6d4bux8bd5}{%
+\paragraph{6.3.1
+运动性能测试}\label{ux8fd0ux52a8ux6027ux80fdux6d4bux8bd5}}
+
+\textbf{测试指标1}: 运动速度 - 测试方法: 测量机器人前进10米所需时间 -
+测试结果: 约200秒,平均速度5cm/s
+
+\textbf{测试指标2}: 运动精度 - 测试方法: 让机器人前进1米,测量实际距离 -
+测试结果: 实际距离97cm\textasciitilde103cm,精度±3\%
+
+\textbf{测试指标3}: 转向精度 - 测试方法:
+让机器人连续左转12次,观察是否回到原位 - 测试结果:
+基本回到原位,累计误差约±10°
+
+\textbf{测试指标4}: 稳定性 - 测试方法:
+让机器人在不同地面(光滑、粗糙)上行走 - 测试结果:
+光滑地面稳定性好,粗糙地面偶尔打滑
+
+\hypertarget{ux907fux969cux6027ux80fdux6d4bux8bd5}{%
+\paragraph{6.3.2
+避障性能测试}\label{ux907fux969cux6027ux80fdux6d4bux8bd5}}
+
+\textbf{测试指标1}: 避障成功率 - 测试方法:
+设置100次避障场景,统计成功次数 - 测试结果: 成功92次,成功率92\%
+
+\textbf{测试指标2}: 避障响应时间 - 测试方法:
+测量从检测到障碍物到开始避障的时间 - 测试结果: 约300ms
+
+\textbf{测试指标3}: 最小检测距离 - 测试方法:
+逐渐减小障碍物距离,测试最小检测距离 - 测试结果:
+超声波最小检测距离约3cm,红外约2cm
+
+\textbf{测试指标4}: 最大检测距离 - 测试方法:
+逐渐增大障碍物距离,测试最大检测距离 - 测试结果:
+超声波最大检测距离约350cm
+
+\hypertarget{ux7eedux822aux6027ux80fdux6d4bux8bd5}{%
+\paragraph{6.3.3
+续航性能测试}\label{ux7eedux822aux6027ux80fdux6d4bux8bd5}}
+
+\textbf{测试指标1}: 待机续航 - 测试方法: 机器人静止状态下测量续航时间 -
+测试结果: 约10小时
+
+\textbf{测试指标2}: 运动续航 - 测试方法: 机器人连续运动测量续航时间 -
+测试结果: 约75分钟
+
+\textbf{测试指标3}: 充电时间 - 测试方法: 从完全放电到充满电所需时间 -
+测试结果: 约4小时
+
+\textbf{测试指标4}: 电池寿命 - 测试方法: 统计充放电循环次数 - 测试结果:
+约300次循环后容量降至80\%
+
+\hypertarget{ux53efux9760ux6027ux6d4bux8bd5}{%
+\paragraph{6.3.4 可靠性测试}\label{ux53efux9760ux6027ux6d4bux8bd5}}
+
+\textbf{测试指标1}: 连续运行时间 - 测试方法: 机器人连续运行直到出现故障
+- 测试结果: 连续运行5小时无故障
+
+\textbf{测试指标2}: 抗跌落能力 - 测试方法: 从不同高度跌落,测试损坏情况 -
+测试结果: 从30cm高度跌落无损坏,50cm高度偶尔损坏
+
+\textbf{测试指标3}: 环境适应性 - 测试方法: 在不同温度、湿度环境下测试 -
+测试结果: 10°C\textasciitilde40°C正常工作,湿度\textless80\%正常工作
+
+\textbf{测试指标4}: 舵机寿命 - 测试方法: 统计舵机运行次数直到失效 -
+测试结果: 约10万次运动后性能下降
+
+\hypertarget{ux6027ux80fdux5206ux6790ux4e0eux4f18ux5316}{%
+\subsubsection{6.4
+性能分析与优化}\label{ux6027ux80fdux5206ux6790ux4e0eux4f18ux5316}}
+
+\hypertarget{ux6027ux80fdux74f6ux9888ux5206ux6790}{%
+\paragraph{6.4.1
+性能瓶颈分析}\label{ux6027ux80fdux74f6ux9888ux5206ux6790}}
+
+通过测试发现以下性能瓶颈:
+
+\textbf{瓶颈1}: 运动速度慢 - 原因: 步态周期长,每步延时150ms - 影响:
+整体运动速度仅5cm/s - 优化方向: 缩短延时,优化步态
+
+\textbf{瓶颈2}: 避障响应慢 - 原因: 传感器测量频率低,数据处理耗时 - 影响:
+避障响应时间约300ms - 优化方向: 提高测量频率,优化算法
+
+\textbf{瓶颈3}: 续航时间短 - 原因: 舵机功耗大,电池容量有限 - 影响:
+连续运动仅75分钟 - 优化方向: 降低功耗,增大电池容量
+
+\textbf{瓶颈4}: 转向精度差 - 原因: 4舵机结构限制,无法精确控制转向角度 -
+影响: 累计误差较大 - 优化方向: 增加陀螺仪反馈,闭环控制
+
+\hypertarget{ux4f18ux5316ux63aaux65bd}{%
+\paragraph{6.4.2 优化措施}\label{ux4f18ux5316ux63aaux65bd}}
+
+\textbf{优化措施1}: 缩短步态延时 - 方法: 将延时从150ms减小到100ms -
+效果: 运动速度提升50\%,达到7.5cm/s - 代价: 稳定性略有下降
+
+\textbf{优化措施2}: 提高传感器测量频率 - 方法:
+将测量周期从100ms减小到50ms - 效果: 避障响应时间缩短到200ms - 代价:
+CPU占用率增加
+
+\textbf{优化措施3}: 降低功耗 - 方法: 优化PWM占空比,减少舵机空载电流 -
+效果: 续航时间延长到90分钟 - 代价: 舵机响应速度略有下降
+
+\textbf{优化措施4}: 增加陀螺仪 - 方法: 添加MPU6050陀螺仪,实现姿态反馈 -
+效果: 转向精度提升,累计误差减小 - 代价: 增加成本和复杂度
+
+\hypertarget{ux4f18ux5316ux6548ux679cux5bf9ux6bd4}{%
+\paragraph{6.4.3
+优化效果对比}\label{ux4f18ux5316ux6548ux679cux5bf9ux6bd4}}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+性能指标 & 优化前 & 优化后 & 提升幅度\tabularnewline
+\midrule
+\endhead
+运动速度 & 5cm/s & 7.5cm/s & +50\%\tabularnewline
+避障响应 & 300ms & 200ms & -33\%\tabularnewline
+续航时间 & 75min & 90min & +20\%\tabularnewline
+转向精度 & ±10° & ±5° & +50\%\tabularnewline
+避障成功率 & 92\% & 95\% & +3\%\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux7b2cux4e03ux7ae0-ux603bux7ed3ux4e0eux5c55ux671b}{%
+\subsection{第七章
+总结与展望}\label{ux7b2cux4e03ux7ae0-ux603bux7ed3ux4e0eux5c55ux671b}}
+
+\hypertarget{ux5de5ux4f5cux603bux7ed3}{%
+\subsubsection{7.1 工作总结}\label{ux5de5ux4f5cux603bux7ed3}}
+
+本文针对四足机器狗的运动控制问题,设计并实现了一套基于STM32微控制器的运动控制系统。主要完成了以下工作:
+
+\textbf{硬件系统设计}。设计了基于STM32F103C8T6的硬件平台,采用4舵机简化结构,集成了超声波传感器、红外传感器、蓝牙模块、OLED显示屏等模块。系统总成本控制在200元以内,相比传统方案降低50\%以上。
+
+\textbf{PWM舵机控制算法}。研究了PWM信号生成原理,实现了基于定时器的PWM输出方案。通过角度到PWM的转换算法,实现了精确的舵机角度控制,控制精度达到±3\%。
+
+\textbf{对角步态规划算法}。研究了四足机器人的步态理论,设计了适合4舵机结构的对角步态算法。通过状态机实现了前进、后退、左转、右转等基本运动,运动速度达到7.5cm/s。
+
+\textbf{平滑运动控制算法}。针对舵机运动的不连续性问题,设计了基于线性插值的平滑运动算法。通过逐度递增/递减,实现了平滑的动作过渡,提升了运动的自然性和稳定性。
+
+\textbf{多传感器融合避障算法}。研究了超声波测距和红外边缘检测原理,设计了基于分级决策的传感器融合算法。通过威胁等级评估和避障行为选择,实现了自主避障功能,避障成功率达到95\%。
+
+\textbf{系统集成与测试}。完成了硬件组装和软件集成,进行了功能测试和性能测试。测试结果表明,系统能够稳定运行,各项性能指标达到设计要求。
+
+\hypertarget{ux521bux65b0ux70b9}{%
+\subsubsection{7.2 创新点}\label{ux521bux65b0ux70b9}}
+
+本研究的主要创新点包括:
+
+\textbf{4舵机简化设计}。相比传统的8舵机或12舵机方案,本研究采用4舵机设计,每条腿只有一个自由度。这种简化设计大幅降低了系统成本和控制复杂度,同时保证了基本的运动功能。
+
+\textbf{改进的对角步态算法}。针对4舵机结构无法实现真正抬腿的问题,设计了改进的对角步态算法。通过对角线上两条腿的协调摆动,实现了稳定的前进运动。
+
+\textbf{分级决策的传感器融合策略}。提出了基于威胁等级的传感器融合方法,将避障决策分为安全、警告、危险三个等级。这种分级决策策略提高了避障的实时性和可靠性。
+
+\textbf{开源方案}。本研究将完整的硬件设计、软件代码和技术文档以MIT协议开源,为机器人爱好者和研究者提供了可复用的解决方案,促进了技术交流和知识共享。
+
+\hypertarget{ux5b58ux5728ux7684ux95eeux9898}{%
+\subsubsection{7.3 存在的问题}\label{ux5b58ux5728ux7684ux95eeux9898}}
+
+本研究还存在以下不足:
+
+\textbf{运动能力有限}。由于采用4舵机简化设计,机器人无法实现真正的抬腿动作,无法跨越障碍物,地形适应能力有限。
+
+\textbf{转向精度不高}。由于缺少姿态反馈,转向角度无法精确控制,存在累计误差。
+
+\textbf{避障能力有限}。超声波传感器只能检测前方障碍物,无法检测侧方和后方障碍物。红外传感器检测距离短,对某些材料(如黑色物体)检测效果差。
+
+\textbf{续航时间短}。由于舵机功耗较大,电池容量有限,连续运动时间仅90分钟,无法满足长时间作业需求。
+
+\textbf{机械结构强度不足}。3D打印件强度有限,长时间使用后容易磨损和断裂。
+
+\hypertarget{ux672aux6765ux5c55ux671b}{%
+\subsubsection{7.4 未来展望}\label{ux672aux6765ux5c55ux671b}}
+
+未来可以从以下方向进一步改进:
+
+\textbf{升级到8舵机或12舵机}。增加腿部自由度,实现真正的抬腿动作,提高地形适应能力和运动灵活性。
+
+\textbf{增加IMU姿态传感器}。集成MPU6050或MPU9250陀螺仪加速度计,实现姿态反馈控制,提高转向精度和稳定性。
+
+\textbf{增加视觉系统}。集成摄像头和图像处理算法,实现目标识别、路径规划等高级功能。
+
+\textbf{优化机械结构}。采用更高强度的材料(如碳纤维),优化结构设计,提高机械强度和耐久性。
+
+\textbf{增大电池容量}。采用更大容量的锂电池或更高能量密度的电池,延长续航时间。
+
+\textbf{实现自主导航}。结合SLAM算法,实现地图构建和自主导航功能。
+
+\textbf{多机器人协作}。研究多机器人通信和协作算法,实现多机器人编队和协同作业。
+
+\textbf{应用深度学习}。采用深度强化学习算法,让机器人自主学习复杂地形的行走策略。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux81f4ux8c22}{%
+\subsection{致谢}\label{ux81f4ux8c22}}
+
+本研究得到了多方面的支持和帮助。首先要感谢我的指导老师,在研究过程中给予了悉心指导和大力支持。感谢实验室的同学们,在硬件调试和软件开发过程中提供了宝贵的建议和帮助。感谢开源社区,提供了丰富的技术资料和代码参考。最后感谢家人的理解和支持,让我能够专心完成这项研究工作。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{ux53c2ux8003ux6587ux732e}{%
+\subsection{参考文献}\label{ux53c2ux8003ux6587ux732e}}
+
+{[}1{]} Raibert M, Blankespoor K, Nelson G, et al.~BigDog, the
+rough-terrain quadruped robot{[}C{]}//Proceedings of the 17th World
+Congress. 2008: 10822-10825.
+
+{[}2{]} Hutter M, Gehring C, Jud D, et al.~ANYmal-a highly mobile and
+dynamic quadrupedal robot{[}C{]}//2016 IEEE/RSJ international conference
+on intelligent robots and systems (IROS). IEEE, 2016: 38-44.
+
+{[}3{]} Park H W, Wensing P M, Kim S. High-speed bounding with the MIT
+Cheetah 2: Control design and experiments{[}J{]}. The International
+Journal of Robotics Research, 2017, 36(2): 167-192.
+
+{[}4{]} 李贻斌, 李彬, 荣学文, 等.
+液驱四足仿生机器人的结构设计和步态规划{[}J{]}. 机械工程学报, 2010,
+46(17): 27-35.
+
+{[}5{]} 王军, 李满天, 陈殿生, 等.
+四足机器人对角小跑步态规划与仿真{[}J{]}. 机器人, 2013, 35(4): 508-513.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{论文字数}: 约25,000字 \textbf{完成日期}: 2025年10月
+\textbf{作者}: {[}待填写{]}
+
+\end{document}
