@@ -2447,7 +2447,5 @@ RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, DISABLE);
 
 ---
 
-**论文字数**: 约22,000字
-**完成日期**: 2025年10月
-**作者**: [待填写]
+
 
