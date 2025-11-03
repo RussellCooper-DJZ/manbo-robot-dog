@@ -28,8 +28,8 @@ graph TD
         ESP_VCC(3.3V) -- "供电" --> ASR_VCC
         ESP_GND1(GND) -- "共地" --> ASR_GND
         
-        ESP_GPIO5(GPIO5/TX2) -- "发送命令" --> STM32_RX3(PA11/RX3)
-        ESP_GPIO6(GPIO6/RX2) -- "接收响应(预留)" --> STM32_TX3(PA10/TX3)
+        ESP_GPIO5(GPIO5/TX2) -- "发送命令" --> STM32_RX3(PB11/RX3)
+        ESP_GPIO6(GPIO6/RX2) -- "接收响应(预留)" --> STM32_TX3(PB10/TX3)
         ESP_GND2(GND) -- "共地" --> STM32_GND(GND)
     end
 
@@ -68,8 +68,8 @@ ESP32通过另一个硬件串口 (`Serial2`) 与STM32的主串口之一 (`USART3
 
 | ESP32 引脚 | STM32 引脚 | 功能 |
 |:---:|:---:|:---|
-| `GPIO5` (TX2) | `PA11` (USART3_RX) | ESP32向STM32发送命令 |
-| `GPIO6` (RX2) | `PA10` (USART3_TX) | ESP32接收STM32的响应 (预留) |
+| `GPIO5` (TX2) | `PB11` (USART3_RX) | ESP32向STM32发送命令 |
+| `GPIO6` (RX2) | `PB10` (USART3_TX) | ESP32接收STM32的响应 (预留) |
 | `GND` | `GND` | **必须共地**，以确保电平一致 |
 
 **重要提示**:

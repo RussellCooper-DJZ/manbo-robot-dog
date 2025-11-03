@@ -66,8 +66,8 @@ ASRPro_Code/
 
 | ESP32 | STM32 | 功能 |
 |:---:|:---:|:---|
-| GPIO5 (TX2) | PA11 (RX3) | 发送命令 |
-| GPIO6 (RX2) | PA10 (TX3) | 接收响应 |
+| GPIO5 (TX2) | PB11 (USART3_RX) | 发送命令 |
+| GPIO6 (RX2) | PB10 (USART3_TX) | 接收响应 |
 | GND | GND | 共地 |
 
 详细接线说明请参考 [docs/wiring.md](docs/wiring.md)

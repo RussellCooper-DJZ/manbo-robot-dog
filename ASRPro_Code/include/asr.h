@@ -9,10 +9,10 @@
   ******************************************************************************
   * @attention
   *
-  * 硬件连接:
-  *   - ESP32 GPIO5 (TX) -> STM32 USART3 RX
-  *   - ESP32 GPIO6 (RX) -> STM32 USART3 TX
-  *   - 波特率: 9600
+ * 硬件连接:
+ *   - ESP32 GPIO5 (TX2) -> STM32 PB11 (USART3_RX)
+ *   - ESP32 GPIO6 (RX2) -> STM32 PB10 (USART3_TX)
+ *   - 波特率: 9600
   *
   * 使用说明:
   *   1. 调用 ASR_Init() 初始化模块
